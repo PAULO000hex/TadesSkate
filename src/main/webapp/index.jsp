@@ -24,29 +24,33 @@
                 <<img src="img/Tades.png" alt="alt"/>
             </div>
             <br/>
-<!--            <a href="Clientes/ClienteServlet">Listar Clientes</a>
-            <a href="Clientes/CadastrarClientes.jsp">cadastrar</a>
-            <a href="Funcionarios/cadastrarFuncionario.jsp">cadastrar funcionario</a>
-            <a href="ProdutoServlet">Listar Produtos</a>
-            <a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a> <br/>
-            <a href="FuncionarioServlet">Listar Funcionarios</a> <br/>-->
+            <!--            <a href="Clientes/ClienteServlet">Listar Clientes</a>
+                        <a href="Clientes/CadastrarClientes.jsp">cadastrar</a>
+                        <a href="Funcionarios/cadastrarFuncionario.jsp">cadastrar funcionario</a>
+                        <a href="ProdutoServlet">Listar Produtos</a>
+                        <a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a> <br/>
+                        <a href="FuncionarioServlet">Listar Funcionarios</a> <br/>-->
 
-                
-                <div class="card">
-                    <select>
-                        <option>Matriz</option>
-                    </select>
-                </div>
-                <div class="btn">
-                    <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
-                    <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
-                    <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
-                    <a href="ProdutosServlet"><input type="button" value="Acessar"></a>
-                    <a href="Filiais/CadastrarFilial.jsp"><input type="button" value="Acessar"></a>
-                    <a href="FilialServlet"><input type="button" value="Acessar"></a>
-                    <a href="Clientes/CadastrarClientes.jsp"><input type="button" value="Acessar"></a>
-                    <a href="Clientes/ClienteServlet"><input type="button" value="Acessar"></a>
-                </div>
+
+            <div class="card">
+                <select>
+                    <c:forEach items="${testeFiliais}" var = "filial" >
+                        <option id="${filial.filial_id}">${filial.cidade}</option>
+                    </c:forEach>
+                </select>
+            </div>
+            <div class="btn">
+                <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
+                <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
+                <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
+                <a href="ProdutosServlet"><input type="button" value="Acessar"></a>
+                <a href="Filiais/CadastrarFilial.jsp"><input type="button" value="Acessar"></a>
+                <a href="FilialServlet"><input type="button" value="Acessar"></a>
+                <a href="Clientes/CadastrarClientes.jsp"><input type="button" value="Acessar"></a>
+                <a href="Clientes/ClienteServlet"><input type="button" value="Acessar"></a>
+                <a href="IndexServlet"><input type="button" value="Acessar"></a>
+
+            </div>
         </div>
     </body>
 </html>
