@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-
     <welcome-file-list>
         <welcome-file>IndexServlet</welcome-file>
-    </welcome-file-list>   
-
+    </welcome-file-list>
     <servlet>
         <servlet-name>ClienteServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.ClienteServlet</servlet-class>
@@ -77,6 +75,10 @@
         <servlet-name>IndexServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.IndexServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProdutoVendaServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.ProdutoVendaServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes/ClienteServlet</url-pattern>
@@ -148,6 +150,10 @@
     <servlet-mapping>
         <servlet-name>IndexServlet</servlet-name>
         <url-pattern>/IndexServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProdutoVendaServlet</servlet-name>
+        <url-pattern>/ProdutoVendaServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
