@@ -10,6 +10,7 @@
         <title>Lista de Clientes</title>
     </head>
     <body>
+         <!--   <//c:import url="/menu.jsp"/> -->
         <h1></h1>
         <table>
             <th>NOME</th>

@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+          <c:import url="/menu.jsp"/>
         <h1>FOI</h1> <a href="index.jsp">voltar</a>
     </body>
 </html>

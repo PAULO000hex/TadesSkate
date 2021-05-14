@@ -10,6 +10,7 @@
         <title>Lista de Funcionarios</title>
     </head>
     <body>
+     <!--   <//c:import url="/menu.jsp"/> -->
         <h1></h1>
         <table class="table table-dark table-striped">
             <th>Nome</th>
