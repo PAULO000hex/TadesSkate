@@ -26,8 +26,7 @@ public class Cliente {
     private String estado;
     private String bairro;
     private Date nascimento;
-
-    public Cliente(int cliente_id, String nome, String sobrenome, String cpf, String email, String telefone, String endereco, String cidade, String estado, String bairro) {
+    public Cliente(int cliente_id, String nome, String sobrenome, String cpf, String email, String telefone, String endereco, String cidade, String estado, String bairro,Date nascimento) {
         this.cliente_id = cliente_id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -38,14 +37,16 @@ public class Cliente {
         this.cidade = cidade;
         this.estado = estado;
         this.bairro = bairro;
+        this.nascimento = nascimento;
+      
 
     }
 
     @Override
     public String toString() {
         return String.format("Nome: %s <br/> Sobrenome: %s <br/> CPF: %s <br/> Email: %s <br/> Telefone %s <br/> "
-                + "Endereco: %s <br/> Cidade: %s <br/> Estado: %s <br/> Bairro: %s ",
-                nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro);
+                + "Endereco: %s <br/> Cidade: %s <br/> Estado: %s <br/> Bairro: %s </br> Nascimento:%s ",
+                nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento);
     }
 
 }

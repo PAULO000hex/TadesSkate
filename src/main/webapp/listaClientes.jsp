@@ -36,6 +36,7 @@
                     <td>${cliente.bairro}</td>
                     <td>${cliente.nascimento}</td>
                     <td><a href ="ExcluirClienteServlet?id=${cliente.cliente_id}">Excluir</a></td>
+                     <td><a href ="AlterarClienteServlet?id=${cliente.cliente_id}">Alterar</a></td>
                 </tr>
             </c:forEach>
         </table>

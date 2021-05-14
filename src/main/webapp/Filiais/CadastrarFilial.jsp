@@ -86,14 +86,14 @@
                 <div class="field">
                     <input type="text" name="id" hidden="true" value="${filial.filial_id}"/> 
                     <h2>Email</h2>
-                    <input class="txt" type="text" name="endereco" value="${filial.email}">
+                    <input class="txt" type="text" name="email" value="${filial.email}">
                 </div>
                 <div class="field">
                     <h2>Telefone</h2>
-                    <input class="txt" type="text" name="cidade" value="${filial.telefone}"></div>
+                    <input class="txt" type="text" name="telefone" value="${filial.telefone}"></div>
                 <div class="field">
                     <h2>Endereço</h2>
-                    <input class="txt" type="text" name="estado" value="${filial.endereco}"></div>
+                    <input class="txt" type="text" name="endereco" value="${filial.endereco}"></div>
             </div>
             <div class="half-last">
                  <div class="space">
@@ -101,11 +101,11 @@
             </div>
             <div class="field">
                 <h2>Cidade</h2>
-                <input class="txt" type="text" name="telefone" value="${filial.cidade}">
+                <input class="txt" type="text" name="cidade" value="${filial.cidade}">
             </div>
             <div class="field">
                 <h2>Estado</h2>
-                <input class="txt" type="text" name="email" value="${filial.estado}">
+                <input class="txt" type="text" name="estado" value="${filial.estado}">
             </div>
             <div class="field">
                 <h2>Bairro</h2>

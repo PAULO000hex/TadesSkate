@@ -37,7 +37,7 @@ public class CadastrarClienteServlet extends HttpServlet {
         String nascimento = request.getParameter("nascimento");
         Date date = Date.valueOf(nascimento);
 
-        Cliente cliente = new Cliente(-1, nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro);
+        Cliente cliente = new Cliente(-1, nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro,date);
 
         boolean ok = ClienteDAO.Cadastrar(cliente, date);
         if (ok) {

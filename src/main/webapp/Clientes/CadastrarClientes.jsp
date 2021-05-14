@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,6 +12,7 @@
         <title>Cadastro de Cliente</title>
     </head>
     <body>
+        <c:if test="${empty cliente}">
         <div class="menu">
             <div class="message">
                 <h3>Olá Paulo - Tecnologia</h3>
@@ -72,5 +75,62 @@
             <div class="btn"><input type="submit"></div>  
         </div>
     </form>
+        </c:if>
+        
+        <title>Cadastro de Cliente</title>
+    </head>
+    <body>
+        <c:if test="${not empty cliente}">
+        <form action = AlterarClienteServlet method="POST" >
+            <div class="half">
+                <div class="space"><h1>Cadastro De Clientes</h1></div>
+                <div class="field">
+                      <input type="text" name="id" hidden="true" value="${cliente.cliente_id}"/> 
+                    <h2>Nome</h2>
+                  <input class="txt" type="text" name="nome" value="${cliente.nome}">
+                </div>
+                <div class="field">
+                    <h2>Sobrenome</h2>
+                   <input class="txt" type="text" name="sobrenome" value="${cliente.sobrenome}">
+                <div class="field">
+                    <h2>CPF</h2>
+                 <input class="txt" type="text" name="cpf" value="${cliente.cpf}">
+                <div class="field">
+                    <h2>E-mail</h2>
+                    <input class="txt" type="text" name="email" value="${cliente.email}">
+                <div class="field">
+                    <h2>Telefone</h2>
+                    <input class="txt" type="text" name="telefone" value="${cliente.telefone}">
+                </div>
+            </div>
+            <div class="half-last">
+                 <div class="space">
+                <h1>&nbsp;</h1>
+            </div>
+            <div class="field">
+                <h2>Endereço</h2>
+               <input class="txt" type="text" name="endereco" value="${cliente.endereco}">
+            </div>
+            <div class="field">
+                <h2>Cidade</h2>
+               <input class="txt" type="text" name="cidade" value="${cliente.cidade}">
+            </div>
+            <div class="field">
+                <h2>Estado</h2>
+        <input class="txt" type="text" name="estado" value="${cliente.estado}">
+            </div>
+            <div class="field">
+                <h2>Bairro</h2>
+<input class="txt" type="text" name="bairro" value="${cliente.bairro}">
+            </div>
+            <div class="field">
+                <h2>Data de nascimento</h2>
+<input class="txt" type="date" name="nascimento" value="${cliente.nascimento}">            
+            </div>
+            <div class="btn"><input type="submit"></div>  
+        </div>
+    </form>
+        </c:if> 
+        
 </body>
 </html>
