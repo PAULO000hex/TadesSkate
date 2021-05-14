@@ -64,6 +64,10 @@
         <servlet-name>CadastrarFilialServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.CadastrarFilialServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AlterarClienteServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.AlterarClienteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes/ClienteServlet</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>CadastrarFilialServlet</servlet-name>
         <url-pattern>/Filiais/CadastrarFilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarClienteServlet</servlet-name>
+        <url-pattern>/Clientes/AlterarClienteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
