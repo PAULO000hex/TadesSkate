@@ -10,7 +10,7 @@
         <link href="css/style.css" rel="stylesheet">
         <link href=".../css/style.css" rel="stylesheet">
 
-
+    <c:import url="/menu.jsp"/>
         <title>Cadastro de Produto</title>
     </head>
     <body>  

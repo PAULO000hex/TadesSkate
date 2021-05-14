@@ -11,46 +11,8 @@
         <title>Cadastrar Funcionário</title>
     </head>
     <body>
-    <c:if test="${empty funcionario}">    
-        <div class="menu">
-            <div class="message">
-                <h3>Olá Vitor - Tecnologia</h3>
-            </div>
-            <div class="logo">
-                <img src=".../img/Tades.png" alt="alt"/>
-            </div>
-            <hr>
-            <div class="options">
-                <ul>
-                    <li>Venda
-                        <ul>Vender</ul>
-                        <ul>Consultar Vendas</ul>
-                    </li>
-                    <li>Clientes
-                        <ul>Cadastrar Cliente</ul>
-                        <ul>Consultar Clientes</ul>
-                        <ul>Alterar Cliente</ul>
-                        <ul>Excluir Cliente</ul></li>
-                    <li>Produtos
-                        <ul><a href="cadastrarFuncionario.jsp">Cadastrar Produto</a></ul>
-                        <ul>Consultar Produtos</ul>
-                        <ul>Alterar Produto</ul>
-                        <ul>Excluir Produto</ul></li>
-                    <li>Funcionários
-                        <ul><a href="cadastrarFuncionario.jsp">Cadastrar Funcionário</a></ul>
-                        <ul>Consultar Funcionários</ul>
-                        <ul><a href=".../FuncionariosServlet">Listar Funcionário</a></ul>
-                        <ul>Alterar Funcionário</ul>
-                        <ul>Excluir Funcionário</ul></li>
-                    <li>Filiais
-                        <ul>Cadastrar Filial</ul>
-                        <ul>Consultar Filiais</ul>
-                        <ul>Alterar Filial</ul>
-                        <ul>Excluir Filial</ul></li>
-                </ul>
-            </div>
-        </div>
-
+        <c:import url="/menu.jsp"/>
+    <c:if test="${empty funcionario}">   
         <form action="CadastrarFuncionarioServlet" method="POST" >
             <div class="half">
                 <div class="space"><h1>Cadastrar</h1></div>

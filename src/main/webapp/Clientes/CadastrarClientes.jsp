@@ -12,125 +12,112 @@
         <title>Cadastro de Cliente</title>
     </head>
     <body>
+        <c:import url="/menu.jsp"/>
         <c:if test="${empty cliente}">
-        <div class="menu">
-            <div class="message">
-                <h3>Olá Paulo - Tecnologia</h3>
-            </div>
-            <div class="logo">
-                <img src=".../img/Tades.png" alt="alt"/>
-            </div>
-            <hr>
-            <div class="options">
-                <ul>
-                    <a href="cadastrarFuncionario.jsp"><li>Cadastrar Funcionário</li></a>
-                </ul>
-            </div>
-        </div>
-        <form action = CadastrarClienteServlet method="POST" >
-            <div class="half">
-                <div class="space"><h1>Cadastro De Clientes</h1></div>
-                <div class="field">
-                    <h2>Nome</h2>
-                    <input class="txt" type="text" name="nome">
+            <form action = CadastrarClienteServlet method="POST" >
+                <div class="half">
+                    <div class="space"><h1>Cadastro De Clientes</h1></div>
+                    <div class="field">
+                        <h2>Nome</h2>
+                        <input class="txt" type="text" name="nome">
+                    </div>
+                    <div class="field">
+                        <h2>Sobrenome</h2>
+                        <input class="txt" type="text" name="sobrenome"></div>
+                    <div class="field">
+                        <h2>CPF</h2>
+                        <input class="txt" type="text" name="cpf"></div>
+                    <div class="field">
+                        <h2>E-mail</h2>
+                        <input class="txt" type="text" name="email"></div>
+                    <div class="field">
+                        <h2>Telefone</h2>
+                        <input class="txt" type="text" name="telefone">
+                    </div>
                 </div>
-                <div class="field">
-                    <h2>Sobrenome</h2>
-                    <input class="txt" type="text" name="sobrenome"></div>
-                <div class="field">
-                    <h2>CPF</h2>
-                    <input class="txt" type="text" name="cpf"></div>
-                <div class="field">
-                    <h2>E-mail</h2>
-                    <input class="txt" type="text" name="email"></div>
-                <div class="field">
-                    <h2>Telefone</h2>
-                    <input class="txt" type="text" name="telefone">
+                <div class="half-last">
+                    <div class="space">
+                        <h1>&nbsp;</h1>
+                    </div>
+                    <div class="field">
+                        <h2>Endereço</h2>
+                        <input class="txt" type="text" name="endereco">
+                    </div>
+                    <div class="field">
+                        <h2>Cidade</h2>
+                        <input class="txt" type="text" name="cidade">
+                    </div>
+                    <div class="field">
+                        <h2>Estado</h2>
+                        <input class="txt" type="text" name="estado">
+                    </div>
+                    <div class="field">
+                        <h2>Bairro</h2>
+                        <input class="txt" type="text" name="bairro">
+                    </div>
+                    <div class="field">
+                        <h2>Data de nascimento</h2>
+                        <input class="txt" type="date" name="nascimento">                
+                    </div>
+                    <div class="btn"><input type="submit"></div>  
                 </div>
-            </div>
-            <div class="half-last">
-                 <div class="space">
-                <h1>&nbsp;</h1>
-            </div>
-            <div class="field">
-                <h2>Endereço</h2>
-                <input class="txt" type="text" name="endereco">
-            </div>
-            <div class="field">
-                <h2>Cidade</h2>
-                <input class="txt" type="text" name="cidade">
-            </div>
-            <div class="field">
-                <h2>Estado</h2>
-                <input class="txt" type="text" name="estado">
-            </div>
-            <div class="field">
-                <h2>Bairro</h2>
-                <input class="txt" type="text" name="bairro">
-            </div>
-            <div class="field">
-                <h2>Data de nascimento</h2>
-                <input class="txt" type="date" name="nascimento">                
-            </div>
-            <div class="btn"><input type="submit"></div>  
-        </div>
-    </form>
+            </form>
         </c:if>
-        
+
         <title>Cadastro de Cliente</title>
     </head>
-    <body>
-        <c:if test="${not empty cliente}">
+<body>
+    <c:if test="${not empty cliente}">
         <form action = AlterarClienteServlet method="POST" >
             <div class="half">
                 <div class="space"><h1>Cadastro De Clientes</h1></div>
                 <div class="field">
-                      <input type="text" name="id" hidden="true" value="${cliente.cliente_id}"/> 
+                    <input type="text" name="id" hidden="true" value="${cliente.cliente_id}"/> 
                     <h2>Nome</h2>
-                  <input class="txt" type="text" name="nome" value="${cliente.nome}">
+                    <input class="txt" type="text" name="nome" value="${cliente.nome}">
                 </div>
                 <div class="field">
                     <h2>Sobrenome</h2>
-                   <input class="txt" type="text" name="sobrenome" value="${cliente.sobrenome}">
-                <div class="field">
-                    <h2>CPF</h2>
-                 <input class="txt" type="text" name="cpf" value="${cliente.cpf}">
-                <div class="field">
-                    <h2>E-mail</h2>
-                    <input class="txt" type="text" name="email" value="${cliente.email}">
-                <div class="field">
-                    <h2>Telefone</h2>
-                    <input class="txt" type="text" name="telefone" value="${cliente.telefone}">
-                </div>
-            </div>
-            <div class="half-last">
-                 <div class="space">
-                <h1>&nbsp;</h1>
-            </div>
-            <div class="field">
-                <h2>Endereço</h2>
-               <input class="txt" type="text" name="endereco" value="${cliente.endereco}">
-            </div>
-            <div class="field">
-                <h2>Cidade</h2>
-               <input class="txt" type="text" name="cidade" value="${cliente.cidade}">
-            </div>
-            <div class="field">
-                <h2>Estado</h2>
-        <input class="txt" type="text" name="estado" value="${cliente.estado}">
-            </div>
-            <div class="field">
-                <h2>Bairro</h2>
-<input class="txt" type="text" name="bairro" value="${cliente.bairro}">
-            </div>
-            <div class="field">
-                <h2>Data de nascimento</h2>
-<input class="txt" type="date" name="nascimento" value="${cliente.nascimento}">            
-            </div>
-            <div class="btn"><input type="submit"></div>  
-        </div>
-    </form>
-        </c:if> 
-        
-</body>
-</html>
+                    <input class="txt" type="text" name="sobrenome" value="${cliente.sobrenome}">
+                    <div class="field">
+                        <h2>CPF</h2>
+                        <input class="txt" type="text" name="cpf" value="${cliente.cpf}">
+                        <div class="field">
+                            <h2>E-mail</h2>
+                            <input class="txt" type="text" name="email" value="${cliente.email}">
+                            <div class="field">
+                                <h2>Telefone</h2>
+                                <input class="txt" type="text" name="telefone" value="${cliente.telefone}">
+                            </div>
+                        </div>
+                        <div class="half-last">
+                            <div class="space">
+                                <h1>&nbsp;</h1>
+                            </div>
+                            <div class="field">
+                                <h2>Endereço</h2>
+                                <input class="txt" type="text" name="endereco" value="${cliente.endereco}">
+                            </div>
+                            <div class="field">
+                                <h2>Cidade</h2>
+                                <input class="txt" type="text" name="cidade" value="${cliente.cidade}">
+                            </div>
+                            <div class="field">
+                                <h2>Estado</h2>
+                                <input class="txt" type="text" name="estado" value="${cliente.estado}">
+                            </div>
+                            <div class="field">
+                                <h2>Bairro</h2>
+                                <input class="txt" type="text" name="bairro" value="${cliente.bairro}">
+                            </div>
+                            <div class="field">
+                                <h2>Data de nascimento</h2>
+                                <input class="txt" type="date" name="nascimento" value="${cliente.nascimento}">            
+                            </div>
+                            <div class="btn"><input type="submit"></div>  
+                        </div>
+                        </form>
+                    </c:if> 
+
+                    </body>
+                    </html>
