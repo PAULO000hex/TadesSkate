@@ -62,7 +62,5 @@ public class VendaServlet extends HttpServlet {
         } else {
             response.sendRedirect(request.getContextPath() + "/erro.jsp");
         }
-
     }
-
 }
