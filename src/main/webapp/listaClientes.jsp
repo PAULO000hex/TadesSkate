@@ -43,7 +43,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="index.jsp">voltar</a>
+        <a href="testeFiliais.jsp">voltar</a>
 
     </body>
 </html>
