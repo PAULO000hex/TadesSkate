@@ -32,7 +32,6 @@ public class CadastrarProdutoServlet extends HttpServlet {
         double desconto = Double.parseDouble(request.getParameter("desconto"));
         int filial_id = Integer.parseInt(request.getParameter("filial_id"));
 
-
         Produto produto = new Produto(-1,descricao, categoria, fabricante, valor, quantidade, desconto);
 
         boolean ok = ProdutoDAO.Cadastrar(produto,filial_id);
