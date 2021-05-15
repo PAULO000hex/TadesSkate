@@ -40,11 +40,11 @@ this.valor = valor;
 
     }
 
-    @Override
-    public String toString() {
-        return String.format("Descrição: %s <br/> Categoria: %s <br/> Fabricante: %s <br/> Valor: %d <br/> Quantidade %i <br/> "
-                + "Desconto: %d",
-                descricao, categoria, fabricante, valor, quantidade, desconto);
-    }
+//    @Override
+//    public String toString() {
+//        return String.format("Descrição: %s <br/> Categoria: %s <br/> Fabricante: %s <br/> Valor: %d <br/> Quantidade %i <br/> "
+//                + "Desconto: %d",
+//                descricao, categoria, fabricante, valor, quantidade, desconto);
+//    }
 
 }

@@ -49,8 +49,7 @@ public class VendaServlet extends HttpServlet {
         for (int i = 0; i < produto_id.length; i++) {
             pedido.setProduto_id(Integer.parseInt(produto_id[i]));
             pedido.setQtd(Integer.parseInt(qtd[i]));
-            //pedido.setValor(Double.parseDouble(valor_unitario[i]));
-            pedido.setValor(valor_total);
+            pedido.setValor(Double.parseDouble(valor_unitario[i]));
             listaItensVenda.add(pedido);
         }
 

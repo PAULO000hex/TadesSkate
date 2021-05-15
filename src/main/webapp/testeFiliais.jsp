@@ -40,8 +40,9 @@
     </body>
     <script>
         $('#acessar').click(function(){
-        window.location.href = 'Venda.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
-        //window.location.href = 'Funcionarios/cadastrarFuncionario.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
+        //window.location.href = 'Venda.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
+          window.location.href = 'VendaTesteServlet?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
+//window.location.href = 'Funcionarios/cadastrarFuncionario.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
         })
     </script>
 </html>
