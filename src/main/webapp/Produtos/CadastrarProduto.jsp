@@ -10,112 +10,143 @@
         <link href="css/style.css" rel="stylesheet">
         <link href=".../css/style.css" rel="stylesheet">
 
-    <c:import url="/menu.jsp"/>
+        <c:import url="/menu.jsp"/>
         <title>Cadastro de Produto</title>
     </head>
     <body>  
-    <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
-        <div class="menu">
-            <div class="message">
-                <h3>Olá Paulo - Tecnologia</h3>
-            </div>
-            <div class="logo">
-                <img src=".../img/Tades.png" alt="alt"/>
-            </div>
-            <hr>
-            <div class="options">
-                <ul>
-                    <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
-                    <a href=".../ProdutoServlet"><li>Listar Produtos</li></a>
-                </ul>
-            </div>
-        </div>
-        <form action = "CadastrarProdutoServlet" method="POST" >
-            <div class="half">
-                <div class="space"><h1>Cadastro De Produtos</h1></div>
-                <div class="field">
-                    <h2>Descrição</h2>
-                    <input class="txt" type="text" name="descricao">
+        <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
+            <div class="menu">
+                <div class="message">
+                    <h3>Olá Paulo - Tecnologia</h3>
                 </div>
-                <div class="field">
-                    <h2>Categoria</h2>
-                    <input class="txt" type="text" name="categoria"></div>
-                <div class="field">
-                    <h2>Fabricante</h2>
-                    <input class="txt" type="text" name="fabricante"></div>
-            </div>
-            <div class="half-last">
-                 <div class="space">
-                <h1>&nbsp;</h1>
-            </div>
-            <div class="field">
-                <h2>Valor</h2>
-                <input class="txt" type="text" name="valor">
-            </div>
-            <div class="field">
-                <h2>Quantidade</h2>
-                <input class="txt" type="text" name="quantidade">
-            </div>
-            <div class="field">
-                <h2>Desconto</h2>
-                <input class="txt" type="text" name="desconto">
-            </div>
-            <div class="btn"><input type="submit"></div>  
-        </div>
-    </form> 
-        </c:if>
-        
-        <c:if test="${not empty produto}">
-        <div class="menu">
-            <div class="message">
-                <h3>Olá Amanda - Tecnologia</h3>
-            </div>
-            <div class="logo">
-                <img src=".../img/Tades.png" alt="alt"/>
-            </div>
-            <hr>
-            <div class="options">
-                <ul>
-                    <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
-                </ul>
-            </div>
-        </div>
-        
-        <form action = "AlterarProdutoServlet" method="POST" >
-            <div class="half">
-                <div class="space"><h1>Cadastro De Produtos</h1></div>
-                <div class="field">
-                    <input type="text" name="id" hidden="true" value="${produto.produto_id}"/> 
-                    <h2>Descrição</h2>
-                    <input class="txt" type="text" name="descricao" value="${produto.descricao}">
+                <div class="logo">
+                    <img src=".../img/Tades.png" alt="alt"/>
                 </div>
-                <div class="field">
-                    <h2>Categoria</h2>
-                    <input class="txt" type="text" name="categoria" value="${produto.categoria}"></div>
-                <div class="field">
-                    <h2>Fabricante</h2>
-                    <input class="txt" type="text" name="fabricante" value="${produto.fabricante}"></div>
+                <hr>
+                <div class="options">
+                    <ul>
+                        <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
+                        <a href=".../ProdutoServlet"><li>Listar Produtos</li></a>
+                    </ul>
+                </div>
             </div>
-            <div class="half-last">
-                 <div class="space">
-                <h1>&nbsp;</h1>
-            </div>
-            <div class="field">
-                <h2>Valor</h2>
-                <input class="txt" type="text" name="valor" value="${produto.valor}">
-            </div>
-            <div class="field">
-                <h2>Quantidade</h2>
-                <input class="txt" type="text" name="quantidade" value="${produto.quantidade}">
-            </div>
-            <div class="field">
-                <h2>Desconto</h2>
-                <input class="txt" type="text" name="desconto" value="${produto.desconto}">
-            </div>
-            <div class="btn"><input type="submit"></div>  
-        </div>
-    </form> 
+            <form action = "CadastrarProdutoServlet" method="POST" >
+                <div class="half">
+                    <input type="hidden" name="filial_id" class="filial_id" value="">
+                    <input type="hidden" name="filial_name" class="filial_name" value="">
+                    <div class="space"><h1>Cadastro De Produtos</h1></div>
+                    <div class="field">
+                        <h2>Descrição</h2>
+                        <input class="txt" type="text" name="descricao">
+                    </div>
+                    <div class="field">
+                        <h2>Categoria</h2>
+                        <input class="txt" type="text" name="categoria"></div>
+                    <div class="field">
+                        <h2>Fabricante</h2>
+                        <input class="txt" type="text" name="fabricante"></div>
+                </div>
+                <div class="half-last">
+                    <div class="space">
+                        <h1>&nbsp;</h1>
+                    </div>
+                    <div class="field">
+                        <h2>Valor</h2>
+                        <input class="txt" type="text" name="valor">
+                    </div>
+                    <div class="field">
+                        <h2>Quantidade</h2>
+                        <input class="txt" type="text" name="quantidade">
+                    </div>
+                    <div class="field">
+                        <h2>Desconto</h2>
+                        <input class="txt" type="text" name="desconto">
+                    </div>
+                    <div class="btn"><input type="submit"></div>  
+                </div>
+            </form> 
         </c:if>
 
-</body>
+        <c:if test="${not empty produto}">
+            <div class="menu">
+                <div class="message">
+                    <h3>Olá Amanda - Tecnologia</h3>
+                </div>
+                <div class="logo">
+                    <img src=".../img/Tades.png" alt="alt"/>
+                </div>
+                <hr>
+                <div class="options">
+                    <ul>
+                        <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
+                    </ul>
+                </div>
+            </div>
+
+            <form action = "AlterarProdutoServlet" method="POST" >
+                <div class="half">
+                    <input type="hidden" name="filial_id" class="filial_id" value="">
+                    <input type="hidden" name="filial_name" class="filial_name" value="">
+                    <div class="space"><h1>Cadastro De Produtos</h1></div>
+                    <div class="field">
+                        <input type="text" name="id" hidden="true" value="${produto.produto_id}"/> 
+                        <h2>Descrição</h2>
+                        <input class="txt" type="text" name="descricao" value="${produto.descricao}">
+                    </div>
+                    <div class="field">
+                        <h2>Categoria</h2>
+                        <input class="txt" type="text" name="categoria" value="${produto.categoria}"></div>
+                    <div class="field">
+                        <h2>Fabricante</h2>
+                        <input class="txt" type="text" name="fabricante" value="${produto.fabricante}"></div>
+                </div>
+                <div class="half-last">
+                    <div class="space">
+                        <h1>&nbsp;</h1>
+                    </div>
+                    <div class="field">
+                        <h2>Valor</h2>
+                        <input class="txt" type="text" name="valor" value="${produto.valor}">
+                    </div>
+                    <div class="field">
+                        <h2>Quantidade</h2>
+                        <input class="txt" type="text" name="quantidade" value="${produto.quantidade}">
+                    </div>
+                    <div class="field">
+                        <h2>Desconto</h2>
+                        <input class="txt" type="text" name="desconto" value="${produto.desconto}">
+                    </div>
+                    <div class="btn"><input type="submit"></div>  
+                </div>
+            </form> 
+        </c:if>
+
+    </body>
+    <Script>
+        $(document).ready(function () {
+            var id = findGetParameter('id');
+            var nome = findGetParameter('nome');
+
+            $('.filial_id').val(id);
+            $('.filial_name').val(nome);
+
+        });
+        function findGetParameter(parameterName) {
+            var result = null,
+                    tmp = [];
+            var items = location.search.substr(1).split("&");
+            for (var index = 0; index < items.length; index++) {
+                tmp = items[index].split("=");
+                if (tmp[0] === parameterName)
+                    result = decodeURIComponent(tmp[1]);
+            }
+            return result;
+        }
+        $('a').click(function () {
+            var url = $(this).attr('href');
+            var param = location.search;
+            $(this).attr('href', url + param);
+        });
+
+    </script>
 </html>
