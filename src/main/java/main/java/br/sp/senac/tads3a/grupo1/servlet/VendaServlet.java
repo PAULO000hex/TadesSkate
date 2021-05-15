@@ -40,19 +40,19 @@ public class VendaServlet extends HttpServlet {
         int fk_funcionario_id = Integer.parseInt(request.getParameter("fk_funcionario_id"));
         int fk_cliente_id = Integer.parseInt(request.getParameter("fk_cliente_id"));
 
-//        String[]     produto_id = request.getParameterValues("produto_id");
-//        String[]            qtd = request.getParameterValues("qtd");
-//        String[] valor_unitario = request.getParameterValues("valor_un");
-
-//        Pedido pedido = new Pedido();
+        String[]     produto_id = request.getParameterValues("produto_id");
+        String[]            qtd = request.getParameterValues("qtd");
+        String[] valor_unitario = request.getParameterValues("valor_un");
+        Pedido pedido = new Pedido();
 
         ArrayList<Pedido> listaItensVenda = new ArrayList<Pedido>();
-//        for (int i = 0; i < produto_id.length; i++) {
-//            pedido.setProduto_id(Integer.parseInt(produto_id[i]));
-//            pedido.setQtd(Integer.parseInt(qtd[i]));
-//            pedido.setValor(Integer.parseInt(valor_unitario[i]));
-//            listaItensVenda.add(pedido);
-//        }
+        for (int i = 0; i < produto_id.length; i++) {
+            pedido.setProduto_id(Integer.parseInt(produto_id[i]));
+            pedido.setQtd(Integer.parseInt(qtd[i]));
+            //pedido.setValor(Double.parseDouble(valor_unitario[i]));
+            pedido.setValor(valor_total);
+            listaItensVenda.add(pedido);
+        }
 
         Venda vendas = new Venda(-1, fk_funcionario_id, fk_cliente_id, valor_total, listaItensVenda);
 

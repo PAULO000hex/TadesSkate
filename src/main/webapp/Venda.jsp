@@ -103,55 +103,56 @@
                     <input type="text" value="1" name="fk_funcionario_id">
                     <input type="text" value="2" name="fk_cliente_id">
 
-                                    </div>
-                                    <div class="btn">
-                                        <input type="submit" class="btnFinalizar" value="Finalizar Venda">
-                                    </div>
-                                    </div>
-                                    </form>
-                                    </body>
-                                    <script>
-                                    var valorTotal =0;
+                </div>
+                <div class="btn">
+                    <input type="submit" class="btnFinalizar" value="Finalizar Venda">
+                </div>
+            </div>
+        </form>
+    </body>
+    <script>
+        var valorTotal = 0;
 
-                                        $(document).ready(function () {
-                                            $('.js-example-basic-single').select2();
-                                        });
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
 
-                                        $('#cliente').change(function () {
-                                            var cliente = $('#cliente').val();
-                                            var dados = {'id': cliente};
+        $('#cliente').change(function () {
+            var cliente = $('#cliente').val();
+            var dados = {'id': cliente};
 
-                                            $.ajax({
-                                                url: 'SERVLET',
-                                                method: 'POST',
-                                                data: dados,
-                                                dataType: 'json'
-                                            }).done(function (resposta) {
-                                                console.log(resposta);
-                                            });
-                                            console.log(dados);
-                                        });
-                                        $('#produto').change(function () {
-                                            var produto = $('#produto').val();
-                                            var dados = {'id': produto};
+            $.ajax({
+                url: 'SERVLET',
+                method: 'POST',
+                data: dados,
+                dataType: 'json'
+            }).done(function (resposta) {
+                console.log(resposta);
+            });
+            console.log(dados);
+        });
+        $('#produto').change(function () {
+            var produto = $('#produto').val();
+            var dados = {'id': produto};
 
-                                            $.ajax({
-                                                url: 'SERVLET',
-                                                method: 'POST',
-                                                data: dados,
-                                                dataType: 'json'
-                                            }).done(function (resposta) {
-                                                console.log(resposta);
-                                            });
-                                            console.log(dados);
-                                        });
+//            $.ajax("ProdutoVendaServlet?descricao="+produto).done(function () {
+////Sucesso
+//                location.reload();
+//            })
+//                    .fail(function () {
+//                        alert("error");
+//                    });
+//            console.log(dados);
+        });
 
-                                        $('.btnAdicionar').click(function () {
-                                            var qtd = $('#qtd').val();
-                                            var html = '<tr><td name="descricao" value="P1">P1</td><td name="qtd" value="' + qtd + '">' + qtd + '</td><td name="valor_un" value="2.0">2.0</td></tr>';
-                                            $('#tabela').append(html);
-                                            $('.half').append('<input type="hidden" name="produto_id" value="1">');
-
-                                        });
-                                    </script>
-                                    </html>
+        $('.btnAdicionar').click(function () {
+            var qtd = $('#qtd').val();
+            var html = '<tr><td value="P1">P1</td><td name="qtd1" value="' + qtd + '">' + qtd + '</td><td name="valor_un1" value="2">2</td></tr>';
+            $('#tabela').append(html);
+            $('.half').append('<input type="hidden" name="produto_id" value="1">');
+            $('.half').append('<input type="hidden" name="descricao" value="P1">');
+            $('.half').append('<input type="hidden" name="qtd" value="' + qtd + '">');
+            $('.half').append('<input type="hidden" name="valor_un" value="2">');
+        });
+    </script>
+</html>
