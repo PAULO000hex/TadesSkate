@@ -1,8 +1,8 @@
 # TadesSkate
 Participantes do grupo: Paulo Henrique, Amanda Betti, Vitor Oliveira, Gabriel Teixeira
 
-
-CREATE TABLE filial (
+[17:13, 15/05/2021] 🐊: era erro com o banco
+[17:19, 15/05/2021] 🐊: CREATE TABLE filial (
   filial_id integer primary key not null generated always as identity (start with 1, increment by 1),
   Email varchar(255)  not null,
   Telefone varchar(15)  not null,
@@ -74,3 +74,7 @@ pedido_id integer NOT NULL primary key generated always as identity(start with 1
   quantidade integer not null,
   Valor_Unitario float not null
   
+);
+
+insert into filial  (email, telefone, endereco, cidade, estado, bairro) 
+values ('matriz@mail.com', '123456','avenida das nacoes unidas', 'sao paulo', 'sp', 'interlagos')
