@@ -101,7 +101,7 @@
                     </div>
                     <input type="text" value="10.0" name="valor_total">
                     <input type="text" value="1" name="fk_funcionario_id">
-                    <input type="text" value="1" name="fk_cliente_id">
+                    <input type="text" value="2" name="fk_cliente_id">
 
                                     </div>
                                     <div class="btn">
@@ -111,6 +111,8 @@
                                     </form>
                                     </body>
                                     <script>
+                                    var valorTotal =0;
+
                                         $(document).ready(function () {
                                             $('.js-example-basic-single').select2();
                                         });
@@ -146,9 +148,9 @@
 
                                         $('.btnAdicionar').click(function () {
                                             var qtd = $('#qtd').val();
-                                            var html = '<tr><td name="descricao[] value="P1">P1</td><td name="qtd[]" value="' + qtd + '">' + qtd + '</td><td name="valor_un[]" value="2.0">2.0</td></tr>';
+                                            var html = '<tr><td name="descricao" value="P1">P1</td><td name="qtd" value="' + qtd + '">' + qtd + '</td><td name="valor_un" value="2.0">2.0</td></tr>';
                                             $('#tabela').append(html);
-                                            $('.half').append('<input type="hidden" name="produto_id[]" value="1">');
+                                            $('.half').append('<input type="hidden" name="produto_id" value="1">');
 
                                         });
                                     </script>

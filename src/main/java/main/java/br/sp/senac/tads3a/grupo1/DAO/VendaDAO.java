@@ -22,14 +22,13 @@ public class VendaDAO {
         PreparedStatement ps = null;
 
         try {
-            String query = "INSERT INTO venda(valor_total,data,funcionario_id,cliente_id,filial_id)VALUES(?,?,?,?,?)";
+            String query = "INSERT INTO venda(valor_total,data,fk_funcionario_id,fk_cliente_id,fk_filial_id)VALUES(?,CURRENT_TIMESTAMP,?,?,?)";
             con = Conexao.getConexao();
             ps = con.prepareStatement(query);
             ps.setDouble(1, venda.getValor_total());
-            ps.setDate(2, venda.getData());
-            ps.setInt(3, venda.getFk_funcionario_id());
-            ps.setInt(4, venda.getFk_cliente_id());
-            ps.setInt(5, filial_id);
+            ps.setInt(2, venda.getFk_funcionario_id());
+            ps.setInt(3, venda.getFk_cliente_id());
+            ps.setInt(4, filial_id);
 
             int linhasAfetadas = ps.executeUpdate();
 
@@ -60,7 +59,7 @@ public class VendaDAO {
                 }
             }
         } catch (Exception e) {
-
+            System.out.println("catch direto "+e);
         } finally {
             if (ps != null) {
                 try {

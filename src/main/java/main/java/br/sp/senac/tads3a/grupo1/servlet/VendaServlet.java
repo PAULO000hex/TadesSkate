@@ -40,10 +40,10 @@ public class VendaServlet extends HttpServlet {
         int fk_funcionario_id = Integer.parseInt(request.getParameter("fk_funcionario_id"));
         int fk_cliente_id = Integer.parseInt(request.getParameter("fk_cliente_id"));
 
-//        String[] produto_id = request.getParameterValues("produto_id");
-//        String[] qtd = request.getParameterValues("descricao");
+//        String[]     produto_id = request.getParameterValues("produto_id");
+//        String[]            qtd = request.getParameterValues("qtd");
 //        String[] valor_unitario = request.getParameterValues("valor_un");
-//
+
 //        Pedido pedido = new Pedido();
 
         ArrayList<Pedido> listaItensVenda = new ArrayList<Pedido>();
