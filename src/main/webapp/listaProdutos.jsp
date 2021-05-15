@@ -10,7 +10,9 @@
         <title>Lista de Produtos</title>
     </head>
     <body>
-         <!--   <//c:import url="/menu.jsp"/> -->
+        <input type="hidden" name="filial_id" class="filial_id" value="">
+        <input type="hidden" name="filial_name" class="filial_name" value="">
+        <!--   <//c:import url="/menu.jsp"/> -->
         <h1></h1>
         <table class="table table-dark table-striped">
             <th>Descrição</th>
@@ -20,7 +22,7 @@
             <th>Quantidade</th>
             <th>Desconto</th>
 
-                <c:forEach items="${listaProdutos}" var = "produto" >
+            <c:forEach items="${listaProdutos}" var = "produto" >
                 <tr>
                     <td>${produto.descricao}</td>
                     <td>${produto.categoria}</td>
@@ -28,9 +30,9 @@
                     <td>${produto.valor}</td>
                     <td>${produto.quantidade}</td>
                     <td>${produto.desconto}</td>  
-              <td><a href ="AlterarProdutoServlet?id=${produto.produto_id}">Alterar</a></td>
-              <td><a href="ExcluirProdutoServlet?id=${produto.produto_id}">Excluir</a></td>                  
-              </tr>
+                    <td><a href ="AlterarProdutoServlet?id=${produto.produto_id}">Alterar</a></td>
+                    <td><a href="ExcluirProdutoServlet?id=${produto.produto_id}">Excluir</a></td>                  
+                </tr>
             </c:forEach>
         </table>
         <a href="index.jsp">voltar</a>

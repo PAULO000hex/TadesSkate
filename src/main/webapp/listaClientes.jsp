@@ -10,7 +10,9 @@
         <title>Lista de Clientes</title>
     </head>
     <body>
-         <!--   <//c:import url="/menu.jsp"/> -->
+        <!--   <//c:import url="/menu.jsp"/> -->
+        <input type="hidden" name="filial_id" class="filial_id" value="">
+        <input type="hidden" name="filial_name" class="filial_name" value="">
         <h1></h1>
         <table>
             <th>NOME</th>
@@ -37,7 +39,7 @@
                     <td>${cliente.bairro}</td>
                     <td>${cliente.nascimento}</td>
                     <td><a href ="ExcluirClienteServlet?id=${cliente.cliente_id}">Excluir</a></td>
-                     <td><a href ="AlterarClienteServlet?id=${cliente.cliente_id}">Alterar</a></td>
+                    <td><a href ="AlterarClienteServlet?id=${cliente.cliente_id}">Alterar</a></td>
                 </tr>
             </c:forEach>
         </table>

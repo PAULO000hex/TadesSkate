@@ -10,8 +10,11 @@
         <title>Lista de Funcionarios</title>
     </head>
     <body>
-     <!--   <//c:import url="/menu.jsp"/> -->
+        <!--   <//c:import url="/menu.jsp"/> -->
+        <input type="hidden" name="filial_id" class="filial_id" value="">
+        <input type="hidden" name="filial_name" class="filial_name" value="">
         <h1></h1>
+
         <table class="table table-dark table-striped">
             <th>Nome</th>
             <th>Sobrenome</th>
@@ -38,9 +41,9 @@
                     <td>${funcionario.cidade}</td>  
                     <td>${funcionario.bairro}</td>
                     <td>${funcionario.estado}</td>
-              <td><a href ="AlterarFuncionarioServlet?id=${funcionario.funcionario_id}">Alterar</a></td>
-              <td><a href="ExcluirFuncionarioServlet?id=${funcionario.funcionario_id}">Excluir</a></td>                  
-              </tr>
+                    <td><a href ="AlterarFuncionarioServlet?id=${funcionario.funcionario_id}">Alterar</a></td>
+                    <td><a href="ExcluirFuncionarioServlet?id=${funcionario.funcionario_id}">Excluir</a></td>                  
+                </tr>
             </c:forEach>
         </table>
         <a href="index.jsp">voltar</a>

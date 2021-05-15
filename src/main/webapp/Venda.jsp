@@ -59,90 +59,99 @@
                     </li>
                 </ul>
             </div>
-        </div>            
-        <div class="half">
-            <div class="wrapper">
-                <div class="cliente">
-                    <h3>CPF</h3>
-                    <select class="js-example-basic-single" id="cliente" name="cliente">
-                        <option></option>
-                        <option value="cliente_id">Nome Sobrenome | CPF </option>
-                        <option value="cliente_id">Nome Sobrenome | CPF </option>
-                        <option value="cliente_id">Nome Sobrenome | CPF </option>
-                        <option value="cliente_id">Nome Sobrenome | CPF </option>
-                    </select>
+        </div>     
+        <form action="VendaServlet" method="POST">
+            <div class="half">
+                <div class="wrapper">
+                    <div class="cliente">
+                        <h3>CPF</h3>
+                        <select class="js-example-basic-single" id="cliente" name="cliente">
+                            <option></option>
+                            <option value="1">Nome Sobrenome | CPF </option>
+                            <option value="2">Nome Sobrenome | CPF </option>
+                            <option value="cliente_id">Nome Sobrenome | CPF </option>
+                            <option value="cliente_id">Nome Sobrenome | CPF </option>
+                        </select>
+                    </div>
+                    <div class="produto">
+                        <h3>Descrição</h3>
+                        <select class="js-example-basic-single" id="produto" name="produto">
+                            <option></option>
+                            <option value="1">Código do produto | Descrição</option>
+                            <option value="2">Código do produto | Descrição</option>
+                            <option value="produto_id">Código do produto | Descrição</option>
+                            <option value="produto_id">Código do produto | Descrição</option>
+                        </select>
+                        <input type="number" id="qtd" placeholder="Insira a quantidade">
+                    </div>
+                    <hr>
                 </div>
-                <div class="produto">
-                    <h3>Descrição</h3>
-                    <select class="js-example-basic-single" id="produto" name="produto">
-                        <option></option>
-                        <option value="produto_id">Código do produto | Descrição</option>
-                        <option value="produto_id">Código do produto | Descrição</option>
-                        <option value="produto_id">Código do produto | Descrição</option>
-                        <option value="produto_id">Código do produto | Descrição</option>
-                    </select>
-                    <input type="number" id="qtd" placeholder="Insira a quantidade">
+                <div class="btn">
+                    <input type="button" class="btnAdicionar" value="Adicionar Produto">
                 </div>
-                <hr>
-            </div>
-            <div class="btn">
-                <input type="button" class="btnAdicionar" value="Adicionar Produto">
-            </div>
-        </div>   
-        <div class="half-last">
-            <div class="wrapper">
-                <div class="produtos">
-                    <table class="table table-dark table-striped" id="tabela">                
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Valor Un</th>
-                    </table>
-                </div>
-            </div>
-            <div class="btn">
-                <input type="button" class="btnFinalizar" value="Finalizar Venda">
-            </div>
-        </div>
-    </body>
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-single').select2();
-        });
-        
-        $('#cliente').change(function () {
-            var cliente = $('#cliente').val();
-            var dados = {'id': cliente};
-            
-            $.ajax({
-                url:'SERVLET',
-                method:'POST',
-                data:dados,
-                dataType:'json'
-            }).done(function(resposta){
-                console.log(resposta);
-            });
-            console.log(dados);
-        });
-        $('#produto').change(function () {
-            var produto = $('#produto').val();
-            var dados = {'id': produto};
-            
-            $.ajax({
-                url:'SERVLET',
-                method:'POST',
-                data:dados,
-                dataType:'json'
-            }).done(function(resposta){
-                console.log(resposta);
-            });
-            console.log(dados);
-        });
-        
-        $('.btnAdicionar').click(function(){
-            var qtd = $('#qtd').val();
-            var html = '<tr><td>P1</td><td>'+qtd+'</td><td>2,50</td></tr>';
-            $('#tabela').append(html);
-            
-        });
-    </script>
-</html>
+            </div>   
+            <div class="half-last">
+                <div class="wrapper">
+                    <div class="produtos">
+                        <table class="table table-dark table-striped" id="tabela">                
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor Un</th>
+                        </table>
+                    </div>
+                    <input type="text" value="10.0" name="valor_total">
+                    <input type="text" value="1" name="fk_funcionario_id">
+                    <input type="text" value="2" name="fk_cliente_id">
+
+                                    </div>
+                                    <div class="btn">
+                                        <input type="submit" class="btnFinalizar" value="Finalizar Venda">
+                                    </div>
+                                    </div>
+                                    </form>
+                                    </body>
+                                    <script>
+                                    var valorTotal =0;
+
+                                        $(document).ready(function () {
+                                            $('.js-example-basic-single').select2();
+                                        });
+
+                                        $('#cliente').change(function () {
+                                            var cliente = $('#cliente').val();
+                                            var dados = {'id': cliente};
+
+                                            $.ajax({
+                                                url: 'SERVLET',
+                                                method: 'POST',
+                                                data: dados,
+                                                dataType: 'json'
+                                            }).done(function (resposta) {
+                                                console.log(resposta);
+                                            });
+                                            console.log(dados);
+                                        });
+                                        $('#produto').change(function () {
+                                            var produto = $('#produto').val();
+                                            var dados = {'id': produto};
+
+                                            $.ajax({
+                                                url: 'SERVLET',
+                                                method: 'POST',
+                                                data: dados,
+                                                dataType: 'json'
+                                            }).done(function (resposta) {
+                                                console.log(resposta);
+                                            });
+                                            console.log(dados);
+                                        });
+
+                                        $('.btnAdicionar').click(function () {
+                                            var qtd = $('#qtd').val();
+                                            var html = '<tr><td name="descricao" value="P1">P1</td><td name="qtd" value="' + qtd + '">' + qtd + '</td><td name="valor_un" value="2.0">2.0</td></tr>';
+                                            $('#tabela').append(html);
+                                            $('.half').append('<input type="hidden" name="produto_id" value="1">');
+
+                                        });
+                                    </script>
+                                    </html>

@@ -38,10 +38,10 @@ public class ProdutoDAO {
         return ok;
     }
 
-    public static boolean Cadastrar(Produto produto) {
+    public static boolean Cadastrar(Produto produto, int filial_id) {
         boolean ok = true;
-        String query = "insert into produto (descricao, categoria, fabricante, valor, quantidade, desconto) "
-                + "values(?,?,?,?,?,?)";
+        String query = "insert into produto (descricao, categoria, fabricante, valor, quantidade, desconto,fk_filial_id) "
+                + "values(?,?,?,?,?,?,?)";
         try {
             Connection con = Conexao.getConexao();
             PreparedStatement ps = con.prepareStatement(query);
@@ -51,6 +51,7 @@ public class ProdutoDAO {
             ps.setDouble(4, produto.getValor());
             ps.setInt(5, produto.getQuantidade());
             ps.setDouble(6, produto.getDesconto());
+            ps.setInt(7, filial_id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
