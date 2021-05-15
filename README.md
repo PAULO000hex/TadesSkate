@@ -1,8 +1,7 @@
 # TadesSkate
 Participantes do grupo: Paulo Henrique, Amanda Betti, Vitor Oliveira, Gabriel Teixeira
 
-[17:13, 15/05/2021] 🐊: era erro com o banco
-[17:19, 15/05/2021] 🐊: CREATE TABLE filial (
+CREATE TABLE filial (
   filial_id integer primary key not null generated always as identity (start with 1, increment by 1),
   Email varchar(255)  not null,
   Telefone varchar(15)  not null,
