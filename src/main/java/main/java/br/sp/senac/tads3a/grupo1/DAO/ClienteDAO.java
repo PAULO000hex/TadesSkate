@@ -39,10 +39,10 @@ public class ClienteDAO {
         return ok;
     }
 
-    public static boolean Cadastrar(Cliente cliente, Date nascimento) {
+    public static boolean Cadastrar(Cliente cliente, Date nascimento,int filial_id) {
         boolean ok = true;
-        String query = "insert into cliente (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento) "
-                + "values(?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into cliente (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento,fk_filial_id) "
+                + "values(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             Connection con = Conexao.getConexao();
             PreparedStatement ps = con.prepareStatement(query);
@@ -56,6 +56,7 @@ public class ClienteDAO {
             ps.setString(8, cliente.getEstado());
             ps.setString(9, cliente.getBairro());
             ps.setDate(10, nascimento);
+            ps.setInt(11, filial_id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
