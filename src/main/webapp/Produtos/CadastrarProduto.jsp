@@ -14,20 +14,29 @@
         <title>Cadastro de Produto</title>
     </head>
     <body>  
-        <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
-            <div class="menu">
-                <div class="message">
-                    <h3>Olá Paulo - Tecnologia</h3>
-                </div>
-                <div class="logo">
-                    <img src=".../img/Tades.png" alt="alt"/>
-                </div>
-                <hr>
-                <div class="options">
-                    <ul>
-                        <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
-                        <a href=".../ProdutoServlet"><li>Listar Produtos</li></a>
-                    </ul>
+    <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
+        <div class="menu">
+            <div class="message">
+                <h3>Olá Paulo - Tecnologia</h3>
+            </div>
+            <div class="logo">
+                <img src=".../img/Tades.png" alt="alt"/>
+            </div>
+            <hr>
+            <div class="options">
+                <ul>
+                    <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
+                    <a href=".../ProdutoServlet"><li>Listar Produtos</li></a>
+                    <a href=".../ProdutoVendaServlet"><li>Teste</li></a>
+                </ul>
+            </div>
+        </div>
+        <form action = "CadastrarProdutoServlet" method="POST" >
+            <div class="half">
+                <div class="space"><h1>Cadastro De Produtos</h1></div>
+                <div class="field">
+                    <h2>Descrição</h2>
+                    <input class="txt" type="text" name="descricao">
                 </div>
             </div>
             <form action = "CadastrarProdutoServlet" method="POST" >

@@ -26,6 +26,13 @@ public class Cliente {
     private String estado;
     private String bairro;
     private Date nascimento;
+
+    public Cliente(String cpf, String nome, String sobrenome, int cliente_id){
+    this.cpf = cpf;
+    this.nome = nome;
+    this.sobrenome = sobrenome;
+    this.cliente_id = cliente_id;
+}
     public Cliente(int cliente_id, String nome, String sobrenome, String cpf, String email, String telefone, String endereco, String cidade, String estado, String bairro,Date nascimento) {
         this.cliente_id = cliente_id;
         this.nome = nome;
