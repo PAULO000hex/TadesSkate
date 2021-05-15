@@ -113,6 +113,29 @@ public class ProdutoDAO {
  return produto;
 }
 
+   public static List<Produto> getProdutoVenda(String descricao){
+    List<Produto> produtos = new ArrayList<>();
+    String query = "select produto_id, descricao, valor from produto where descricao like ?";
+    Connection con;
+    try{
+    con = Conexao.getConexao();
+    PreparedStatement ps = con.prepareStatement(query);
+    ps.setString(1, descricao);
+   ResultSet rs = ps.executeQuery();
+
+   while(rs.next()) {
+   int id = rs.getInt("produto_id");
+   double valor = rs.getDouble("valor");
+Produto produto = new Produto(id, descricao, valor);
+   produtos.add(produto);
+  }
+   }catch (SQLException ex){
+     Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex); 
+}
+return produtos;
+
+}
+
     public static boolean atualizar(Produto produto){
 boolean ok = true;
 String query = "update produto set descricao=?,categoria=?,fabricante=?,valor=?,quantidade=?,desconto=? where produto_id=?";

@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
@@ -10,29 +9,20 @@
         <title>Lista de Produtos</title>
     </head>
     <body>
-        <input type="hidden" name="filial_id" class="filial_id" value="">
-        <input type="hidden" name="filial_name" class="filial_name" value="">
-        <!--   <//c:import url="/menu.jsp"/> -->
+         <!--   <//c:import url="/menu.jsp"/> -->
         <h1></h1>
         <table class="table table-dark table-striped">
-            <th>Descrição</th>
-            <th>Categoria</th>
-            <th>Fabricante</th>
-            <th>Valor</th>
-            <th>Quantidade</th>
-            <th>Desconto</th>
-
-            <c:forEach items="${listaProdutos}" var = "produto" >
+            <th>ID</th>
+            <th>descricao</th>
+            <th>valor</th>
+                <c:forEach items="${listaProdutos}" var = "produto" >
                 <tr>
+                    <td>${produto.produto_id}</td>
                     <td>${produto.descricao}</td>
-                    <td>${produto.categoria}</td>
-                    <td>${produto.fabricante}</td>
                     <td>${produto.valor}</td>
-                    <td>${produto.quantidade}</td>
-                    <td>${produto.desconto}</td>  
-                    <td><a href ="AlterarProdutoServlet?id=${produto.produto_id}">Alterar</a></td>
-                    <td><a href="ExcluirProdutoServlet?id=${produto.produto_id}">Excluir</a></td>                  
-                </tr>
+              <td><a href ="AlterarProdutoServlet?id=${produto.produto_id}">Alterar</a></td>
+              <td><a href="ExcluirProdutoServlet?id=${produto.produto_id}">Excluir</a></td>                  
+              </tr>
             </c:forEach>
         </table>
         <a href="index.jsp">voltar</a>

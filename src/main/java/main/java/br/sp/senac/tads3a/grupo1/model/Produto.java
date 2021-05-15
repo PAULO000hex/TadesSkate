@@ -23,6 +23,12 @@ public class Produto {
     private int quantidade;
     private double desconto;
 
+public Produto(int produto_id, String descricao, double valor){
+this.produto_id = produto_id;
+this.descricao = descricao;
+this.valor = valor;
+}
+
     public Produto(int produto_id, String descricao, String categoria, String fabricante, double valor, int quantidade, double desconto) {
         this.produto_id = produto_id;
         this.descricao = descricao;
