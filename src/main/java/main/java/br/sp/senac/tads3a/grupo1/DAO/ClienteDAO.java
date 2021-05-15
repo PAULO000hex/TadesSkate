@@ -97,6 +97,29 @@ public class ClienteDAO {
         }
         return clientes;
     }
+
+            public static List<Cliente> getClienteVenda(String cpf){
+              List<Cliente> clientes = new ArrayList<>();
+              String query = "select cliente_id, nome, sobrenome, CPF from cliente where cpf like ?";
+              Connection con;
+              try{
+              con = Conexao.getConexao();
+              PreparedStatement ps = con.prepareStatement(query);
+              ps.setString(1, cpf);
+              ResultSet rs = ps.executeQuery();
+
+             while(rs.next()){
+             int id = rs.getInt("cliente_id");
+             String nome = rs.getString("nome");
+             String sobrenome = rs.getString("sobrenome");
+             Cliente cliente = new Cliente(cpf, nome, sobrenome, id);
+             clientes.add(cliente);
+             }
+             }catch (SQLException ex){
+             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+}
+return clientes;
+}
     
             public static Cliente getCliente(int id){
        Cliente cliente = null;

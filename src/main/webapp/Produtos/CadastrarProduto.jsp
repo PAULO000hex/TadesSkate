@@ -27,6 +27,7 @@
                 <ul>
                     <a href="CadastrarProduto.jsp"><li>Cadastrar Produto</li></a>
                     <a href=".../ProdutoServlet"><li>Listar Produtos</li></a>
+                    <a href=".../ProdutoVendaServlet"><li>Teste</li></a>
                 </ul>
             </div>
         </div>

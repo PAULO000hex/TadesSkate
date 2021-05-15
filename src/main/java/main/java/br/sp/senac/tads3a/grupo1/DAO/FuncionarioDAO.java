@@ -36,7 +36,7 @@ return ok;
     public static boolean cadastrar(Funcionario funcionario, int filial_id) {
         Connection conexao;
         PreparedStatement ps;
-        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, fk_filial_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado) values (?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             conexao = Conexao.getConexao();
