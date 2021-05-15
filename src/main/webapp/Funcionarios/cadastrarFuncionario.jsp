@@ -14,9 +14,9 @@
         <c:import url="/menu.jsp"/>
         <c:if test="${empty funcionario}">   
             <form action="CadastrarFuncionarioServlet" method="POST" >
+                <input type="hidden" name="filial_id" class="filial_id" value="">
+                <input type="hidden" name="filial_name" class="filial_name" value="">
                 <div class="half">
-                    <input type="hidden" name="filial_id" class="filial_id" value="">
-                    <input type="hidden" name="filial_name" class="filial_name" value="">
                     <div class="space"><h1>Cadastrar</h1></div>
                     <div class="field">
                         <h2>Nome</h2>
@@ -75,8 +75,6 @@
         <c:if test="${not empty funcionario}">
             <form action="AlterarFuncionarioServlet" method="POST" >
                 <div class="half">
-                    <input type="hidden" name="filial_id" class="filial_id" value="">
-                    <input type="hidden" name="filial_name" class="filial_name" value="">
                     <div class="space"><h1>Editar</h1></div>
                     <div class="field">
                         <input class="txt" type="text" name="id" value="${funcionario.funcionario_id}">
@@ -145,8 +143,6 @@
             $('.filial_id').val(id);
             $('.filial_name').val(nome);
 
-            var parametros = location.search;
-            $(a).attr('href', +parametros);
         });
         function findGetParameter(parameterName) {
             var result = null,
@@ -159,11 +155,10 @@
             }
             return result;
         }
-        
-        $('a').click(function(){
+        $('a').click(function () {
             var url = $(this).attr('href');
             var param = location.search;
-            $(this).attr('href',url+param);
+            $(this).attr('href', url + param);
         });
 
     </script>

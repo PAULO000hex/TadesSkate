@@ -1,6 +1,6 @@
   <div class="menu">
             <div class="message">
-                <h3>Ol· Vitor - Tecnologia</h3>
+                <h3>Ol√° Vitor - Tecnologia</h3>
             </div>
             <div class="logo">
                 <img src=".../img/Tades.png" alt="alt"/>
@@ -18,12 +18,12 @@
                     <li>Produtos
                         <ul><a href="/TadesSkate/Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
                         <ul><a href="/TadesSkate/ProdutosServlet"> Consultar e Alterar Produtos</a></ul>
-                    <li>Funcion·rios
-                        <ul><a href="cadastrarFuncionario.jsp">Cadastrar Funcion·rio</a></ul>
+                    <li>Funcion√°rios
+                        <ul><a href="cadastrarFuncionario.jsp">Cadastrar Funcion√°rio</a></ul>
                         <ul><a href=".../FuncionariosServlet">Consultar e Alterar Funcionario </a></ul>
                     <li>Filiais
                         <ul><a href = "/TadesSkate/Filiais/CadastrarFilial.jsp ">Cadastrar Filial</a> </ul>
-                        <ul><a href= "/TadesSkate/Filiais/.../FilialServlet"> Consultar Filiais </a> </ul>
+                        <ul><a href= "/TadesSkate/Filiais/.../FilialServlet"> Consultar Filiais</a> </ul>
                 </ul>
             </div>
         </div>
