@@ -28,14 +28,6 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
-                System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println("**********");
-        System.out.println(request.getParameter("filial_id"));
         int filial_id = Integer.parseInt(request.getParameter("filial_id"));
 
 
