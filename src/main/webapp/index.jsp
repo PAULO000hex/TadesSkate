@@ -49,7 +49,6 @@
                 <a href="Clientes/CadastrarClientes.jsp"><input type="button" value="Acessar"></a>
                 <a href="Clientes/ClienteServlet"><input type="button" value="Acessar"></a>
                 <a href="IndexServlet"><input type="button" value="Acessar"></a>
-
             </div>
         </div>
     </body>
