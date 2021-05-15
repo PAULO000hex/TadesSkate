@@ -16,8 +16,6 @@ import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
  */
 public class FuncionariosServlet extends HttpServlet {
 
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
