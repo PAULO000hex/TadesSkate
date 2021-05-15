@@ -28,7 +28,7 @@
 
 
             <div class="card">
-                <select id="filiais">
+                <select id="filiais" name="filiais">
                     <c:forEach items="${testeFiliais}" var = "filial" >
                         <option id="${filial.filial_id}">${filial.cidade}</option>
                     </c:forEach>
@@ -36,6 +36,7 @@
             </div>
             <div class="btn">
                 <input type="button" id="acessar" value="Acessar">
+                <a href="testeServlet"><input type="button"></a>
 <!--            <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
                 <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
                 <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
