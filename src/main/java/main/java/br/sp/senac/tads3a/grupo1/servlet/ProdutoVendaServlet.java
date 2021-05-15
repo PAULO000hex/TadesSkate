@@ -34,7 +34,7 @@ public class ProdutoVendaServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             String descricao = request.getParameter("descricao");
-          List<Produto> listaProdutos = ProdutoDAO.getClienteVenda(descricao);
+          List<Produto> listaProdutos = ProdutoDAO.getProdutoVenda(descricao);
           request.setAttribute("listaProdutos", listaProdutos);
           request.getRequestDispatcher("/testes.jsp").forward(request, response); 
     }
