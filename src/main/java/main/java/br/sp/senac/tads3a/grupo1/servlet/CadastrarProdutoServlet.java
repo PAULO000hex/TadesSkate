@@ -30,10 +30,12 @@ public class CadastrarProdutoServlet extends HttpServlet {
         double valor = Double.parseDouble(request.getParameter("valor"));
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double desconto = Double.parseDouble(request.getParameter("desconto"));
+        int filial_id = Integer.parseInt(request.getParameter("filial_id"));
+
 
         Produto produto = new Produto(-1,descricao, categoria, fabricante, valor, quantidade, desconto);
 
-        boolean ok = ProdutoDAO.Cadastrar(produto);
+        boolean ok = ProdutoDAO.Cadastrar(produto,filial_id);
         if (ok) {
             response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
         } else {

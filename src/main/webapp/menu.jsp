@@ -23,7 +23,7 @@
                         <ul><a href=".../FuncionariosServlet">Consultar e Alterar Funcionario </a></ul>
                     <li>Filiais
                         <ul><a href = "/TadesSkate/Filiais/CadastrarFilial.jsp ">Cadastrar Filial</a> </ul>
-                        <ul><a href= "/TadesSkate/Filiais/.../FilialServlet"> Consultar Filiais<a/> </ul>
+                        <ul><a href= "/TadesSkate/Filiais/.../FilialServlet"> Consultar Filiais</a> </ul>
                 </ul>
             </div>
         </div>
