@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
+
 import java.util.List;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import main.java.br.sp.senac.tads3a.grupo1.DAO.ProdutoDAO;
-import main.java.br.sp.senac.tads3a.grupo1.model.Produto;
 import javax.servlet.http.HttpServletResponse;
+import main.java.br.sp.senac.tads3a.grupo1.DAO.ClienteDAO;
+import main.java.br.sp.senac.tads3a.grupo1.model.Cliente;
 
 /**
  *
  * @author PICHAU
  */
-public class ProdutoVendaServlet extends HttpServlet {
+public class ClienteVendaServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -29,15 +29,12 @@ public class ProdutoVendaServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String descricao = request.getParameter("descricao");
-          List<Produto> listaProdutos = ProdutoDAO.getProdutoVenda(descricao);
-          request.setAttribute("listaProdutos", listaProdutos);
-          request.getRequestDispatcher("/testes.jsp").forward(request, response); 
+        String cpf = request.getParameter("cpf");
+        List<Cliente> listaProdutos = ClienteDAO.getClienteVenda(cpf);
+        request.setAttribute("listaProdutos", listaProdutos);
+        request.getRequestDispatcher("/testes.jsp").forward(request, response);
     }
 }
-
-    

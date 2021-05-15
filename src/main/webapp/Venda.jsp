@@ -24,7 +24,7 @@
                 <h3>Olá Vitor - Tecnologia</h3>
             </div>
             <div class="logo">
-                <img src=".../img/Tades.png" alt="alt" />
+                <img src="img/Tades.png" alt="alt" />
             </div>
             <hr>
             <div class="options">
@@ -34,13 +34,13 @@
                         <ul>Consultar Vendas</ul>
                     </li>
                     <li>Clientes
-                        <ul><a href=".../Clientes/CadastrarClientes.jsp">Cadastrar Cliente</a></ul>
+                        <ul><a href="Clientes/CadastrarClientes.jsp">Cadastrar Cliente</a></ul>
                         <ul><a href=".../listaClientes.jsp">Consultar Clientes</a></ul>
                         <ul>Alterar Cliente</ul>
                         <ul>Excluir Cliente</ul>
                     </li>
                     <li>Produtos
-                        <ul><a href=".../Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
+                        <ul><a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
                         <ul><a href="ProdutosServlet.jsp">Consultar Produtos</a></ul>
                         <ul>Alterar Produto</ul>
                         <ul>Excluir Produto</ul>
@@ -52,7 +52,7 @@
                         <ul>Excluir Funcionário</ul>
                     </li>
                     <li>Filiais
-                        <ul><a href=".../Filiais/CadastrarFilial.jsp">Cadastrar Filial</a></ul>
+                        <ul><a href="Filiais/CadastrarFilial.jsp">Cadastrar Filial</a></ul>
                         <ul><a href="listaFiliais.jsp">Consultar Filiais</a></ul>
                         <ul>Alterar Filial</ul>
                         <ul>Excluir Filial</ul>

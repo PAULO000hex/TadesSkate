@@ -9,9 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Ocorreu algum erro nao foi possivel cadastrar o Cliente</h1> <a href="index.jsp">voltar</a>
+        <h1>Ocorreu um erro</h1> <a href="testeFiliais.jsp">voltar</a>
     </body>
 </html>
