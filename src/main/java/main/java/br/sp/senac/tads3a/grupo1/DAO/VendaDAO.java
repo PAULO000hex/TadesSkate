@@ -39,21 +39,21 @@ public class VendaDAO {
                 if (chavesGeradas.next()) {
                     venda.setVenda_id(chavesGeradas.getInt(1));
 
-//                    for (Pedido pedido : venda.getPedido()) {
-//
-//                        PreparedStatement psPedido = con.prepareStatement("INSERT INTO pedido(produto_id,venda_id,filial_id,quantidade,valor_unitario)VALUES(?,?,?,?,?)");
-//
-//                        psPedido.setInt(1, pedido.getProduto_id());
-//                        psPedido.setInt(2, venda.getVenda_id());
-//                        psPedido.setInt(3, filial_id);
-//                        psPedido.setInt(4, pedido.getQtd());
-//                        psPedido.setDouble(5, pedido.getValor());
-//
-//                        int itensAfetados = psPedido.executeUpdate();
-//                        if (itensAfetados < 0) {
-//                            throw new SQLException("Falha ao registrar a venda !");
-//                        }
-//                    }
+                    for (Pedido pedido : venda.getPedido()) {
+
+                        PreparedStatement psPedido = con.prepareStatement("INSERT INTO EU.PEDIDO (FK_PRODUTO_ID, FK_VENDA_ID, FK_FILIAL_ID, QTD, VALOR_UNITARIO) VALUES (?, ?, ?, ?, ?)");
+
+                        psPedido.setInt(1, pedido.getProduto_id());
+                        psPedido.setInt(2, venda.getVenda_id());
+                        psPedido.setInt(3, filial_id);
+                        psPedido.setInt(4, pedido.getQtd());
+                        psPedido.setDouble(5, pedido.getValor());
+
+                        int itensAfetados = psPedido.executeUpdate();
+                        if (itensAfetados < 0) {
+                            throw new SQLException("Falha ao registrar a venda !");
+                        }
+                    }
                 } else {
                     throw new SQLException("Falha ao obter o ID da venda!.");
                 }
