@@ -34,7 +34,12 @@ public class ClienteVendaServlet extends HttpServlet {
             throws ServletException, IOException {
         String cpf = request.getParameter("cpf");
         List<Cliente> listaProdutos = ClienteDAO.getClienteVenda(cpf);
-        request.setAttribute("listaProdutos", listaProdutos);
-        request.getRequestDispatcher("/testes.jsp").forward(request, response);
+        
+        if (!listaProdutos.isEmpty()) {
+            request.setAttribute("listaProdutos", listaProdutos);
+            response.setStatus(200);
+        } else {
+            response.setStatus(500);
+        }
     }
 }

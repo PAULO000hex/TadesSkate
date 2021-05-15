@@ -30,32 +30,25 @@
             <div class="options">
                 <ul>
                     <li>Venda
-                        <ul>Vender</ul>
+                        <ul><a href="Venda.jsp">Vender</ul></a>
                         <ul>Consultar Vendas</ul>
                     </li>
                     <li>Clientes
                         <ul><a href="Clientes/CadastrarClientes.jsp">Cadastrar Cliente</a></ul>
                         <ul><a href=".../listaClientes.jsp">Consultar Clientes</a></ul>
-                        <ul>Alterar Cliente</ul>
-                        <ul>Excluir Cliente</ul>
                     </li>
                     <li>Produtos
                         <ul><a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
                         <ul><a href="ProdutosServlet.jsp">Consultar Produtos</a></ul>
-                        <ul>Alterar Produto</ul>
-                        <ul>Excluir Produto</ul>
                     </li>
                     <li>Funcionários
                         <ul><a href="cadastrarFuncionario.jsp">Cadastrar Funcionário</a></ul>
                         <ul><a href="listaFuncionarios.jsp">Consultar Funcionários</ul></a>
-                        <ul>Alterar Funcionário</ul>
-                        <ul>Excluir Funcionário</ul>
                     </li>
                     <li>Filiais
                         <ul><a href="Filiais/CadastrarFilial.jsp">Cadastrar Filial</a></ul>
                         <ul><a href="listaFiliais.jsp">Consultar Filiais</a></ul>
-                        <ul>Alterar Filial</ul>
-                        <ul>Excluir Filial</ul>
+
                     </li>
                 </ul>
             </div>
@@ -114,7 +107,31 @@
         var valorTotal = 0;
 
         $(document).ready(function () {
+
             $('.js-example-basic-single').select2();
+
+            var id = findGetParameter('id');
+            var nome = findGetParameter('nome');
+
+            $('.filial_id').val(id);
+            $('.filial_name').val(nome);
+
+        });
+        function findGetParameter(parameterName) {
+            var result = null,
+                    tmp = [];
+            var items = location.search.substr(1).split("&");
+            for (var index = 0; index < items.length; index++) {
+                tmp = items[index].split("=");
+                if (tmp[0] === parameterName)
+                    result = decodeURIComponent(tmp[1]);
+            }
+            return result;
+        }
+        $('a').click(function () {
+            var url = $(this).attr('href');
+            var param = location.search;
+            $(this).attr('href', url + param);
         });
 
         $('#cliente').change(function () {
@@ -122,27 +139,30 @@
             var dados = {'id': cliente};
 
             $.ajax({
-                url: 'SERVLET',
-                method: 'POST',
+                url: 'ClienteVendaServlet?cpf=' + cliente,
+                method: 'GET',
                 data: dados,
                 dataType: 'json'
             }).done(function (resposta) {
+                alert('entrou no 1')
+
                 console.log(resposta);
             });
+
+            $.ajax('ClienteVendaServlet?cpf=' + cliente).done(function () {
+//Sucesso
+                alert('entrou no 2')
+                // location.reload();
+            })
+                    .fail(function () {
+                        alert("error");
+                    });
+
             console.log(dados);
         });
         $('#produto').change(function () {
             var produto = $('#produto').val();
             var dados = {'id': produto};
-
-//            $.ajax("ProdutoVendaServlet?descricao="+produto).done(function () {
-////Sucesso
-//                location.reload();
-//            })
-//                    .fail(function () {
-//                        alert("error");
-//                    });
-//            console.log(dados);
         });
 
         $('.btnAdicionar').click(function () {
