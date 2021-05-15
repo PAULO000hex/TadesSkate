@@ -1,4 +1,7 @@
   <div class="menu">
+      <input type="hidden" name="filial_id" id="filial_id" value="">
+      <input type="hidden" name="filial_name" id="filial_name" value="">
+
             <div class="message">
                 <h3>Olá Vitor - Tecnologia</h3>
             </div>

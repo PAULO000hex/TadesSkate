@@ -74,15 +74,16 @@
                 </div>
                 <div class="produto">
                     <h3>Descrição</h3>
-                    <select class="js-example-basic-single" name="produto">
+                    <select class="js-example-basic-single" id="produto" name="produto">
                         <option></option>
                         <option value="produto_id">Código do produto | Descrição</option>
                         <option value="produto_id">Código do produto | Descrição</option>
                         <option value="produto_id">Código do produto | Descrição</option>
                         <option value="produto_id">Código do produto | Descrição</option>
                     </select>
-                    <input type="number" placeholder="Insira a quantidade">
+                    <input type="number" id="qtd" placeholder="Insira a quantidade">
                 </div>
+                <hr>
             </div>
             <div class="btn">
                 <input type="button" class="btnAdicionar" value="Adicionar Produto">
@@ -91,7 +92,7 @@
         <div class="half-last">
             <div class="wrapper">
                 <div class="produtos">
-                    <table class="table table-dark table-striped">                
+                    <table class="table table-dark table-striped" id="tabela">                
                         <th>Produto</th>
                         <th>Quantidade</th>
                         <th>Valor Un</th>
@@ -107,18 +108,40 @@
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
+        
         $('#cliente').change(function () {
             var cliente = $('#cliente').val();
             var dados = {'id': cliente};
+            
+            $.ajax({
+                url:'SERVLET',
+                method:'POST',
+                data:dados,
+                dataType:'json'
+            }).done(function(resposta){
+                console.log(resposta);
+            });
             console.log(dados);
         });
         $('#produto').change(function () {
             var produto = $('#produto').val();
             var dados = {'id': produto};
+            
+            $.ajax({
+                url:'SERVLET',
+                method:'POST',
+                data:dados,
+                dataType:'json'
+            }).done(function(resposta){
+                console.log(resposta);
+            });
             console.log(dados);
         });
         
         $('.btnAdicionar').click(function(){
+            var qtd = $('#qtd').val();
+            var html = '<tr><td>P1</td><td>'+qtd+'</td><td>2,50</td></tr>';
+            $('#tabela').append(html);
             
         });
     </script>

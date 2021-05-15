@@ -33,10 +33,10 @@ public class FuncionarioDAO {
 return ok;
 }
 
-    public static boolean cadastrar(Funcionario funcionario) {
+    public static boolean cadastrar(Funcionario funcionario, int filial_id) {
         Connection conexao;
         PreparedStatement ps;
-        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, fk_filial_id) values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             conexao = Conexao.getConexao();
@@ -53,6 +53,7 @@ return ok;
             ps.setString(10, funcionario.getCidade());
             ps.setString(11, funcionario.getBairro());
             ps.setString(12, funcionario.getEstado());
+            ps.setInt(13, filial_id);
 
             ps.executeUpdate();
 

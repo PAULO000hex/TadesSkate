@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     width: 100%;
+    background-color: #232323;
 }
 
 .menu {
@@ -30,6 +31,7 @@ a{
 }
 
 .half {
+    background-color: #fff;
     position: absolute;
     width: 37%;
     margin-left: 26%;

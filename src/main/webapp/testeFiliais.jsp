@@ -28,15 +28,15 @@
 
 
             <div class="card">
-                <select>
+                <select id="filiais">
                     <c:forEach items="${testeFiliais}" var = "filial" >
                         <option id="${filial.filial_id}">${filial.cidade}</option>
                     </c:forEach>
                 </select>
             </div>
             <div class="btn">
-                <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar">
-<!--                <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
+                <input type="button" id="acessar" value="Acessar">
+<!--            <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
                 <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
                 <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
                 <a href="ProdutosServlet"><input type="button" value="Acessar"></a>
@@ -49,4 +49,9 @@
             </div>
         </div>
     </body>
+    <script>
+        $('#acessar').click(function(){
+            window.location.href = 'Funcionarios/cadastrarFuncionario.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
+        })
+    </script>
 </html>

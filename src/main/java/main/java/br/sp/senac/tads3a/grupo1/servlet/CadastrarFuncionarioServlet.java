@@ -28,19 +28,29 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
-        
+                System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println("**********");
+        System.out.println(request.getParameter("filial_id"));
+        int filial_id = Integer.parseInt(request.getParameter("filial_id"));
+
+
         Date date = Date.valueOf(nascimento);
-       
-        Funcionario funcionario = new Funcionario(-1,nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado);
-        
-        boolean result = FuncionarioDAO.cadastrar(funcionario);
-        
-        if(result){
-        response.sendRedirect(request.getContextPath()+"/sucesso.jsp");
-        }else{
-        String error = "Ocorreu um erro ao cadastrar o funcionário";
-        request.setAttribute("Error", error);
-        request.getRequestDispatcher("erro/jsp").forward(request, response);
+
+        Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado);
+
+        boolean result = FuncionarioDAO.cadastrar(funcionario, filial_id);
+
+        if (result) {
+            response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
+        } else {
+            String error = "Ocorreu um erro ao cadastrar o funcionário";
+            request.setAttribute("Error", error);
+            request.getRequestDispatcher("erro/jsp").forward(request, response);
         }
 
     }
