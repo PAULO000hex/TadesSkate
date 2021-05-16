@@ -35,12 +35,14 @@ return ok;
 
     public static boolean cadastrar(Funcionario funcionario, int filial_id) {
         Connection conexao;
-        PreparedStatement ps;
-        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado) values (?,?,?,?,?,?,?,?,?,?,?,?)";
+        
+        String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, "
+                + "departamento, salario, endereco, cidade, bairro, estado, fk_filial_id)"
+                + " values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             conexao = Conexao.getConexao();
-            ps = conexao.prepareStatement(query);
+           PreparedStatement ps = conexao.prepareStatement(query);
             ps.setString(1, funcionario.getNome());
             ps.setString(2, funcionario.getSobrenome());
             ps.setString(3, funcionario.getCPF());
@@ -54,7 +56,6 @@ return ok;
             ps.setString(11, funcionario.getBairro());
             ps.setString(12, funcionario.getEstado());
             ps.setInt(13, filial_id);
-
             ps.executeUpdate();
 
         } catch (SQLException e) {
