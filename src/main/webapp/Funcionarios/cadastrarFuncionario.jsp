@@ -77,7 +77,7 @@
                 <div class="half">
                     <div class="space"><h1>Editar</h1></div>
                     <div class="field">
-                        <input class="txt" type="text" name="id" value="${funcionario.funcionario_id}">
+                        <input class="txt" type="text" name="id" hidden="true" value="${funcionario.funcionario_id}">
                     </div>
                     <div class="field">
                         <h2>Nome</h2>

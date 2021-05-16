@@ -48,7 +48,6 @@ public class AlterarFuncionarioServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         int id = Integer.parseInt(request.getParameter("id"));
-        int filial_id = Integer.parseInt(request.getParameter("filial_id"));
 
         
         Date date = Date.valueOf(nascimento);
