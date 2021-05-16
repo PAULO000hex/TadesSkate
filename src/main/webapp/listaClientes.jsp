@@ -14,7 +14,7 @@
         <input type="hidden" name="filial_id" class="filial_id" value="">
         <input type="hidden" name="filial_name" class="filial_name" value="">
         <h1></h1>
-        <table>
+  <table class="table table-dark table-striped">
             <th>NOME</th>
             <th>SOBRENOME</th>
             <th>CPF</th>
@@ -43,7 +43,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="testeFiliais.jsp">voltar</a>
+        <a href=".../IndexServlet">voltar</a>
 
     </body>
 </html>
