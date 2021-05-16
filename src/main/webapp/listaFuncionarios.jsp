@@ -46,7 +46,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="testeFiliais.jsp">voltar</a>
+        <a href="IndexServlet">voltar</a>
 
     </body>
 </html>

@@ -11,6 +11,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Ocorreu um erro</h1> <a href="testeFiliais.jsp">voltar</a>
+        <h1>Ocorreu um erro</h1> <a href="IndexServlet">voltar</a>
     </body>
 </html>
