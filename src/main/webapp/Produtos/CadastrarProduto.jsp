@@ -14,24 +14,16 @@
         <title>Cadastro de Produto</title>
     </head>
     <body>  
-    <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
-       
-        <form action = "CadastrarProdutoServlet" method="POST" >
-            <div class="half">
-                <div class="space"><h1>Cadastro De Produtos</h1></div>
-                <div class="field">
-                    <h2>Descrição</h2>
-                    <input class="txt" type="text" name="descricao">
-                </div>
-            </div>
+        <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
+
+            <form action = "CadastrarProdutoServlet" method="POST" >
                 <div class="half">
+                    <div class="space"><h1>Cadastro De Produtos</h1></div>
                     <input type="hidden" name="filial_id" class="filial_id" value="">
                     <input type="hidden" name="filial_name" class="filial_name" value="">
-                    <div class="space"><h1>Cadastro De Produtos</h1></div>
-                    
                     <div class="field">
                         <h2>Descrição</h2>
-                        <input class="txt" type="text" name="descricao">
+                        <input class="txt" type="text" id="tst" name="descricao">
                     </div>
                     <div class="field">
                         <h2>Categoria</h2>
@@ -117,6 +109,11 @@
 
     </body>
     <Script>
+        $(document).submit(function () {
+            alert($('#tst').val());
+
+        })
+
         $(document).ready(function () {
             var id = findGetParameter('id');
             var nome = findGetParameter('nome');
