@@ -46,7 +46,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="IndexServlet">voltar</a>
+        <a href="/TadesSkate/">voltar</a>
 
     </body>
 </html>
