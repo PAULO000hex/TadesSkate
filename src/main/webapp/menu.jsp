@@ -13,16 +13,16 @@
             </li>
             <li>Clientes
                 <ul><a href="/TadesSkate/Clientes/CadastrarClientes.jsp"> Cadastrar Cliente </a></ul>
-                <ul><a href="Clientes/ClienteServlet"> Consultar e Alterar Clientes </a> </ul>
+                <ul><a href="/TadesSkate/ClienteServlet"> Consultar e Alterar Clientes </a> </ul>
             <li>Produtos
-                <ul><a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
-                <ul><a href="ProdutosServlet"> Consultar e Alterar Produtos</a></ul>
+                <ul><a href="/TadesSkate/Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
+                <ul><a href="/TadesSkate/ProdutosServlet"> Consultar e Alterar Produtos</a></ul>
             <li>Funcionarios
-                <ul><a href="Funcionarios/cadastrarFuncionario.jsp">Cadastrar Funcionario</a></ul>
-                <ul><a href="FuncionariosServlet">Consultar e Alterar Funcionario </a></ul>
+                <ul><a href="/TadesSkate/Funcionarios/cadastrarFuncionario.jsp">Cadastrar Funcionario</a></ul>
+                <ul><a href="/TadesSkate/FuncionariosServlet">Consultar e Alterar Funcionario </a></ul>
             <li>Filiais
-                <ul><a href = "Filiais/CadastrarFilial.jsp">Cadastrar Filial</a> </ul>
-                <ul><a href= "FilialServlet"> Consultar Filiais</a> </ul>
+                <ul><a href = "/TadesSkate/Filiais/CadastrarFilial.jsp">Cadastrar Filial</a> </ul>
+                <ul><a href= "/TadesSkate/FilialServlet"> Consultar Filiais</a> </ul>
         </ul>
     </div>
 </div>

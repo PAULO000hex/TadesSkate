@@ -24,7 +24,6 @@
                     <input class="txt" type="text" name="descricao">
                 </div>
             </div>
-            <form action = "CadastrarProdutoServlet" method="POST" >
                 <div class="half">
                     <input type="hidden" name="filial_id" class="filial_id" value="">
                     <input type="hidden" name="filial_name" class="filial_name" value="">
