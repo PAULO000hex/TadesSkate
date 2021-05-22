@@ -13,6 +13,6 @@
     </head>
     <body>
           <c:import url="/menu.jsp"/>
-        <h1>FOI</h1> <a href="IndexServlet">voltar</a>
+        <h1>FOI</h1> <a href="/TadesSkate/">voltar</a>
     </body>
 </html>
