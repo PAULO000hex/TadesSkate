@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     # checkout the repo
@@ -31,6 +31,6 @@ jobs:
       with:
         app-name: TadesSkate
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7AE13B0729BC414DB3BA3D48FF899789 }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4C4DA2D08F9D4F5BB3C7D2110C4B75EE }}
         package: ${{ github.workspace }}/target/*.war
 
