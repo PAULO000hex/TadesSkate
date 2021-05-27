@@ -16,30 +16,68 @@
                 text-align: center;
                 width:100%;
             }
+            
+            .bg-color{
+                background-color: #F7F8F9;
+                border-radius: 30px;
+            }
         </style>
     </head>
     <body>
         <div class="container">
-            <div class="image">
-                <<img src="img/Tades.png" alt="alt"/>
+            <div class="row">
+                <div class="col text-center">
+                    <div class="img-fluid" style="height: 470px; margin-top: -50px;">
+                        <img src="img/Tades.png" alt="alt"/>
+                    </div>
+                </div>
             </div>
-            <br/>
-            <!--            <a href="Clientes/ClienteServlet">Listar Clientes</a>
+            <div class="row">
+                <div class="col">
+                    <div class="bg-color">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col align-self-center">
+                                    <div class="row justify-content-center mb-3">
+                                        <img src="src/img/logo.png" alt="">
+                                    </div>
+
+                                    <span class="small d-block text-center mb-3" style="font-size: 24px; font-family: Verdana; color: black;">Login</span>
+
+                                    <form action="LoginServlet" method="POST">
+                                        <div class="input-group mt-3">
+                                            <input type="text" class="form-control" name="cpf" placeholder="Digite o seu CPF">
+                                        </div>
+                                       <div class="input-group mt-3">
+                                           <input type="password" class="form-control" name="senha" placeholder="******">
+                                        </div>
+
+                                        <div class="row mt-2 justify-content-center">
+                                            <div class="col-md-6 mb-3">
+                                                <button type="submit" class="btn btn-block mt-2" style="background-color: #232323; font-family: Verdana; font-size: 22px; color: white;">Entrar</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>
+<!--            <a href="Clientes/ClienteServlet">Listar Clientes</a>
                         <a href="Clientes/CadastrarClientes.jsp">cadastrar</a>
                         <a href="Funcionarios/cadastrarFuncionario.jsp">cadastrar funcionario</a>
                         <a href="ProdutoServlet">Listar Produtos</a>
                         <a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a> <br/>
-                        <a href="FuncionarioServlet">Listar Funcionarios</a> <br/>-->
+                        <a href="FuncionarioServlet">Listar Funcionarios</a> <br/>
 
 
-            <div class="card">
-                <select>
-                    <c:forEach items="${testeFiliais}" var = "filial" >
-                        <option id="${filial.filial_id}">${filial.cidade}</option>
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="btn">
+<div class="btn mt-3">
                 <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
                 <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
                 <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
@@ -50,6 +88,12 @@
                 <a href="Clientes/ClienteServlet"><input type="button" value="Acessar"></a>
                 <a href="testes.jsp"><input type="button" value="Acessar"></a>
             </div>
-        </div>
-    </body>
-</html>
+
+
+
+
+
+<welcome-file-list>
+        <welcome-file>/protegido/index.jsp</welcome-file>
+    </welcome-file-list>
+-->

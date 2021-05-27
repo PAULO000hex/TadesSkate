@@ -15,7 +15,6 @@
         <c:if test="${empty funcionario}">   
             <form action="CadastrarFuncionarioServlet" method="POST" >
                 <input type="hidden" name="filial_id" class="filial_id" value="">
-                <input type="hidden" name="filial_name" class="filial_name" value="">
                 <div class="half">
                     <div class="space"><h1>Cadastrar</h1></div>
                     <div class="field">
@@ -67,6 +66,10 @@
                     <div class="field">
                         <h2>Estado</h2>
                         <input class="txt" type="text" id="estado" name="estado">                
+                    </div>
+                    <div class="field">
+                        <h2>Senha</h2>
+                        <input class="txt" type="text" id="estado" name="senha">                
                     </div>
                     <div class="btn"><input type="submit"></div>
                 </div>
@@ -129,6 +132,10 @@
                         <h2>Estado</h2>
                         <input class="txt" type="text" name="estado"  value="${funcionario.estado}">                
                     </div>
+                    <div class="field">
+                        <h2>Senha</h2>
+                        <input class="txt" type="text" id="estado" name="senha" value="${funcionario.senha}">                
+                    </div>
                     <div class="btn"><input type="submit"></div>
                 </div>
             </form>
@@ -163,3 +170,12 @@
 
     </script>
 </html>
+
+<!--     
+
+
+
+
+/Produtos
+
+-->

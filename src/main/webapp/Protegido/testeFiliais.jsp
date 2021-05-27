@@ -24,8 +24,11 @@
     </head>
     <body>
         <div class="container">
+            <p style="color: white">Usuário Logado: 
+                ${sessionScope.usuario.nome} <a href="<c:url value="/LogoutServlet"/>" class="ms-3">Sair</a></p>
+            
             <div class="image">
-                <<img src="img/Tades.png" alt="alt"/>
+                <img src="../img/Tades.png" alt="alt"/>
             </div>
             <br/>
                 <select id="filiais" name="filiais">
@@ -43,6 +46,6 @@
         //window.location.href = 'Venda.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
           window.location.href = 'VendaTesteServlet?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
 //window.location.href = 'Funcionarios/cadastrarFuncionario.jsp?id='+$('#filiais option:selected').attr('id')+'&nome='+$('#filiais option:selected').text();
-        })
+        });
     </script>
 </html>

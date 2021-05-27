@@ -24,8 +24,9 @@ public class Funcionario {
     private String bairro;
     private String cidade;
     private String estado;
+    private String senha;
 
-    public Funcionario(int funcionario_id, String nome, String sobrenome, String CPF, String email, String telefone, Date nascimento, String departamento, float salario, String endereco, String bairro, String cidade, String estado) {
+    public Funcionario(int funcionario_id, String nome, String sobrenome, String CPF, String email, String telefone, Date nascimento, String departamento, float salario, String endereco, String bairro, String cidade, String estado, String senha) {
         this.funcionario_id = funcionario_id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -39,7 +40,7 @@ public class Funcionario {
         this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
-        
+        this.senha = senha;
     }
     
     @Override
