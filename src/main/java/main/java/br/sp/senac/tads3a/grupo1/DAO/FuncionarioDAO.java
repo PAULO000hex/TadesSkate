@@ -37,8 +37,8 @@ return ok;
         Connection conexao;
         
         String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, "
-                + "departamento, salario, endereco, cidade, bairro, estado, fk_filial_id)"
-                + " values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+                + "departamento, salario, endereco, cidade, bairro, estado, senha, fk_filial_id)"
+                + " values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
             conexao = Conexao.getConexao();
@@ -55,7 +55,8 @@ return ok;
             ps.setString(10, funcionario.getCidade());
             ps.setString(11, funcionario.getBairro());
             ps.setString(12, funcionario.getEstado());
-            ps.setInt(13, filial_id);
+            ps.setString(13, funcionario.getSenha());
+            ps.setInt(14, filial_id);
             ps.executeUpdate();
 
         } catch (SQLException e) {
@@ -88,9 +89,9 @@ return ok;
                 String cidade = rs.getString("cidade");
                 String bairro = rs.getString("bairro");
                 String estado = rs.getString("estado");
-                
+                String senha = rs.getString("senha");
 
-                Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado);
+                Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
                 
                 funcionarios.add(funcionario);
             }
@@ -122,7 +123,8 @@ return ok;
         String cidade = rs.getString("cidade");
         String bairro = rs.getString("bairro");
         String estado = rs.getString("estado");
-        funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado);
+        String senha = rs.getString("senha");
+        funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
 }
     }catch (SQLException ex){
         Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);   
@@ -132,7 +134,7 @@ return funcionario;
 
 public static boolean atualizar(Funcionario funcionario){
     boolean ok = true;
-    String query = "update funcionario set nome=?,sobrenome=?,cpf=?,email=?,telefone=?,nascimento=?,departamento=?,salario=?,endereco=?,cidade=?,bairro=?,estado=? where funcionario_id=?";
+    String query = "update funcionario set nome=?,sobrenome=?,cpf=?,email=?,telefone=?,nascimento=?,departamento=?,salario=?,endereco=?,cidade=?,bairro=?,estado=?, senha=? where funcionario_id=?";
     Connection con;
     try {
     con = Conexao.getConexao();
@@ -149,7 +151,8 @@ public static boolean atualizar(Funcionario funcionario){
     ps.setString(10, funcionario.getCidade());
     ps.setString(11, funcionario.getBairro());
     ps.setString(12, funcionario.getEstado());
-    ps.setInt(13, funcionario.getFuncionario_id());
+    ps.setString(13, funcionario.getSenha());
+    ps.setInt(14, funcionario.getFuncionario_id());
     ps.executeUpdate();
    }catch (SQLException ex){
     Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -157,4 +160,35 @@ public static boolean atualizar(Funcionario funcionario){
 }
 return ok;
 }
+
+    public static Funcionario getFuncionarioLogin(String cpf, String senha){
+        Funcionario funcionario = null;
+        String query = "select * from funcionario where cpf=? and senha=?";
+        Connection con;
+        try{
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, cpf);
+            ps.setString(2, senha);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next()){
+                int id = rs.getInt("funcionario_id");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+                String email = rs.getString("email");
+                String telefone = rs.getString("telefone");
+                Date nascimento = rs.getDate("nascimento");
+                String departamento = rs.getString("departamento");
+                float salario = rs.getFloat("salario");
+                String endereco = rs.getString("endereco");
+                String cidade = rs.getString("cidade");
+                String bairro = rs.getString("bairro");
+                String estado = rs.getString("estado");
+                funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
+            }
+        }catch (SQLException ex){
+            Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);   
+        }
+        return funcionario;
+    }
 }

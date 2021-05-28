@@ -47,12 +47,12 @@ public class AlterarFuncionarioServlet extends HttpServlet {
         String bairro = request.getParameter("bairro");
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
+        String senha = request.getParameter("senha");
         int id = Integer.parseInt(request.getParameter("id"));
-
         
         Date date = Date.valueOf(nascimento);
 
-        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado);
+        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha);
         
         boolean ok = FuncionarioDAO.atualizar(funcionario);
         if (ok) {
