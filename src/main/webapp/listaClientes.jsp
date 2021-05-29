@@ -43,7 +43,7 @@
                 </tr>
             </c:forEach>
         </table>
-        <a href="/TadesSkate/">voltar</a>
+        <a href="/TadesSkate/Protegido/testeFiliais.jsp">voltar</a>
 
     </body>
 </html>

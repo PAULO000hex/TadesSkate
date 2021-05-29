@@ -13,7 +13,7 @@
             </li>
             <li>Clientes
                 <ul><a href="/TadesSkate/Clientes/CadastrarClientes.jsp"> Cadastrar Cliente </a></ul>
-                <ul><a href="/TadesSkate/ClienteServlet"> Consultar e Alterar Clientes </a> </ul>
+                <ul><a href="/TadesSkate/Clientes/ClienteServlet"> Consultar e Alterar Clientes </a> </ul>
             <li>Produtos
                 <ul><a href="/TadesSkate/Produtos/CadastrarProduto.jsp">Cadastrar Produto</a></ul>
                 <ul><a href="/TadesSkate/ProdutosServlet"> Consultar e Alterar Produtos</a></ul>

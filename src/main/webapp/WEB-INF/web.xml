@@ -102,15 +102,15 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
-        <url-pattern>/ClienteServlet</url-pattern>
+        <url-pattern>/Clientes/ClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarClienteServlet</servlet-name>
-        <url-pattern>/CadastrarClienteServlet</url-pattern>
+        <url-pattern>/Clientes/CadastrarClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirClienteServlet</servlet-name>
-        <url-pattern>/ExcluirClienteServlet</url-pattern>
+        <url-pattern>/Clientes/ExcluirClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FuncionarioServlet</servlet-name>
