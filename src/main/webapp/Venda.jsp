@@ -13,30 +13,22 @@
         <link href="css/style.css" rel="stylesheet">
         <title>Venda</title>
         <style>
-            .wrapper{
-                height:80%;
-            }
-            .produto_half{
-            width:50%;
-            
-            select{
-                width:100%;
-            }
-            js-example-basic-single{
-                width: 100%;
-            }
+
 
         </style>
     </head>
 
     <body>
-    <c:import url="/menu.jsp"/>      
+        <c:import url="/menu.jsp"/>      
 
-        <form action="VendaServlet" method="POST">
+        <form action="VenderServlet" method="POST">
+            <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
+            <input type="hidden" name="funcionario_id" class="funcionario_id" value="${sessionScope.usuario.funcionario_id}">
+            
             <div class="half">
                 <div class="wrapper">
                     <div class="cliente">
-                        <h3>CPF</h3>
+                        <h3>Cliente</h3>
                         <select class="js-example-basic-single" id="cliente" name="fk_cliente_id" required>
                             <option></option>
                             <c:forEach items="${listaClientes}" var = "cliente" >                   
@@ -46,130 +38,123 @@
                     </div>
                     <div class="produto">
                         <h3>Descrição</h3>
-                    <div class="produto_half">
-                        <select class="js-example-basic-single" id="produto" name="produto" required>
-                            <option></option>
-                            <c:forEach items="${listaProdutos}" var = "produto" >
-                                <option value="${produto.produto_id}" class="${produto.descricao}" id="${produto.valor}">${produto.produto_id} | ${produto.descricao}</option>
-                            </c:forEach>
-                        </select>
+                        <div class="produto_half">
+                            <select class="js-example-basic-single" id="produto" name="produto" required>
+                                <option></option>
+                                <c:forEach items="${listaProdutos}" var = "produto" >
+                                    <option value="${produto.produto_id}" class="${produto.descricao}" id="${produto.valor}">${produto.produto_id} | ${produto.descricao}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="produto_half">
+                            <input type="number" id="qtd" placeholder="Insira a quantidade" required>
+                        </div>
                     </div>
-                    <div class="produto_half">
-                        <input type="number" id="qtd" placeholder="Insira a quantidade" required>
+                    <hr>
+                </div>
+                <div class="btn">
+                    <input type="button" class="btnAdicionar" value="Adicionar Produto">
+                </div>
+            </div>               
+
+            <div class="half-last">
+                <div class="wrapper">
+                    <div class="produtos">
+                        <table class="table table-dark table-striped" id="tabela">                
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Valor Un</th>
+                        </table>
                     </div>
+                    <input type="text" name="valor_total" id="valor_total">
                 </div>
-                <hr>
-                <h3>Funcionário</h3>
-                <select class="js-example-basic-single" id="funcionario" name="fk_funcionario_id" required>
-                    <option></option>
-                    <c:forEach items="${listaFuncionarios}" var = "funcionario" >                   
-                        <option value="${funcionario.funcionario_id}">${funcionario.CPF} | ${funcionario.nome} ${funcionario.sobrenome} </option>                    
-                    </c:forEach>
-                </select>
-            </div>
-            <div class="btn">
-                <input type="button" class="btnAdicionar" value="Adicionar Produto">
-            </div>
-        </div>               
-
-        <div class="half-last">
-            <div class="wrapper">
-                <div class="produtos">
-                    <table class="table table-dark table-striped" id="tabela">                
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Valor Un</th>
-                    </table>
+                <div class="btn">
+                    <input type="submit" class="btnFinalizar" value="Finalizar Venda">
                 </div>
-                <input type="text" name="valor_total" id="valor_total">
             </div>
-            <div class="btn">
-                <input type="submit" class="btnFinalizar" value="Finalizar Venda">
-            </div>
-        </div>
-    </form>
+        </form>
 
-</body>
-<script>
-    var valorTotal = 0;
+    </body>
+    <script>
+        var valorTotal = 0;
 
-    $(document).ready(function () {
-        $('.js-example-basic-single').select2();
-    });
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2();
+        });
 
-//    $('#cliente').change(function () {    Desnecessário
-//        var cliente = $('#cliente').val();
-//    });
-    
-    var prod = 0;
-    
-    $('.btnAdicionar').click(function (e) {
-        prod++;
-        var produto = $('#produto option:selected').val();
-        var funcionario = $('#funcionario option:selected').val();
-        var cliente = $('#cliente option:selected').val();
+    //    $('#cliente').change(function () {    Desnecessário
+    //        var cliente = $('#cliente').val();
+    //    });
 
-        var qtd = $('#qtd').val();
+        var prod = 0;
 
-        var html = '<tr><td value="'+$('#produto option:selected').attr('class')+'">'+$('#produto option:selected').attr('class') + '</td>';
-            html+= '<td name="qtd" value="'+qtd+'">'+qtd + '</td>';
-            html+= '<td name="valor_un" value="'+$('#produto option:selected').attr('id')+'">'+$('#produto option:selected').attr('id') + '</td></tr>';
-        
-        if (qtd != "" || produto != "" || funcionario != "") {
-            $('#tabela').append(html);
-            $('.half').append('<input type="hidden" id="produto_id' + prod + '" name="produto_id" value="' + $('#produto option:selected').val() + '">');
-            $('.half').append('<input type="hidden" id="descricao' + prod + '" name="descricao" value="' + $('#produto option:selected').attr('class') + '">');
-            $('.half').append('<input type="hidden" id="qtd' + prod + '" name="qtd" value="' + qtd + '">');
-            $('.half').append('<input type="hidden" id="valor_un' + prod + '" name="valor_un" value="' + $('#produto option:selected').attr('id') + '">');
+        $('.btnAdicionar').click(function (e) {
+            prod++;
+            var produto = $('#produto option:selected').val();
+            var funcionario = $('#funcionario option:selected').val();
+            var cliente = $('#cliente option:selected').val();
 
-            valorTotal += parseFloat($('#produto option:selected').attr('id') * qtd);
-            $('#valor_total').attr('value', valorTotal);
+            var qtd = $('#qtd').val();
 
-        } else {
-            alert('Preencha todos os campos !');
-        }
-    });
+            var html = '<tr><td value="' + $('#produto option:selected').attr('class') + '">' + $('#produto option:selected').attr('class') + '</td>';
+            html += '<td name="qtd" value="' + qtd + '">' + qtd + '</td>';
+            html += '<td name="valor_un" value="' + $('#produto option:selected').attr('id') + '">' + $('#produto option:selected').attr('id') + '</td></tr>';
 
-</script>
+            if (qtd != "" || produto != "" || funcionario != "") {
+                $('#tabela').append(html);
+                $('.half').append('<input type="hidden" id="produto_id' + prod + '" name="produto_id" value="' + $('#produto option:selected').val() + '">');
+                $('.half').append('<input type="hidden" id="descricao' + prod + '" name="descricao" value="' + $('#produto option:selected').attr('class') + '">');
+                $('.half').append('<input type="hidden" id="qtd' + prod + '" name="qtd" value="' + qtd + '">');
+                $('.half').append('<input type="hidden" id="valor_un' + prod + '" name="valor_un" value="' + $('#produto option:selected').attr('id') + '">');
+
+                valorTotal += parseFloat($('#produto option:selected').attr('id') * qtd);
+                $('#valor_total').attr('value', valorTotal);
+
+            } else {
+                alert('Preencha todos os campos !');
+            }
+        });
+
+    </script>
 </html>
 
 <script>
-            var produtosCarrinho = {};
-            var clienteSelecionado;
-            
-            function addProduto(produto) {
-                $("#carrinho tbody").empty();
-                var produtoCarrinho = produtosCarrinho[produto.id];
-                if (produtoCarrinho == null) {
-                    produto.qte = 1;
-                    produtosCarrinho[produto.id] = produto;
-                } else {
-                    produtosCarrinho[produto.id].qte++;
-                }
-                
-                var total = 0;
-                for(index in produtosCarrinho) {
-                    var produto = produtosCarrinho[index];
-                    var html = "<tr><td>" + produto.nome + "</td><td>"+produto.preco+"</td><td>"+produto.qte+"</td></tr>";
-                    total += produto.preco * produto.qte;
-                    $("#carrinho tbody").append(html);
-                    $("#totalVenda").html(total);
-                }
-            }
-            
-            function finalizarVenda() {
-                var dadosVenda = {produtos:[], cliente: clienteSelecionado};
-                for(index in produtosCarrinho) {
-                   var produto = produtosCarrinho[index];
-                   dadosVenda.produtos.push(produto);
-                }
-                
-                console.log("dadosVenda  ", dadosVenda);
-                $.post("RealizarVendaServlet", "dados="+JSON.stringify(dadosVenda), function sucesso(response){
-                    alert("Venda Realizada com sucesso!");
-                    $("#carrinho tbody").empty();
-                    $("#totalVenda").html("0,00");
-                });
-                
-            }
-        </script>
+    var produtosCarrinho = {};
+    var clienteSelecionado;
+
+    function addProduto(produto) {
+        $("#carrinho tbody").empty();
+        var produtoCarrinho = produtosCarrinho[produto.id];
+        if (produtoCarrinho == null) {
+            produto.qte = 1;
+            produtosCarrinho[produto.id] = produto;
+        } else {
+            produtosCarrinho[produto.id].qte++;
+        }
+
+        var total = 0;
+        for (index in produtosCarrinho) {
+            var produto = produtosCarrinho[index];
+            var html = "<tr><td>" + produto.nome + "</td><td>" + produto.preco + "</td><td>" + produto.qte + "</td></tr>";
+            total += produto.preco * produto.qte;
+            $("#carrinho tbody").append(html);
+            $("#totalVenda").html(total);
+        }
+    }
+
+    function finalizarVenda() {
+        var dadosVenda = {produtos: [], cliente: clienteSelecionado};
+        for (index in produtosCarrinho) {
+            var produto = produtosCarrinho[index];
+            dadosVenda.produtos.push(produto);
+        }
+
+        console.log("dadosVenda  ", dadosVenda);
+        $.post("RealizarVendaServlet", "dados=" + JSON.stringify(dadosVenda), function sucesso(response) {
+            alert("Venda Realizada com sucesso!");
+            $("#carrinho tbody").empty();
+            $("#totalVenda").html("0,00");
+        });
+
+    }
+</script>

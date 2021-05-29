@@ -1,65 +1,73 @@
 package main.java.br.sp.senac.tads3a.grupo1.DAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import main.java.br.sp.senac.tads3a.grupo1.model.Cliente;
 import main.java.br.sp.senac.tads3a.grupo1.model.Pedido;
 import main.java.br.sp.senac.tads3a.grupo1.model.Venda;
 import main.java.br.sp.senac.tads3a.grupo1.utils.Conexao;
 
 public class VendaDAO {
+    public static boolean Vender(Venda venda) {
 
-    public static boolean Vender(Venda venda, int filial_id) {
         boolean ok = false;
-        Connection con = null;
+
+        Connection con;
         PreparedStatement ps = null;
 
         try {
-            String query = "INSERT INTO venda(valor_total,data,fk_funcionario_id,fk_cliente_id,fk_filial_id)VALUES(?,CURRENT_TIMESTAMP,?,?,?)";
+            String query = "INSERT INTO venda (valor_total,data,fk_funcionario_id,fk_cliente_id,fk_filial_id) "
+                    + " VALUES "
+                    + " (?, CURRENT_TIMESTAMP, ?,?,?) ";
+
             con = Conexao.getConexao();
-            ps = con.prepareStatement(query);
+            ps = con.prepareStatement(query, PreparedStatement.RETURN_GENERATED_KEYS);
+
             ps.setDouble(1, venda.getValor_total());
             ps.setInt(2, venda.getFk_funcionario_id());
             ps.setInt(3, venda.getFk_cliente_id());
-            ps.setInt(4, filial_id);
+            ps.setInt(4, venda.getFk_filial_id());
 
             int linhasAfetadas = ps.executeUpdate();
 
             if (linhasAfetadas > 0) {
-                ok = true;
-
                 ResultSet chavesGeradas = ps.getGeneratedKeys();
+
                 if (chavesGeradas.next()) {
+
                     venda.setVenda_id(chavesGeradas.getInt(1));
 
-                    for (Pedido pedido : venda.getPedido()) {
+                    for (Pedido item : venda.getPedido()) {
+                        int i = 0;
+                        System.out.println("/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*");
+                        System.out.println(i);
+                        System.out.println("/*/*/*/*/*/*/*/*/*/*/*/*/*/*//*/*/*/*/*");
 
-                        PreparedStatement psPedido = con.prepareStatement("INSERT INTO EU.PEDIDO (FK_PRODUTO_ID, FK_VENDA_ID, FK_FILIAL_ID, QTD, VALOR_UNITARIO) VALUES (?, ?, ?, ?, ?)");
+                        String pedidoQuery = "INSERT INTO pedido (fk_produto_id, fk_venda_id, fk_filial_id,qtd,valor_unitario) "
+                                + " VALUES "
+                                + " (?,?,?,?,?)";
 
-                        psPedido.setInt(1, pedido.getProduto_id());
+                        PreparedStatement psPedido = con.prepareStatement(pedidoQuery);
+
+                        psPedido.setInt(1, item.getProduto_id());
                         psPedido.setInt(2, venda.getVenda_id());
-                        psPedido.setInt(3, filial_id);
-                        psPedido.setInt(4, pedido.getQtd());
-                        psPedido.setDouble(5, pedido.getValor());
+                        psPedido.setInt(3, venda.getFk_filial_id());
+                        psPedido.setInt(4, item.getQtd());
+                        psPedido.setDouble(5, item.getValor());
 
-                        int itensAfetados = psPedido.executeUpdate();
-                        if (itensAfetados < 0) {
-                            throw new SQLException("Falha ao registrar a venda !");
-                        }
+                        psPedido.executeUpdate();
                     }
-                } else {
-                    throw new SQLException("Falha ao obter o ID da venda!.");
+                    ok = true;
                 }
+            } else {
+                ok = false;
+                throw new SQLException("Falha ao registrar a venda !");
             }
-        } catch (Exception e) {
-            System.out.println("catch direto "+e);
+        } catch (SQLException e) {
+            System.out.println(e);
         } finally {
             if (ps != null) {
                 try {

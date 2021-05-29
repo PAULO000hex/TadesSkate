@@ -15,6 +15,7 @@
         <c:if test="${empty filial}">                                                                                                                                                                                                                                                                                  
 
             <form action = "CadastrarFilialServlet" method="POST" >
+                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Cadastro De Filiais</h1></div>
                     <div class="field">
@@ -51,6 +52,7 @@
         </c:if>
         <c:if test="${not empty filial}">
             <form action = "AlterarFilialServlet" method="POST" >
+                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Alteração de Filiais</h1></div>
                     <div class="field">
