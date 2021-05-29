@@ -94,44 +94,16 @@
     var valorTotal = 0;
 
     $(document).ready(function () {
-
-
         $('.js-example-basic-single').select2();
-
-        var id = findGetParameter('id');
-        var nome = findGetParameter('nome');
-
-        $('.filial_id').val(id);
-        $('.filial_name').val(nome);
-
-    });
-    function findGetParameter(parameterName) {
-        var result = null,
-                tmp = [];
-        var items = location.search.substr(1).split("&");
-        for (var index = 0; index < items.length; index++) {
-            tmp = items[index].split("=");
-            if (tmp[0] === parameterName)
-                result = decodeURIComponent(tmp[1]);
-        }
-        return result;
-    }
-    $('a').click(function () {
-        var url = $(this).attr('href');
-        var param = location.search;
-        $(this).attr('href', url + param);
     });
 
-    $('#cliente').change(function () {
-        var cliente = $('#cliente').val();
-
-    });
-
-
-
+//    $('#cliente').change(function () {    Desnecessário
+//        var cliente = $('#cliente').val();
+//    });
+    
     var prod = 0;
+    
     $('.btnAdicionar').click(function (e) {
-
         prod++;
         var produto = $('#produto option:selected').val();
         var funcionario = $('#funcionario option:selected').val();
@@ -139,13 +111,16 @@
 
         var qtd = $('#qtd').val();
 
-        var html = '<tr><td value="' + $('#produto option:selected').attr('class') + '">' + $('#produto option:selected').attr('class') + '</td><td name="qtd1" value="' + qtd + '">' + qtd + '</td><td name="valor_un1" value="' + $('#produto option:selected').attr('id') + '">' + $('#produto option:selected').attr('id') + '</td></tr>';
+        var html = '<tr><td value="'+$('#produto option:selected').attr('class')+'">'+$('#produto option:selected').attr('class') + '</td>';
+            html+= '<td name="qtd" value="'+qtd+'">'+qtd + '</td>';
+            html+= '<td name="valor_un" value="'+$('#produto option:selected').attr('id')+'">'+$('#produto option:selected').attr('id') + '</td></tr>';
+        
         if (qtd != "" || produto != "" || funcionario != "") {
             $('#tabela').append(html);
-            $('.half').append('<input type="hidden" id="produto_id"' + prod + ' name="produto_id" value="' + $('#produto option:selected').val() + '">');
-            $('.half').append('<input type="hidden" id="descricao"' + prod + ' name="descricao" value="' + $('#produto option:selected').attr('class') + '">');
-            $('.half').append('<input type="hidden" id="qtd"' + prod + ' name="qtd" value="' + qtd + '">');
-            $('.half').append('<input type="hidden" id="valor_un"' + prod + ' name="valor_un" value="' + $('#produto option:selected').attr('id') + '">');
+            $('.half').append('<input type="hidden" id="produto_id' + prod + '" name="produto_id" value="' + $('#produto option:selected').val() + '">');
+            $('.half').append('<input type="hidden" id="descricao' + prod + '" name="descricao" value="' + $('#produto option:selected').attr('class') + '">');
+            $('.half').append('<input type="hidden" id="qtd' + prod + '" name="qtd" value="' + qtd + '">');
+            $('.half').append('<input type="hidden" id="valor_un' + prod + '" name="valor_un" value="' + $('#produto option:selected').attr('id') + '">');
 
             valorTotal += parseFloat($('#produto option:selected').attr('id') * qtd);
             $('#valor_total').attr('value', valorTotal);
@@ -157,3 +132,44 @@
 
 </script>
 </html>
+
+<script>
+            var produtosCarrinho = {};
+            var clienteSelecionado;
+            
+            function addProduto(produto) {
+                $("#carrinho tbody").empty();
+                var produtoCarrinho = produtosCarrinho[produto.id];
+                if (produtoCarrinho == null) {
+                    produto.qte = 1;
+                    produtosCarrinho[produto.id] = produto;
+                } else {
+                    produtosCarrinho[produto.id].qte++;
+                }
+                
+                var total = 0;
+                for(index in produtosCarrinho) {
+                    var produto = produtosCarrinho[index];
+                    var html = "<tr><td>" + produto.nome + "</td><td>"+produto.preco+"</td><td>"+produto.qte+"</td></tr>";
+                    total += produto.preco * produto.qte;
+                    $("#carrinho tbody").append(html);
+                    $("#totalVenda").html(total);
+                }
+            }
+            
+            function finalizarVenda() {
+                var dadosVenda = {produtos:[], cliente: clienteSelecionado};
+                for(index in produtosCarrinho) {
+                   var produto = produtosCarrinho[index];
+                   dadosVenda.produtos.push(produto);
+                }
+                
+                console.log("dadosVenda  ", dadosVenda);
+                $.post("RealizarVendaServlet", "dados="+JSON.stringify(dadosVenda), function sucesso(response){
+                    alert("Venda Realizada com sucesso!");
+                    $("#carrinho tbody").empty();
+                    $("#totalVenda").html("0,00");
+                });
+                
+            }
+        </script>

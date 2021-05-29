@@ -40,6 +40,12 @@
                 <input type="button" id="acessar" value="Acessar">
             </div>
         </div>
+                
+                <c:forEach items="${as}" var = "a">
+                    
+                    ${a}
+                  
+                </c:forEach>
     </body>
     <script>
         $('#acessar').click(function(){
