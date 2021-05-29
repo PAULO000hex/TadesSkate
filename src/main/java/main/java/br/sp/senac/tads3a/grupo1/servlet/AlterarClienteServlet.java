@@ -49,10 +49,11 @@ public class AlterarClienteServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         int id = Integer.parseInt(request.getParameter("id"));
+        int fk_filial_id = Integer.parseInt(request.getParameter("fk_filial_id"));
         
         Date date = Date.valueOf(nascimento);
 
-        Cliente cliente = new Cliente(id, nome, sobrenome, cpf, email, telefone, endereco, bairro, cidade, estado,date);
+        Cliente cliente = new Cliente(id, nome, sobrenome, cpf, email, telefone, endereco, bairro, cidade, estado,date,fk_filial_id);
         
         boolean ok = ClienteDAO.atualizarCliente(cliente);
         if (ok) {

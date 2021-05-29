@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import main.java.br.sp.senac.tads3a.grupo1.DAO.ProdutoDAO;
 import main.java.br.sp.senac.tads3a.grupo1.model.Produto;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import main.java.br.sp.senac.tads3a.grupo1.DAO.ClienteDAO;
 import main.java.br.sp.senac.tads3a.grupo1.DAO.FuncionarioDAO;
 import main.java.br.sp.senac.tads3a.grupo1.model.Cliente;
@@ -37,9 +38,16 @@ public class VendaTesteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-          List<Produto> listaProdutos = ProdutoDAO.getProdutos();
-          List<Cliente> listaClientes = ClienteDAO.getClientes();
-          List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
+        
+            HttpSession sessao = request.getSession();
+            Funcionario f = (Funcionario) sessao.getAttribute("usuario");
+           
+          List<Produto> listaProdutos = ProdutoDAO.getProdutos(f.getFk_filial_id());
+          List<Cliente> listaClientes = ClienteDAO.getClientes(f.getFk_filial_id());
+          List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios(f.getFk_filial_id());
+          
+
+
                   
           request.setAttribute("listaFuncionarios", listaFuncionarios);
           request.setAttribute("listaClientes", listaClientes);

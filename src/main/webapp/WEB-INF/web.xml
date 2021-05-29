@@ -93,10 +93,6 @@
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VendaServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ClienteVendaServlet</servlet-name>
-        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.ClienteVendaServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VendaTesteServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VendaTesteServlet</servlet-class>
     </servlet>
@@ -191,10 +187,6 @@
     <servlet-mapping>
         <servlet-name>VendaServlet</servlet-name>
         <url-pattern>/VendaServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ClienteVendaServlet</servlet-name>
-        <url-pattern>/ClienteVendaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>VendaTesteServlet</servlet-name>

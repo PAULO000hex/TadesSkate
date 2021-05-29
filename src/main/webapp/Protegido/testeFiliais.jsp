@@ -25,7 +25,7 @@
     <body>
         <div class="container">
             <p style="color: white">Usuário Logado: 
-                ${sessionScope.usuario.nome} <a href="<c:url value="/LogoutServlet"/>" class="ms-3">Sair</a></p>
+                ${sessionScope.usuario.nome} ${sessionScope.usuario.fk_filial_id}  id = ${sessionScope.usuario.funcionario_id} <a href="<c:url value="/LogoutServlet"/>" class="ms-3">Sair</a></p>
             
             <div class="image">
                 <img src="../img/Tades.png" alt="alt"/>

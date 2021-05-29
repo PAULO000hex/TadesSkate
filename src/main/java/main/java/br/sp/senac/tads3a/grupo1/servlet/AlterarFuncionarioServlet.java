@@ -18,6 +18,7 @@ import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
 /**
  *
  * @author Administrador
+ * ALTERAR O FILIAL ID
  */
 public class AlterarFuncionarioServlet extends HttpServlet {
 
@@ -52,7 +53,7 @@ public class AlterarFuncionarioServlet extends HttpServlet {
         
         Date date = Date.valueOf(nascimento);
 
-        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha);
+        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha,2);
         
         boolean ok = FuncionarioDAO.atualizar(funcionario);
         if (ok) {
