@@ -14,7 +14,7 @@
         <c:import url="/menu.jsp"/>
         <c:if test="${empty funcionario}">   
             <form action="CadastrarFuncionarioServlet" method="POST" >
-                <input type="hidden" name="filial_id" class="filial_id" value="">
+                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Cadastrar</h1></div>
                     <div class="field">
@@ -77,6 +77,7 @@
         </c:if>
         <c:if test="${not empty funcionario}">
             <form action="AlterarFuncionarioServlet" method="POST" >
+                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Editar</h1></div>
                     <div class="field">

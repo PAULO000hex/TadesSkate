@@ -85,12 +85,8 @@
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.ProdutoVendaServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>VendaServlet</servlet-name>
-        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VendaServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>VendaTesteServlet</servlet-name>
-        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VendaTesteServlet</servlet-class>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VendaServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
@@ -177,10 +173,6 @@
         <url-pattern>/ProdutoVendaServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>VendaServlet</servlet-name>
-        <url-pattern>/VendaServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>VendaTesteServlet</servlet-name>
         <url-pattern>/Protegido/VendaTesteServlet</url-pattern>
     </servlet-mapping>
@@ -192,6 +184,10 @@
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/LogoutServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VenderServlet</servlet-name>
+        <url-pattern>/Protegido/VenderServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
@@ -200,6 +196,10 @@
     <servlet>
         <servlet-name>CadastrarFuncionarioServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.CadastrarFuncionarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VenderServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.VenderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarFuncionarioServlet</servlet-name>

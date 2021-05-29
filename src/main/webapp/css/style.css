@@ -83,7 +83,33 @@ a{
     background-color: white;
     color: #232323;
 }
-.inside{
+.produto{
+    width: 98%;
+    margin-bottom:50px;
+}
+
+.produto_half{
+    width:44%;
     float:left;
+    margin-right: 20px;
+}
+
+.wrapper{
+    height:80%;
+}
+select{
     width:100%;
+}
+js-example-basic-single{
+    width: 100%;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #fff;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    line-height: inherit;
 }

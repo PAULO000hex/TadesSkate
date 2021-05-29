@@ -17,6 +17,7 @@
         <c:if test="${empty produto}">                                                                                                                                                                                                                                                                                  
 
             <form action = "CadastrarProdutoServlet" method="POST" >
+             <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Cadastro De Produtos</h1></div>
                     <input type="hidden" name="filial_id" class="filial_id" value="">
@@ -70,6 +71,7 @@
             </div>
 
             <form action = "AlterarProdutoServlet" method="POST" >
+            <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <input type="hidden" name="filial_id" class="filial_id" value="">
                     <input type="hidden" name="filial_name" class="filial_name" value="">

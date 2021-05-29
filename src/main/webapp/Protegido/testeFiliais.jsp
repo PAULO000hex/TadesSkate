@@ -37,7 +37,7 @@
                     </c:forEach>
                 </select>
             <div class="btn">
-                <input type="button" id="acessar" value="Acessar">
+                <a href="VendaTesteServlet"><input type="button" id="acessar" value="Acessar"></a>
             </div>
         </div>
                 

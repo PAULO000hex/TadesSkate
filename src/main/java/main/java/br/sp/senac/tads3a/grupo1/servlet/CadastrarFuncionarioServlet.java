@@ -29,7 +29,7 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         String senha = request.getParameter("senha");
-        int fk_filial_id = Integer.parseInt(request.getParameter("fk_filial_id"));
+        int fk_filial_id = Integer.parseInt(request.getParameter("filial_id"));
 
         Date date = Date.valueOf(nascimento);
 
