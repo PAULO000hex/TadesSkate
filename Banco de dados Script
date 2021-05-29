@@ -1,3 +1,4 @@
+
 CREATE TABLE filial (
   filial_id integer primary key not null generated always as identity (start with 1, increment by 1),
   Email varchar(255)  not null,
@@ -35,6 +36,7 @@ CREATE TABLE funcionario (
   bairro varchar(80) not null,
   departamento varchar(50) not null,
   salario float not null,
+  senha  varchar(80) not null,
   nascimento date ,
  fk_filial_id integer references filial(filial_id)
 );
@@ -73,4 +75,8 @@ pedido_id integer NOT NULL primary key generated always as identity(start with 1
 );
 
 insert into filial  (email, telefone, endereco, cidade, estado, bairro) 
-values ('matriz@mail.com', '123456','avenida das nacoes unidas', 'sao paulo', 'sp', 'interlagos')
+values ('matriz@mail.com', '123456','avenida das nacoes unidas', 'sao paulo', 'sp', 'interlagos');
+
+
+
+INSERT INTO funcionario (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, departamento, salario, senha, nascimento, fk_filial_id) VALUES ( 'admin', 'admin', '123', 'admin@mail', '555111', 'rua', 'cidade', 'estado', 'bairro', 'admin', 00, 'admin', '2021-05-05', 1);
