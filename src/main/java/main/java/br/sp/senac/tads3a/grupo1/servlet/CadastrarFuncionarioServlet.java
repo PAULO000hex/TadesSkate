@@ -29,11 +29,11 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         String senha = request.getParameter("senha");
-        //int filial_id = Integer.parseInt(request.getParameter("filial_id"));
+        int fk_filial_id = Integer.parseInt(request.getParameter("fk_filial_id"));
 
         Date date = Date.valueOf(nascimento);
 
-        Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha);
+        Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha,fk_filial_id);
 
        // boolean result = FuncionarioDAO.cadastrar(funcionario, filial_id);
        boolean result = FuncionarioDAO.cadastrar(funcionario, 2);

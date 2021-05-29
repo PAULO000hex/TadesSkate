@@ -79,8 +79,10 @@ public class ProdutoDAO {
                 int quantidade = rs.getInt("quantidade");
                 double desconto = rs.getDouble("desconto");
 
-                Produto produto  = new Produto(id,descricao, categoria, fabricante, valor, quantidade, desconto);
+                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
                 produtos.add(produto);
+                System.out.println("");
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -88,73 +90,102 @@ public class ProdutoDAO {
         return produtos;
     }
 
-    public static Produto getProduto(int id){
-       Produto produto = null;
-       String query = "select * from produto where produto_id=?";
-       Connection con;
-       try{
-          con = Conexao.getConexao();
-          PreparedStatement ps = con.prepareStatement(query);
-          ps.setInt(1, id);
-          ResultSet rs = ps.executeQuery();
-          
-         if(rs.next()) {
-         String descricao = rs.getString("descricao");
-         String categoria = rs.getString("categoria");
-         String fabricante = rs.getString("fabricante");
-         double valor = rs.getDouble("valor");
-         int quantidade = rs.getInt("quantidade");
-         double desconto = rs.getDouble("desconto");
-         produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
-}
-}catch (SQLException ex){
-        Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
-}
- return produto;
-}
+    public static List<Produto> getProdutos(int fk_filial_id) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select * from produto WHERE fk_filial_id = ?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, fk_filial_id);
+            ResultSet rs = ps.executeQuery();
 
-   public static List<Produto> getProdutoVenda(String descricao){
-    List<Produto> produtos = new ArrayList<>();
-    String query = "select produto_id, descricao, valor from produto where descricao like ?";
-    Connection con;
-    try{
-    con = Conexao.getConexao();
-    PreparedStatement ps = con.prepareStatement(query);
-    ps.setString(1, descricao);
-   ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("produto_id");
+                String descricao = rs.getString("descricao");
+                String categoria = rs.getString("categoria");
+                String fabricante = rs.getString("fabricante");
+                double valor = rs.getDouble("valor");
+                int quantidade = rs.getInt("quantidade");
+                double desconto = rs.getDouble("desconto");
 
-   while(rs.next()) {
-   int id = rs.getInt("produto_id");
-   double valor = rs.getDouble("valor");
-Produto produto = new Produto(id, descricao, valor);
-   produtos.add(produto);
-  }
-   }catch (SQLException ex){
-     Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex); 
-}
-return produtos;
+                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
+                produtos.add(produto);
+                System.out.println("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;
+    }
 
-}
+    public static Produto getProduto(int id) {
+        Produto produto = null;
+        String query = "select * from produto where produto_id=?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
 
-    public static boolean atualizar(Produto produto){
-boolean ok = true;
-String query = "update produto set descricao=?,categoria=?,fabricante=?,valor=?,quantidade=?,desconto=? where produto_id=?";
-Connection con;
-try {
-con = Conexao.getConexao();
-PreparedStatement ps = con.prepareStatement(query);
-ps.setString(1, produto.getDescricao());
-ps.setString(2, produto.getCategoria());
-ps.setString(3, produto.getFabricante());
-ps.setDouble(4, produto.getValor());
-ps.setInt(5, produto.getQuantidade());
-ps.setDouble(6, produto.getDesconto());
-ps.setInt(7, produto.getProduto_id());
-ps.executeUpdate();
-}catch (SQLException ex){
-  Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
-  ok = false;
-}
-return ok;
-}
+            if (rs.next()) {
+                String descricao = rs.getString("descricao");
+                String categoria = rs.getString("categoria");
+                String fabricante = rs.getString("fabricante");
+                double valor = rs.getDouble("valor");
+                int quantidade = rs.getInt("quantidade");
+                double desconto = rs.getDouble("desconto");
+                produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produto;
+    }
+
+    public static List<Produto> getProdutoVenda(String descricao) {
+        List<Produto> produtos = new ArrayList<>();
+        String query = "select produto_id, descricao, valor from produto where descricao like ?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, descricao);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("produto_id");
+                double valor = rs.getDouble("valor");
+                Produto produto = new Produto(id, descricao, valor);
+                produtos.add(produto);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return produtos;
+
+    }
+
+    public static boolean atualizar(Produto produto) {
+        boolean ok = true;
+        String query = "update produto set descricao=?,categoria=?,fabricante=?,valor=?,quantidade=?,desconto=? where produto_id=?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, produto.getDescricao());
+            ps.setString(2, produto.getCategoria());
+            ps.setString(3, produto.getFabricante());
+            ps.setDouble(4, produto.getValor());
+            ps.setInt(5, produto.getQuantidade());
+            ps.setDouble(6, produto.getDesconto());
+            ps.setInt(7, produto.getProduto_id());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            ok = false;
+        }
+        return ok;
+    }
 }

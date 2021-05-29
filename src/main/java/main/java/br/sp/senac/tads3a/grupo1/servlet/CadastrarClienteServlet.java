@@ -37,9 +37,10 @@ public class CadastrarClienteServlet extends HttpServlet {
         String nascimento = request.getParameter("nascimento");
         Date date = Date.valueOf(nascimento);
         int filial_id = Integer.parseInt(request.getParameter("filial_id"));
-        Cliente cliente = new Cliente(-1, nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro,date);
+        
+        Cliente cliente = new Cliente(-1, nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro,date,filial_id);
 
-        boolean ok = ClienteDAO.Cadastrar(cliente, date, filial_id);
+        boolean ok = ClienteDAO.Cadastrar(cliente, date);
         if (ok) {
             response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
         } else {

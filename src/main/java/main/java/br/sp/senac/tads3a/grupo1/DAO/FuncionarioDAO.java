@@ -90,8 +90,8 @@ return ok;
                 String bairro = rs.getString("bairro");
                 String estado = rs.getString("estado");
                 String senha = rs.getString("senha");
-
-                Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
+                int fk_filial_id = rs.getInt("fk_filial_id");
+                Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha,fk_filial_id);
                 
                 funcionarios.add(funcionario);
             }
@@ -100,6 +100,45 @@ return ok;
         }
         return funcionarios;
     }
+    
+        public static List<Funcionario> getFuncionarios(int p_fk_filial_id) {
+        List<Funcionario> funcionarios = new ArrayList<>();
+        String query = "select * from funcionario WHERE fk_filial_id=?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, p_fk_filial_id);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int id = rs.getInt("funcionario_id");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+                String cpf = rs.getString("CPF");
+                String email = rs.getString("email");
+                String telefone = rs.getString("telefone");
+                Date nascimento = rs.getDate("nascimento");
+                String departamento = rs.getString("departamento");
+                float salario = rs.getFloat("salario");
+                String endereco = rs.getString("endereco");
+                String cidade = rs.getString("cidade");
+                String bairro = rs.getString("bairro");
+                String estado = rs.getString("estado");
+                String senha = rs.getString("senha");
+                int fk_filial_id = rs.getInt("fk_filial_id");
+                Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha,fk_filial_id);
+                
+                funcionarios.add(funcionario);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return funcionarios;
+    }
+    
+    
+    
     public static Funcionario getFuncionario(int id){
         Funcionario funcionario = null;
         String query = "select * from funcionario where funcionario_id=?";
@@ -124,7 +163,10 @@ return ok;
         String bairro = rs.getString("bairro");
         String estado = rs.getString("estado");
         String senha = rs.getString("senha");
-        funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
+        int fk_filial_id = rs.getInt("fk_filial_id");
+
+        
+        funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha,fk_filial_id);
 }
     }catch (SQLException ex){
         Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);   
@@ -184,7 +226,11 @@ return ok;
                 String cidade = rs.getString("cidade");
                 String bairro = rs.getString("bairro");
                 String estado = rs.getString("estado");
-                funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha);
+                int fk_filial_id = rs.getInt("fk_filial_id");
+
+                
+                
+                funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha,fk_filial_id);
             }
         }catch (SQLException ex){
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);   

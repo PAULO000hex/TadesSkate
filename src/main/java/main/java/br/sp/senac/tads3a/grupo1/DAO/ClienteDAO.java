@@ -39,7 +39,7 @@ public class ClienteDAO {
         return ok;
     }
 
-    public static boolean Cadastrar(Cliente cliente, Date nascimento,int filial_id) {
+    public static boolean Cadastrar(Cliente cliente, Date nascimento) {
         boolean ok = true;
         String query = "insert into cliente (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento,fk_filial_id) "
                 + "values(?,?,?,?,?,?,?,?,?,?,?)";
@@ -56,7 +56,7 @@ public class ClienteDAO {
             ps.setString(8, cliente.getEstado());
             ps.setString(9, cliente.getBairro());
             ps.setDate(10, nascimento);
-            ps.setInt(11, filial_id);
+            ps.setInt(11, cliente.getFk_filial_id());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -87,9 +87,10 @@ public class ClienteDAO {
                 String estado = rs.getString("estado");
                 String bairro = rs.getString("bairro");
                 Date nascimento = rs.getDate("nascimento");
+                int fk_filial_id = rs.getInt("fk_filial_id");
 
-                Cliente cliente = new Cliente(id, nome, sobrenome, cpf, email, telefone, endereco,
-                        cidade, estado, bairro, nascimento);
+                Cliente cliente = new Cliente(id, nome, sobrenome, cpf, email, telefone, endereco,cidade, estado, bairro, nascimento,fk_filial_id);
+                
                 cliente.setNascimento(nascimento);
                 clientes.add(cliente);
             }
@@ -98,29 +99,41 @@ public class ClienteDAO {
         }
         return clientes;
     }
+    
+    public static List<Cliente> getClientes(int p_fk_filial_id) {
+        List<Cliente> clientes = new ArrayList<>();
+        String query = "select * from cliente WHERE fk_filial_id = ?";
+        Connection con;
+        try {
+            con = Conexao.getConexao();
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setInt(1, p_fk_filial_id);
+            ResultSet rs = ps.executeQuery();
 
-            public static List<Cliente> getClienteVenda(String cpf){
-              List<Cliente> clientes = new ArrayList<>();
-              String query = "select cliente_id, nome, sobrenome, CPF from cliente where cpf like ?";
-              Connection con;
-              try{
-              con = Conexao.getConexao();
-              PreparedStatement ps = con.prepareStatement(query);
-              ps.setString(1, cpf);
-              ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("cliente_id");
+                String nome = rs.getString("nome");
+                String sobrenome = rs.getString("sobrenome");
+                String cpf = rs.getString("cpf");
+                String email = rs.getString("email");
+                String telefone = rs.getString("telefone");
+                String endereco = rs.getString("endereco");
+                String cidade = rs.getString("cidade");
+                String estado = rs.getString("estado");
+                String bairro = rs.getString("bairro");
+                Date nascimento = rs.getDate("nascimento");
+                int fk_filial_id = rs.getInt("fk_filial_id");
 
-             while(rs.next()){
-             int id = rs.getInt("cliente_id");
-             String nome = rs.getString("nome");
-             String sobrenome = rs.getString("sobrenome");
-             Cliente cliente = new Cliente(cpf, nome, sobrenome, id);
-             clientes.add(cliente);
-             }
-             }catch (SQLException ex){
-             Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
-}
-return clientes;
-}
+                Cliente cliente = new Cliente(id, nome, sobrenome, cpf, email, telefone, endereco,cidade, estado, bairro, nascimento,fk_filial_id);
+                cliente.setNascimento(nascimento);
+                clientes.add(cliente);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return clientes;
+    }
+      
     
             public static Cliente getCliente(int id){
        Cliente cliente = null;
@@ -143,8 +156,10 @@ return clientes;
              String estado = rs.getString("estado");
              String bairro = rs.getString("bairro");
              Date nascimento = rs.getDate("nascimento");
+             int fk_filial_id = rs.getInt("fk_filial_id");
+
        
-         cliente = new Cliente(id ,nome,sobrenome,cpf,email,telefone,endereco,cidade,estado,bairro,nascimento);
+         cliente = new Cliente(id ,nome,sobrenome,cpf,email,telefone,endereco,cidade,estado,bairro,nascimento,fk_filial_id);
 }
 }catch (SQLException ex){
         Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);

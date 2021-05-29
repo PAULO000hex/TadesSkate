@@ -1,6 +1,6 @@
 <div class="menu">
     <div class="message">
-        <h3>Ol√° Vitor - Tecnologia</h3>
+        <h3>Ol· ${sessionScope.usuario.nome} - ${sessionScope.usuario.departamento}</h3>
     </div>
     <div class="logo">
         <img src=".../img/Tades.png" alt="alt"/>

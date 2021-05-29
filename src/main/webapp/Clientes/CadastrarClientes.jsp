@@ -15,8 +15,7 @@
         <c:import url="/menu.jsp"/>
         <c:if test="${empty cliente}">
             <form action = CadastrarClienteServlet method="POST" >
-                <input type="hidden" name="filial_id" class="filial_id" value="">
-                <input type="hidden" name="filial_name" class="filial_name" value="">
+                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Cadastro De Clientes</h1></div>
                     <div class="field">
@@ -70,8 +69,7 @@
     </head>
     <c:if test="${not empty cliente}">
         <form action = AlterarClienteServlet method="POST" >
-            <input type="hidden" name="filial_id" class="filial_id" value="">
-            <input type="hidden" name="filial_name" class="filial_name" value="">
+            <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
             <div class="half">
                 <div class="space"><h1>Cadastro De Clientes</h1></div>
                 <div class="field">
@@ -125,33 +123,4 @@
         </form>
     </c:if> 
 </body>
-
-<Script>
-    $(document).ready(function () {
-        var id = findGetParameter('id');
-        var nome = findGetParameter('nome');
-
-        $('.filial_id').val(id);
-        $('.filial_name').val(nome);
-
-    });
-    function findGetParameter(parameterName) {
-        var result = null,
-                tmp = [];
-        var items = location.search.substr(1).split("&");
-        for (var index = 0; index < items.length; index++) {
-            tmp = items[index].split("=");
-            if (tmp[0] === parameterName)
-                result = decodeURIComponent(tmp[1]);
-        }
-        return result;
-    }
-    $('a').click(function () {
-        var url = $(this).attr('href');
-        var param = location.search;
-        $(this).attr('href', url + param);
-    });
-
-</script>
-
 </html>
