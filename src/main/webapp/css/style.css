@@ -83,3 +83,7 @@ a{
     background-color: white;
     color: #232323;
 }
+.inside{
+    float:left;
+    width:100%;
+}
