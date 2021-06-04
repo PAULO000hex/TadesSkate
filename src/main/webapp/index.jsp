@@ -16,7 +16,7 @@
                 text-align: center;
                 width:100%;
             }
-            
+
             .bg-color{
                 background-color: #F7F8F9;
                 border-radius: 30px;
@@ -41,15 +41,13 @@
                                     <div class="row justify-content-center mb-3">
                                         <img src="src/img/logo.png" alt="">
                                     </div>
-
                                     <span class="small d-block text-center mb-3" style="font-size: 24px; font-family: Verdana; color: black;">Login</span>
-
                                     <form action="LoginServlet" method="POST">
                                         <div class="input-group mt-3">
                                             <input type="text" class="form-control" name="cpf" placeholder="Digite o seu CPF">
                                         </div>
-                                       <div class="input-group mt-3">
-                                           <input type="password" class="form-control" name="senha" placeholder="******">
+                                        <div class="input-group mt-3">
+                                            <input type="password" class="form-control" name="senha" placeholder="******">
                                         </div>
 
                                         <div class="row mt-2 justify-content-center">
@@ -58,42 +56,12 @@
                                             </div>
                                         </div>
                                     </form>
-
-                                  </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
         </div>
     </body>
 </html>
-<!--            <a href="Clientes/ClienteServlet">Listar Clientes</a>
-                        <a href="Clientes/CadastrarClientes.jsp">cadastrar</a>
-                        <a href="Funcionarios/cadastrarFuncionario.jsp">cadastrar funcionario</a>
-                        <a href="ProdutoServlet">Listar Produtos</a>
-                        <a href="Produtos/CadastrarProduto.jsp">Cadastrar Produto</a> <br/>
-                        <a href="FuncionarioServlet">Listar Funcionarios</a> <br/>
-
-
-<div class="btn mt-3">
-                <a href="Funcionarios/cadastrarFuncionario.jsp"><input type="button" value="Acessar"></a>
-                <a href="FuncionariosServlet"><input type="button" value="Acessar"></a>
-                <a href="Produtos/CadastrarProduto.jsp"><input type="button" value="Acessar"></a>
-                <a href="ProdutosServlet"><input type="button" value="Acessar"></a>
-                <a href="Filiais/CadastrarFilial.jsp"><input type="button" value="Acessar"></a>
-                <a href="FilialServlet"><input type="button" value="Acessar"></a>
-                <a href="Clientes/CadastrarClientes.jsp"><input type="button" value="Acessar"></a>
-                <a href="Clientes/ClienteServlet"><input type="button" value="Acessar"></a>
-                <a href="testes.jsp"><input type="button" value="Acessar"></a>
-            </div>
-
-
-
-
-
-<welcome-file-list>
-        <welcome-file>/protegido/index.jsp</welcome-file>
-    </welcome-file-list>
--->

@@ -50,6 +50,24 @@ a{
     background-color: #232323;
     color: white;
 }
+
+.fullpage {
+    background-color: #fff;
+    position: absolute;
+    width: 73%;
+    margin-left: 26%;
+    padding: 20px 20px 0px 20px;
+    height: 100%;
+}
+
+.card{
+    margin: 30% auto;
+    background-color: #232323;
+    color:white;
+    padding:25px;
+    text-align: center;
+}
+
 .space{
     padding-bottom: 20px;
 }

@@ -81,11 +81,7 @@
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
-
-    //    $('#cliente').change(function () {    Desnecessário
-    //        var cliente = $('#cliente').val();
-    //    });
-
+        
         var prod = 0;
 
         $('.btnAdicionar').click(function (e) {
@@ -109,12 +105,10 @@
 
                 valorTotal += parseFloat($('#produto option:selected').attr('id') * qtd);
                 $('#valor_total').attr('value', valorTotal);
-
             } else {
                 alert('Preencha todos os campos !');
             }
         });
-
     </script>
 </html>
 
@@ -155,6 +149,5 @@
             $("#carrinho tbody").empty();
             $("#totalVenda").html("0,00");
         });
-
     }
 </script>
