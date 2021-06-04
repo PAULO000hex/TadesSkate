@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         if (usuario != null) {
             HttpSession sessao = request.getSession();
             sessao.setAttribute("usuario", usuario);
-            response.sendRedirect(request.getContextPath() + "/Protegido/testeFiliais.jsp");
+            response.sendRedirect(request.getContextPath() + "/Protegido/VendaServlet");
         }else{
             response.sendRedirect("erro.jsp");
         }
