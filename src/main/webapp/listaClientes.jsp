@@ -10,7 +10,7 @@
         <link href=".../css/style.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
         <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script> 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script> 
         <title>Clientes</title>
     </head>
     <body>
@@ -33,9 +33,9 @@
 
                     <tr>
                         <td>${cliente.nome} ${cliente.sobrenome}</td>
-                        <td>${cliente.cpf}</td>
+                        <td class="cpf">${cliente.cpf}</td>
                         <td>${cliente.email}</td>
-                        <td>${cliente.telefone}</td>
+                        <td class="telefone">${cliente.telefone}</td>
                         <td>${cliente.endereco}</td>
                         <td>${cliente.cidade}</td>
                         <td class="icon" id="edit"><a href ="AlterarClienteServlet?id=${cliente.cliente_id}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
@@ -46,4 +46,10 @@
             <a href="/TadesSkate/Protegido/testeFiliais.jsp">voltar</a>
         </div>
     </body>
+    <script>
+  $(document).ready(function () {
+            $('.phone').mask("(00) 00000-0000");
+            $('.cpf').mask("000.000.000.00")
+        });
+        </script>
 </html>

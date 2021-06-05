@@ -41,7 +41,7 @@ public class AlterarProdutoServlet extends HttpServlet {
         int quantidade = Integer.parseInt(request.getParameter("quantidade"));
         double desconto = Double.parseDouble(request.getParameter("desconto"));
             int id = Integer.parseInt(request.getParameter("id"));
-            int fk_filial_id = Integer.parseInt(request.getParameter("fk_filial_id"));
+            int fk_filial_id = Integer.parseInt(request.getParameter("filial_id"));
         Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto,fk_filial_id);
         boolean ok = ProdutoDAO.atualizar(produto);
         if (ok) {

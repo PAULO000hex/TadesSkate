@@ -33,7 +33,7 @@
                     <tr>
                         <td>${funcionario.funcionario_id}</td>
                         <td>${funcionario.nome} ${funcionario.sobrenome}</td>
-                        <td>${funcionario.CPF}</td>
+                        <td class="cpf">${funcionario.CPF}</td>
                         <td>${funcionario.email}</td>
                         <td>${funcionario.departamento}</td>
                         <td>${funcionario.salario}</td>
@@ -49,6 +49,7 @@
     <script>
         $(document).ready(function () {
             $('.phone').mask("(00) 00000-0000");
+            $('.cpf').mask("000.000.000.00")
         });
     </script>
 </html>
