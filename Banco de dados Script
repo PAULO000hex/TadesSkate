@@ -48,7 +48,7 @@ CREATE TABLE produto (
   categoria varchar(50) not null,
   fabricante varchar(50) not null,
   valor float not null,
-  quantidade integer not null,
+  qtd integer not null,
   desconto float not null,
   fk_filial_id integer references filial(filial_id)
 );
@@ -69,7 +69,7 @@ pedido_id integer NOT NULL primary key generated always as identity(start with 1
   fk_produto_id  integer references produto(produto_id),
   fk_venda_id integer references venda(venda_id),
   fk_filial_id integer references filial(filial_id),
-  quantidade integer not null,
+  qtd integer not null,
   Valor_Unitario float not null
   
 );
