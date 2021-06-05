@@ -8,6 +8,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link href=".../css/style.css" rel="stylesheet">
         <link href=".../css/style.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
         <title>Cadastrar Funcionário</title>
     </head>
     <body>
@@ -26,13 +27,13 @@
                         <input class="txt" type="text" name="sobrenome"></div>
                     <div class="field">
                         <h2>CPF</h2>
-                        <input class="txt" type="text" name="CPF"></div>
+                        <input class="txt" type="text" name="CPF" id="cpf"></div>
                     <div class="field">
                         <h2>E-mail</h2>
                         <input class="txt" type="text" name="email"></div>
                     <div class="field">
                         <h2>Telefone</h2>
-                        <input class="txt" type="text" name="telefone">
+                        <input class="txt" type="text" name="telefone" id="telefone">
                     </div>
                     <div class="field">
                         <h2>Data de nascimento</h2>
@@ -92,13 +93,13 @@
                         <input class="txt" type="text" name="sobrenome" value="${funcionario.sobrenome}"></div>
                     <div class="field">
                         <h2>CPF</h2>
-                        <input class="txt" type="text" name="CPF" value="${funcionario.CPF}"></div>
+                        <input class="txt" type="text" name="CPF" id="cpf" value="${funcionario.CPF}"></div>
                     <div class="field">
                         <h2>E-mail</h2>
                         <input class="txt" type="text" name="email" value="${funcionario.email}"></div>
                     <div class="field">
                         <h2>Telefone</h2>
-                        <input class="txt" type="text" name="telefone" value="${funcionario.telefone}">
+                        <input class="txt" type="text" name="telefone" id="telefone" value="${funcionario.telefone}">
                     </div>
                     <div class="field">
                         <h2>Data de nascimento</h2>
@@ -143,6 +144,12 @@
         </c:if>
 
     </body>
+    <script>
+            $(document).ready(function () {
+            $('#telefone').mask("(00) 00000-0000");
+            $('#cpf').mask("000.000.000-00");
+        });
+        </script>
 </html>
 
 <!--     

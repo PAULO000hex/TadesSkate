@@ -43,7 +43,7 @@
                             </select>
                         </div>
                         <div class="produto_half">
-                            <input type="number" id="qtd" placeholder="Insira a quantidade" required>
+                            <input type="number" id="qtd" min="1" placeholder="Insira a quantidade" required   >
                         </div>
                     </div>
                     <hr>

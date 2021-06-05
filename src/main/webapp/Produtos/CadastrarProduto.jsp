@@ -22,14 +22,14 @@
                     <div class="space"><h1>Cadastro De Produtos</h1></div>             
                     <div class="field">
                         <h2>Descrição</h2>
-                        <input class="txt" type="text" id="tst" name="descricao">
+                        <input required class="txt" type="text" id="tst" name="descricao">
                     </div>
                     <div class="field">
                         <h2>Categoria</h2>
-                        <input class="txt" type="text" name="categoria"></div>
+                        <input  required class="txt" type="text" name="categoria"></div>
                     <div class="field">
                         <h2>Fabricante</h2>
-                        <input class="txt" type="text" name="fabricante"></div>
+                        <input required class="txt" type="text" name="fabricante"></div>
                 </div>
                 <div class="half-last">
                     <div class="space">
@@ -37,11 +37,11 @@
                     </div>
                     <div class="field">
                         <h2>Valor</h2>
-                        <input class="txt" type="text" name="valor">
+                        <input  required class="txt" type="text" name="valor">
                     </div>
                     <div class="field">
                         <h2>Quantidade</h2>
-                        <input class="txt" type="text" name="quantidade">
+                        <input required class="txt" type="text" name="quantidade">
                     </div>
                     <div class="field">
                         <h2>Desconto</h2>
@@ -71,8 +71,6 @@
             <form action = "AlterarProdutoServlet" method="POST" >
             <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
-                    <input type="hidden" name="filial_id" class="filial_id" value="">
-                    <input type="hidden" name="filial_name" class="filial_name" value="">
                     <div class="space"><h1>Cadastro De Produtos</h1></div>
                     <div class="field">
                         <input type="text" name="id" hidden="true" value="${produto.produto_id}"/> 

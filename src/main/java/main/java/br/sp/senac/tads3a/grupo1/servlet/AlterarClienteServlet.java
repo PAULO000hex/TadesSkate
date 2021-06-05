@@ -49,7 +49,7 @@ public class AlterarClienteServlet extends HttpServlet {
         String cidade = request.getParameter("cidade");
         String estado = request.getParameter("estado");
         int id = Integer.parseInt(request.getParameter("id"));
-        int fk_filial_id = Integer.parseInt(request.getParameter("fk_filial_id"));
+        int fk_filial_id = Integer.parseInt(request.getParameter("filial_id"));
         
         Date date = Date.valueOf(nascimento);
 
