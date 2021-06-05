@@ -48,7 +48,7 @@ CREATE TABLE produto (
   categoria varchar(50) not null,
   fabricante varchar(50) not null,
   valor float not null,
-  qtd integer not null,
+  quantidade integer not null,
   desconto float not null,
   fk_filial_id integer references filial(filial_id)
 );
