@@ -38,7 +38,7 @@ public class ProdutoDAO {
         return ok;
     }
 
-    public static boolean Cadastrar(Produto produto, int filial_id) {
+    public static boolean Cadastrar(Produto produto) {
         boolean ok = true;
         String query = "insert into produto (descricao, categoria, fabricante, valor, quantidade, desconto,fk_filial_id) "
                 + "values(?,?,?,?,?,?,?)";
@@ -51,7 +51,7 @@ public class ProdutoDAO {
             ps.setDouble(4, produto.getValor());
             ps.setInt(5, produto.getQuantidade());
             ps.setDouble(6, produto.getDesconto());
-            ps.setInt(7, filial_id);
+            ps.setInt(7, produto.getFk_filial_id());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,8 +78,8 @@ public class ProdutoDAO {
                 double valor = rs.getDouble("valor");
                 int quantidade = rs.getInt("quantidade");
                 double desconto = rs.getDouble("desconto");
-
-                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
+                int fk_filial_id = rs.getInt("fk_filial_id");
+                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto, fk_filial_id);
                 produtos.add(produto);
                 System.out.println("");
 
@@ -108,8 +108,8 @@ public class ProdutoDAO {
                 double valor = rs.getDouble("valor");
                 int quantidade = rs.getInt("quantidade");
                 double desconto = rs.getDouble("desconto");
-
-                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
+               
+                Produto produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto,fk_filial_id);
                 produtos.add(produto);
                 System.out.println("");
             }
@@ -136,7 +136,8 @@ public class ProdutoDAO {
                 double valor = rs.getDouble("valor");
                 int quantidade = rs.getInt("quantidade");
                 double desconto = rs.getDouble("desconto");
-                produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto);
+                int fk_filial_id = rs.getInt("fk_filial_id");
+                produto = new Produto(id, descricao, categoria, fabricante, valor, quantidade, desconto, fk_filial_id );
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);

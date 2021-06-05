@@ -36,7 +36,7 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
         Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha,fk_filial_id);
 
        // boolean result = FuncionarioDAO.cadastrar(funcionario, filial_id);
-       boolean result = FuncionarioDAO.cadastrar(funcionario, 2);
+       boolean result = FuncionarioDAO.cadastrar(funcionario);
        
         if (result) {
             response.sendRedirect(request.getContextPath() + "/sucesso.jsp");
