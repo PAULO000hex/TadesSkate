@@ -20,6 +20,7 @@ public class FuncionariosServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
+        
         request.setAttribute("listaFuncionarios", listaFuncionarios);
         request.getRequestDispatcher("/listaFuncionarios.jsp").forward(request, response);
     }

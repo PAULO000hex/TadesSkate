@@ -19,7 +19,7 @@
                     <div class="space"><h1>Cadastrar</h1></div>
                     <div class="field">
                         <h2>Nome</h2>
-                        <input class="txt" type="text" name="nome">
+                        <input class="txt" type="text" name="nome" id="nome">
                     </div>
                     <div class="field">
                         <h2>Sobrenome</h2>
