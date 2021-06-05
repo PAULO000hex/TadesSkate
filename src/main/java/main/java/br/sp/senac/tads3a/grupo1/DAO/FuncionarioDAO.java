@@ -33,7 +33,7 @@ public class FuncionarioDAO {
 return ok;
 }
 
-    public static boolean cadastrar(Funcionario funcionario, int filial_id) {
+    public static boolean cadastrar(Funcionario funcionario) {
         Connection conexao;
         
         String query = "insert into funcionario (nome, sobrenome, cpf, email, telefone, nascimento, "
@@ -56,7 +56,7 @@ return ok;
             ps.setString(11, funcionario.getBairro());
             ps.setString(12, funcionario.getEstado());
             ps.setString(13, funcionario.getSenha());
-            ps.setInt(14, filial_id);
+            ps.setInt(14,funcionario.getFk_filial_id() );
             ps.executeUpdate();
 
         } catch (SQLException e) {

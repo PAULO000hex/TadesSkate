@@ -22,6 +22,7 @@ public class Produto {
     private double valor;
     private int quantidade;
     private double desconto;
+    private int fk_filial_id;
 
 public Produto(int produto_id, String descricao, double valor){
 this.produto_id = produto_id;
@@ -29,7 +30,7 @@ this.descricao = descricao;
 this.valor = valor;
 }
 
-    public Produto(int produto_id, String descricao, String categoria, String fabricante, double valor, int quantidade, double desconto) {
+    public Produto(int produto_id, String descricao, String categoria, String fabricante, double valor, int quantidade, double desconto, int fk_filial_id) {
         this.produto_id = produto_id;
         this.descricao = descricao;
         this.categoria = categoria;
@@ -37,6 +38,7 @@ this.valor = valor;
         this.valor = valor;
         this.quantidade = quantidade;
         this.desconto = desconto;
+        this.fk_filial_id = fk_filial_id;
 
     }
 
