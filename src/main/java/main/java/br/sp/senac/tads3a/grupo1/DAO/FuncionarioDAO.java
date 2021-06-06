@@ -228,9 +228,7 @@ return ok;
                 String estado = rs.getString("estado");
                 int fk_filial_id = rs.getInt("fk_filial_id");
 
-                
-                
-                funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha,fk_filial_id);
+                funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha, fk_filial_id);
             }
         }catch (SQLException ex){
             Logger.getLogger(FuncionarioDAO.class.getName()).log(Level.SEVERE, null, ex);   

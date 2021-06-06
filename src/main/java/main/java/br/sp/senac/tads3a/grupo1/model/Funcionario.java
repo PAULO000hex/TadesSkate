@@ -45,6 +45,34 @@ public class Funcionario {
         this.fk_filial_id = fk_filial_id;
     }
     
+    public boolean isAdmin(){
+        return getDepartamento().equalsIgnoreCase("admin");
+    }
+    
+    public boolean isRH(){
+        return getDepartamento().equalsIgnoreCase("RH");
+    }
+    
+    public boolean isGerente(){
+        return getDepartamento().equalsIgnoreCase("Gerência");
+    }
+    
+    public boolean isTecnologia(){
+        return getDepartamento().equalsIgnoreCase("Tecnologia");
+    }
+    
+    public boolean isBackOffice(){
+        return getDepartamento().equalsIgnoreCase("BackOffice");
+    }
+    
+    public boolean isFinanceiro(){
+        return getDepartamento().equalsIgnoreCase("Financeiro");
+    }
+    
+    public boolean isComercial(){
+        return getDepartamento().equalsIgnoreCase("Comercial");
+    }
+    
 //    @Override
 //    public String toString() {
 //      return String.format("Nome: %s <br/> Sobrenome: %s <br/> CPF: %s <br/> Email: %s <br/> Data de nascimento: %s <br/> Departamento: %s <br/>"

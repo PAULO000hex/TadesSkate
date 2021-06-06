@@ -1,7 +1,6 @@
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +22,6 @@ public class FilialServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Filial> listaFiliais = FilialDAO.getFiliais();
         request.setAttribute("listaFiliais", listaFiliais);
-        request.getRequestDispatcher("/listaFiliais.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Filiais/listaFiliais.jsp").forward(request, response);
     }
 }

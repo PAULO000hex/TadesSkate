@@ -15,7 +15,7 @@
     </head>
 
     <body>
-        <c:import url="/menu.jsp"/>      
+        <c:import url="/menu.jsp"/>   
 
         <form action="VenderServlet" method="POST">
             <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
@@ -92,7 +92,7 @@
             html += '<td name="qtd" value="' + qtd + '">' + qtd + '</td>';
             html += '<td name="valor_un" value="' + $('#produto option:selected').attr('id') + '">' + $('#produto option:selected').attr('id') + '</td></tr>';
 
-            if (qtd != "" || produto != "" || funcionario != "") {
+            if (qtd !== "" || produto !== "" || funcionario !== "") {
                 $('#tabela').append(html);
                 $('.half').append('<input type="hidden" id="produto_id' + prod + '" name="produto_id" value="' + $('#produto option:selected').val() + '">');
                 $('.half').append('<input type="hidden" id="descricao' + prod + '" name="descricao" value="' + $('#produto option:selected').attr('class') + '">');
@@ -115,7 +115,7 @@
     function addProduto(produto) {
         $("#carrinho tbody").empty();
         var produtoCarrinho = produtosCarrinho[produto.id];
-        if (produtoCarrinho == null) {
+        if (produtoCarrinho === null) {
             produto.qte = 1;
             produtosCarrinho[produto.id] = produto;
         } else {

@@ -6,9 +6,7 @@
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -46,9 +44,9 @@ public class VenderServlet extends HttpServlet {
         boolean vamover = VendaDAO.Vender(venda);
 
         if (vamover) {
-            response.sendRedirect("sucesso.jsp");
+            response.sendRedirect("../sucesso.jsp");
         } else {
-            response.sendRedirect("erro.jsp");
+            response.sendRedirect("../erro.jsp");
         }
     }
 
