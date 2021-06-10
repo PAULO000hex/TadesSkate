@@ -19,21 +19,20 @@ import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
 
 public class VendaServlet extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-            HttpSession sessao = request.getSession();
-            Funcionario f = (Funcionario) sessao.getAttribute("usuario");
+        HttpSession sessao = request.getSession();
+        Funcionario f = (Funcionario) sessao.getAttribute("usuario");
            
-          List<Produto> listaProdutos = ProdutoDAO.getProdutos(f.getFk_filial_id());
-          List<Cliente> listaClientes = ClienteDAO.getClientes(f.getFk_filial_id());
+        List<Produto> listaProdutos = ProdutoDAO.getProdutos(f.getFk_filial_id());
+        List<Cliente> listaClientes = ClienteDAO.getClientes(f.getFk_filial_id());
                   
-          request.setAttribute("listaClientes", listaClientes);
-          request.setAttribute("listaProdutos", listaProdutos);
-          
-          request.getRequestDispatcher("/Venda.jsp").forward(request, response); 
+        request.setAttribute("listaClientes", listaClientes);
+        request.setAttribute("listaProdutos", listaProdutos);
+        
+        request.getRequestDispatcher("/Protegido/Venda.jsp").forward(request, response); 
     }
 }
 

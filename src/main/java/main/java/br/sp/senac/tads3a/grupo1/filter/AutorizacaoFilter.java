@@ -18,10 +18,11 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
 
 /**
  *
- * @author wmdbox
+ * @author Wesley
  */
 public class AutorizacaoFilter implements Filter {
     
@@ -33,7 +34,7 @@ public class AutorizacaoFilter implements Filter {
     private FilterConfig filterConfig = null;
     
     public AutorizacaoFilter() {
-    }    
+    }
     
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
@@ -44,7 +45,60 @@ public class AutorizacaoFilter implements Filter {
         if (session.getAttribute("usuario") == null) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/index.jsp");
         }
+        
+        Funcionario funcionario = (Funcionario) session.getAttribute("usuario");
+        String url = httpServletRequest.getRequestURI();
+        
+        if (url.contains("/Funcionarios") && !funcionario.isRH() && !funcionario.isAdmin() && !funcionario.isTecnologia()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Protegido/Venda") && !funcionario.isComercial() && !funcionario.isGerente()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Clientes") && !funcionario.isGerente() && !funcionario.isTecnologia()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Filiais") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Produtos") && !funcionario.isTecnologia()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Protegido/listaClientes.jsp") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Protegido/listaFuncionarios.jsp") && !funcionario.isTecnologia() && !funcionario.isBackOffice() && !funcionario.isRH()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Protegido/relatorioFilial.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
+        
+        if (url.contains("/Protegido/relatorioGeral.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
+        }
     }    
+    
+//    public boolean verificaAcesso(String url, Funcionario funcionario){
+//        boolean nOk = false;
+//        
+//        if (
+//            (url.contains("/Funcionarios") && !funcionario.isRH() && !funcionario.isAdmin() && !funcionario.isTecnologia()) ||
+//            (url.contains("/Protegido/listaFuncionarios.jsp") && !funcionario.isRH()) ||
+//            (url.contains("/Protegido/Venda") && !funcionario.isComercial())
+//            ) {
+//            nOk = true;
+//        }
+//                
+//        return nOk;
+//    }
     
     /**
      *
@@ -55,6 +109,7 @@ public class AutorizacaoFilter implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {

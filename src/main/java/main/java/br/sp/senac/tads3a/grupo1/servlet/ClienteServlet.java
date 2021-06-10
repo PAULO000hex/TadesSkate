@@ -2,7 +2,6 @@
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +23,6 @@ public class ClienteServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Cliente> listaClientes = ClienteDAO.getClientes();
         request.setAttribute("listaClientes", listaClientes);
-        request.getRequestDispatcher("/listaClientes.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/listaClientes.jsp").forward(request, response);
     }
 }

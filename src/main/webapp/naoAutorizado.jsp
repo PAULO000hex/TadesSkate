@@ -19,11 +19,11 @@
     </head>
 
     <body>
-        <c:import url="/menu.jsp"/>
+        <c:import url="/menu.jsp"/>      
         <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
         <div class="fullpage">
             <div class="card">
-                <h2>Operação realizada com sucesso !</h2>
+                <h2>Você não tem acesso à esse recurso!</h2>
             </div>
         </div>
     </body>

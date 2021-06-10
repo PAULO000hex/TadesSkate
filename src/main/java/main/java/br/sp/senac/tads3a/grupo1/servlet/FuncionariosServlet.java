@@ -1,7 +1,6 @@
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,6 +21,6 @@ public class FuncionariosServlet extends HttpServlet {
         List<Funcionario> listaFuncionarios = FuncionarioDAO.getFuncionarios();
         
         request.setAttribute("listaFuncionarios", listaFuncionarios);
-        request.getRequestDispatcher("/listaFuncionarios.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/listaFuncionarios.jsp").forward(request, response);
     }
 }

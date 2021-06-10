@@ -7,7 +7,7 @@
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
         <link href=".../css/style.css" rel="stylesheet">
-        <link href=".../css/style.css" rel="stylesheet">
+        <link href="../../css/style.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
         <title>Cadastrar Funcionário</title>
     </head>
@@ -15,9 +15,12 @@
         <c:import url="/menu.jsp"/>
         <c:if test="${empty funcionario}">   
             <form action="CadastrarFuncionarioServlet" method="POST" >
-                <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
                 <div class="half">
                     <div class="space"><h1>Cadastrar</h1></div>
+                    <div class="field">
+                        <h2>ID da Filial</h2>
+                        <input class="txt" type="text" name="filial_id" class="filial_id" required="true">
+                    </div>
                     <div class="field">
                         <h2>Nome</h2>
                         <input class="txt" type="text" name="nome" id="nome">
@@ -46,7 +49,15 @@
                     </div>
                     <div class="field">
                         <h2>Departamento</h2>
-                        <input class="txt" type="text" name="departamento">               
+                        <select class="txt" name="departamento" required="true">
+                            <option value="">Selecione</option>
+                            <option value="RH">RH</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="BackOffice">BackOffice</option>
+                            <option value="Gerência">Gerência</option>
+                            <option value="Financeiro">Financeiro</option>
+                            <option value="Comercial">Comercial</option>
+                        </select>
                     </div>
                     <div class="field">
                         <h2>Salário</h2>

@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +26,12 @@
     </head>
     <body>
         <div class="container">
+            <c:if test="${param.loginInvalido}">
+                <div class="alert alert-danger mt-3 mb-3" role="alert">
+                    Login Inválido!
+                </div>
+            </c:if>
+            
             <div class="row">
                 <div class="col text-center">
                     <div class="img-fluid" style="height: 470px; margin-top: -50px;">

@@ -1,7 +1,6 @@
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +22,6 @@ public class ProdutosServlet extends HttpServlet {
             throws ServletException, IOException {
         List<Produto> listaProdutos = ProdutoDAO.getProdutos();
         request.setAttribute("listaProdutos", listaProdutos);
-        request.getRequestDispatcher("/listaProdutos.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Produtos/listaProdutos.jsp").forward(request, response);
     }
 }

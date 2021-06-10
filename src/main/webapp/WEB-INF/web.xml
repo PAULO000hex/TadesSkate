@@ -211,7 +211,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>CadastrarFuncionarioServlet</servlet-name>
-        <url-pattern>/Funcionarios/CadastrarFuncionarioServlet</url-pattern>
+        <url-pattern>/Protegido/Funcionarios/CadastrarFuncionarioServlet</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>Protegido/testeFiliais.jsp</welcome-file>
