@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import main.java.br.sp.senac.tads3a.grupo1.utils.CryptoUtils;
 
 /**
  * @author vitor.oliveira
@@ -35,7 +36,9 @@ public class CadastrarFuncionarioServlet extends HttpServlet {
 
         Date date = Date.valueOf(nascimento);
         
-        Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha, fk_filial_id);
+        String senhaHash = CryptoUtils.hashSenha(senha);
+        
+        Funcionario funcionario = new Funcionario(-1, nome, sobrenome, CPF, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senhaHash, fk_filial_id);
 
        // boolean result = FuncionarioDAO.cadastrar(funcionario, filial_id);
        boolean result = FuncionarioDAO.cadastrar(funcionario);

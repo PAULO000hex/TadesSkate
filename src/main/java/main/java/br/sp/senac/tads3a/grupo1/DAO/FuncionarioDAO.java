@@ -203,15 +203,14 @@ public static boolean atualizar(Funcionario funcionario){
 return ok;
 }
 
-    public static Funcionario getFuncionarioLogin(String cpf, String senha){
+    public static Funcionario getFuncionarioLogin(String cpf){
         Funcionario funcionario = null;
-        String query = "select * from funcionario where cpf=? and senha=?";
+        String query = "select * from funcionario where cpf=?";
         Connection con;
         try{
             con = Conexao.getConexao();
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, cpf);
-            ps.setString(2, senha);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
                 int id = rs.getInt("funcionario_id");
@@ -227,6 +226,7 @@ return ok;
                 String bairro = rs.getString("bairro");
                 String estado = rs.getString("estado");
                 int fk_filial_id = rs.getInt("fk_filial_id");
+                String senha = rs.getString("senha");
 
                 funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, nascimento, departamento, salario, endereco, cidade, bairro, estado, senha, fk_filial_id);
             }
