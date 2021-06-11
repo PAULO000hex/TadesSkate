@@ -8,11 +8,9 @@ package main.java.br.sp.senac.tads3a.grupo1.model;
 import java.sql.Date;
 import lombok.Getter;
 import lombok.Setter;
-import main.java.br.sp.senac.tads3a.grupo1.utils.Conexao;
 
 @Getter
 @Setter
-
 public class Cliente {
 
     private int cliente_id;
