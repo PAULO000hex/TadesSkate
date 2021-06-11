@@ -7,6 +7,7 @@ package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +27,12 @@ public class VenderServlet extends HttpServlet {
         float total = Float.parseFloat(request.getParameter("valor_total"));
         int fk_filial_id = Integer.parseInt(request.getParameter("filial_id"));
 
-        String[] produtos = request.getParameterValues("produto_id");
+        String[] produtos = request.getParameterValues("produto_id");;
         String[] qtd = request.getParameterValues("qtd");
         String[] valor_un = request.getParameterValues("valor_un");
+        String[] tabela = request.getParameterValues("tb-produtos");
+
+        System.out.println(Arrays.toString(tabela));
 
         ArrayList<Pedido> itens = new ArrayList<>();
         for (int i = 0; i < produtos.length; i++) {

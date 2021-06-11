@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
                         response.sendRedirect(request.getContextPath() + "/FilialServlet");
                         break;
                     case "Comercial":
-                        response.sendRedirect(request.getContextPath() + "/Protegido/Venda.jsp");
+                        response.sendRedirect(request.getContextPath() + "/Protegido/VendaServlet");
                         break;
                     default:
                         break;
