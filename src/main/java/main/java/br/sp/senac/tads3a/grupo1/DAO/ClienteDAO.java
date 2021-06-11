@@ -41,7 +41,7 @@ public class ClienteDAO {
 
     public static boolean Cadastrar(Cliente cliente, Date nascimento) {
         boolean ok = true;
-        String query = "insert into cliente (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento,fk_filial_id) "
+        String query = "insert into cliente (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, nascimento, fk_filial_id) "
                 + "values(?,?,?,?,?,?,?,?,?,?,?)";
         try {
             Connection con = Conexao.getConexao();

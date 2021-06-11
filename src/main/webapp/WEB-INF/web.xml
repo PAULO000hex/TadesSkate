@@ -126,7 +126,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarClienteServlet</servlet-name>
-        <url-pattern>/Clientes/CadastrarClienteServlet</url-pattern>
+        <url-pattern>/Protegido/Clientes/CadastrarClienteServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ExcluirClienteServlet</servlet-name>

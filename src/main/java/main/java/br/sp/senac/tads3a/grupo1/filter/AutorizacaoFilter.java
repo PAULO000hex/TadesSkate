@@ -53,35 +53,35 @@ public class AutorizacaoFilter implements Filter {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Protegido/Venda") && !funcionario.isComercial() && !funcionario.isGerente()) {
+        if (url.contains("/Protegido/Venda") && !funcionario.isComercial() && !funcionario.isGerente() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Clientes") && !funcionario.isGerente() && !funcionario.isTecnologia()) {
+        if (url.contains("/Clientes") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Filiais") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+        if (url.contains("/Filiais") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Produtos") && !funcionario.isTecnologia()) {
+        if (url.contains("/Produtos") && !funcionario.isTecnologia() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Protegido/listaClientes.jsp") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+        if (url.contains("/Protegido/listaClientes.jsp") && !funcionario.isGerente() && !funcionario.isTecnologia() && !funcionario.isFinanceiro() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Protegido/listaFuncionarios.jsp") && !funcionario.isTecnologia() && !funcionario.isBackOffice() && !funcionario.isRH()) {
+        if (url.contains("/Protegido/listaFuncionarios.jsp") && !funcionario.isTecnologia() && !funcionario.isBackOffice() && !funcionario.isRH() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Protegido/relatorioFilial.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+        if (url.contains("/Protegido/relatorioFilial.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
         
-        if (url.contains("/Protegido/relatorioGeral.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro()) {
+        if (url.contains("/Protegido/relatorioGeral.jsp") && !funcionario.isTecnologia() && !funcionario.isFinanceiro() && !funcionario.isAdmin()) {
             httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/naoAutorizado.jsp");
         }
     }    
