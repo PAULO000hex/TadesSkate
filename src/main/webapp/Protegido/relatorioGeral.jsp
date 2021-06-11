@@ -47,11 +47,8 @@
                     <input class="info-btn" type="button" id="produtos" name="produto" value="Produtos mais vendidos">
 
                 </div>
-<!--                <div class="info-input">
-                    <input class="info-btn" type="button" id="vendedores" name="vendedor" value="Top Vendedores">
 
-                </div>-->
-                <table>
+                <table id="tb">
                     <th>ID</th>
                     <th>Vendedor</th>
                     <th>Valor Total</th>
@@ -66,8 +63,6 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td class="icon" id="edit"><a href ="AlterarClienteServlet?id=${cliente.cliente_id}"><i class="fa fa-pencil-square" aria-hidden="true"></i></a></td>
-                            <td class="icon" id="delete"><a href="ExcluirClienteServlet?id=${cliente.cliente_id}"><i class="fa fa-times-circle" aria-hidden="true"></i></a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -77,6 +72,29 @@
     <script>
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
+        });
+
+        let tbFiliais = `
+                    <th>ID</th>
+                    <th>Vendedor</th>
+                    <th>Valor Total</th>
+                    <th>Data da venda</th>
+                    <th>Cliente</th>`;
+
+        let tbProdutos = `                    
+                    <th>ID</th>
+                    <th>Descrição</th>
+                    <th>Quantidade Vendida</th>
+                    <th>Valor Total</th>`;
+
+        $('#vendas').click(() => {
+            $('#tb').empty();
+            $('#tb').html(tbFiliais);
+        });
+
+        $('#produtos').click(() => {
+            $('#tb').empty();
+            $('#tb').append(tbProdutos);
         });
     </script>
 </html>
