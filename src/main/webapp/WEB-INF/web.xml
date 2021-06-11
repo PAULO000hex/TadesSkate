@@ -100,6 +100,26 @@
         <servlet-name>RelatorioFilialServlet</servlet-name>
         <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.RelatorioFilialServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RelatorioProdutoFilialServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.RelatorioProdutoFilialServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioVendaFilialServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.RelatorioVendaFilialServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioProdutoGeralServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.RelatorioProdutoGeralServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RelatorioVendaGeralServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.RelatorioVendaGeralServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TodasFiliaisServlet</servlet-name>
+        <servlet-class>main.java.br.sp.senac.tads3a.grupo1.servlet.TodasFiliaisServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ClienteServlet</servlet-name>
         <url-pattern>/Clientes/ClienteServlet</url-pattern>
@@ -195,6 +215,26 @@
     <servlet-mapping>
         <servlet-name>RelatorioFilialServlet</servlet-name>
         <url-pattern>/RelatorioFilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioProdutoFilialServlet</servlet-name>
+        <url-pattern>/RelatorioProdutoFilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioVendaFilialServlet</servlet-name>
+        <url-pattern>/RelatorioVendaFilialServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioProdutoGeralServlet</servlet-name>
+        <url-pattern>/RelatorioProdutoGeralServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RelatorioVendaGeralServlet</servlet-name>
+        <url-pattern>/RelatorioVendaGeralServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TodasFiliaisServlet</servlet-name>
+        <url-pattern>/TodasFiliaisServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
