@@ -122,7 +122,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CadastrarProdutoServlet</servlet-name>
-        <url-pattern>/Produtos/CadastrarProdutoServlet</url-pattern>
+        <url-pattern>/Protegido/Produtos/CadastrarProdutoServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AlterarProdutoServlet</servlet-name>
