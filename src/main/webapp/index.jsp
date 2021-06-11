@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
         <style>
             body{
                 background-color: #232323;
@@ -51,7 +52,7 @@
                                     <span class="small d-block text-center mb-3" style="font-size: 24px; font-family: Verdana; color: black;">Login</span>
                                     <form action="LoginServlet" method="POST">
                                         <div class="input-group mt-3">
-                                            <input type="text" class="form-control" name="cpf" placeholder="Digite o seu CPF">
+                                            <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite o seu CPF">
                                         </div>
                                         <div class="input-group mt-3">
                                             <input type="password" class="form-control" name="senha" placeholder="******">
@@ -71,4 +72,11 @@
             </div>
         </div>
     </body>
+     <script>
+            $(document).ready(function () {
+            $('#cpf').mask("000.000.000-00");
+        });
+        </script>
+    
+    
 </html>
