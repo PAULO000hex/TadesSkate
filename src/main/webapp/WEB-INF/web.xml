@@ -214,27 +214,27 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioFilialServlet</servlet-name>
-        <url-pattern>/RelatorioFilialServlet</url-pattern>
+        <url-pattern>/Protegido/RelatorioFilialServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioProdutoFilialServlet</servlet-name>
-        <url-pattern>/RelatorioProdutoFilialServlet</url-pattern>
+        <url-pattern>/Protegido/RelatorioProdutoFilialServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioVendaFilialServlet</servlet-name>
-        <url-pattern>/RelatorioVendaFilialServlet</url-pattern>
+        <url-pattern>/Protegido/RelatorioVendaFilialServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioProdutoGeralServlet</servlet-name>
-        <url-pattern>/RelatorioProdutoGeralServlet</url-pattern>
+        <url-pattern>/Protegido/RelatorioProdutoGeralServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>RelatorioVendaGeralServlet</servlet-name>
-        <url-pattern>/RelatorioVendaGeralServlet</url-pattern>
+        <url-pattern>/Protegido/RelatorioVendaGeralServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>TodasFiliaisServlet</servlet-name>
-        <url-pattern>/TodasFiliaisServlet</url-pattern>
+        <url-pattern>/Protegido/TodasFiliaisServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

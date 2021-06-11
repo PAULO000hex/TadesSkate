@@ -51,8 +51,8 @@
                 <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-5"><i class="fa fa-chevron-down"></i><span>Relatórios</span></label>
 
                 <ul class="cd-accordion__sub cd-accordion__sub--l4">
-                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Filiais/CadastrarFilial.jsp"><i class="fa fa-align-justify"></i><span>Relatório Filial</span></a></li>
-                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/FilialServlet"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/relatorioFilial.jsp"><i class="fa fa-align-justify"></i><span>Relatório Filial</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TodasFiliaisServlet"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
                 </ul>
             </li>
             
@@ -132,7 +132,7 @@
 
                 <ul class="cd-accordion__sub cd-accordion__sub--l4">
                     <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/relatorioFilial.jsp"><i class="fa fa-align-justify"></i><span>Relatório Filial</span></a></li>
-                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/relatorioGeral.jsp"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TodasFiliaisServlet"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
                 </ul>
             </li>
             
@@ -174,7 +174,7 @@
 
                 <ul class="cd-accordion__sub cd-accordion__sub--l4">
                     <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/relatorioFilial.jsp"><i class="fa fa-align-justify"></i><span>Relatório Filial</span></a></li>
-                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/relatorioGeral.jsp"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TodasFiliaisServlet"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
                 </ul>
             </li>
         </c:if>

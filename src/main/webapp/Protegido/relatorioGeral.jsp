@@ -102,7 +102,7 @@
 
             let tb = ``;
 
-            $.get("RelatorioVendasServletGeral", dados, (response) => {
+            $.get("\RelatorioVendasServletGeral", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
                 $('#tb').html(tbFiliais);
@@ -135,7 +135,7 @@
 
             let tb = ``;
 
-            $.get("RelatorioProdutosServletGeral", dados, (response) => {
+            $.get("\RelatorioProdutosServletGeral", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
                 $('#tb').html(tbProdutos); //Ou append();

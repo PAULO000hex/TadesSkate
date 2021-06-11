@@ -76,7 +76,7 @@
                 <th>Quantidade Vendida</th>
                 <th>Valor Total</th>`;
 
-        $('#vendas').click(() => {
+        $('#filiais').click(() => {
 
             let dataInicio = $('#dataInicio').val();
             let dataFim = $('#dataFim').val();
@@ -84,14 +84,13 @@
             const dados = {
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-            }
+            };
 
             let tb = ``;
-
-            $.get("RelatorioVendasServletFilial", dados, (response) => {
+            $.get("RelatorioVendaFilialServlet", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
-                $('#tb').html(tbFiliais);
+                $('#tb').append(tbFiliais);
 
                 $.each(response, function (key, value) {
                     tb += `
@@ -104,7 +103,7 @@
                     </tr>
                     `;
                 });
-                $('#tb').html(tb);
+                $('#tb').append(tb);
             });
 
 
@@ -121,10 +120,10 @@
 
             let tb = ``;
 
-            $.get("RelatorioProdutosServletFilial", dados, (response) => {
+            $.get("RelatorioProdutoFilialServlet", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
-                $('#tb').html(tbProdutos); //Ou append();
+                $('#tb').append(tbProdutos); //Ou append();
 
                 $.each(response, function (key, value) {
                     tb += `
