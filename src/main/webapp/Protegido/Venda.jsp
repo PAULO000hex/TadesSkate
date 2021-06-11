@@ -66,6 +66,7 @@
                             <th>Valor Un</th>
                         </table>
                     </div>
+                    <label>Valor Total: </label>
                     <input type="text" name="valor_total" id="valor_total" readonly="true">
                 </div>
                 <div class="btn">
@@ -91,40 +92,44 @@
             var produto = $('#produto option:selected').attr('class');
             var funcionario = $('#funcionario option:selected').val();
             var cliente = $('#cliente option:selected').val();
-            var qtd_produto = $('#qtd').val();
-            var valor_produto = $('#produto').attr('id');
+            var qtd_produto = parseFloat($('#qtd').val());
+            var valor_produto = $('#produto option:selected').attr('id');
 
-            var produtos = {id: id_produto, qtd: qtd_produto, descricao: produto, valor: valor_produto};
+            var produtos = {id: id_produto, qtd: parseFloat(qtd_produto), descricao: produto, valor: parseFloat(valor_produto)};
 
             if (map.get(id_produto)) {
-                map.get(id_produto).qte += qtd;
+                map.get(id_produto).qtd = parseFloat(map.get(id_produto).qtd + qtd_produto);
             } else {
                 map.set(id_produto, produtos);
             }
-            $('#tabela tbody').empty();
+            $('.table-row').empty();
 
             var tb = '';
 
             map.forEach((valor, chave, map) => {
-                tb += `
-                <tr>
-                <td value="${valor.id}">${valor.produto}</td>
-                <td value="${valor.qtd}">${valor.qtd}</td>
-                <td value="${valor.valor}">${valor.valor}</td>
-                </tr>
-                `;
-            })
+                console.log(valor.descricao);
+
+//                tb += `
+//                <tr>
+//                <td value="${valor.id}">${valor.descricao}</td>
+//                <td value="${valor.qtd}">${valor.qtd}</td>
+//                <td value="${valor.valor}">${valor.valor}</td>
+//                </tr>
+//                `;
+                tb += '<tr class="table-row"><td value="' + valor.id + '">' + valor.descricao + '</td><td value="' + valor.qtd + '">' + valor.qtd + '</td><td value="' + valor.valor + '">' + valor.valor + '</td></tr>';
+
+            });
 
             console.log(tb);
 
-            $('#tabela tbody').append(tb);
+            $('#tabela').append(tb);
 
-            $('.half').append(`<input type="hidden" id="produto_id${prod}" name="produto_id" value="${id_produto}">`);
-            $('.half').append(`<input type="hidden" id="descricao${prod}" name="descricao" value="${produto}">`);
-            $('.half').append(`<input type="hidden" id="qtd${prod}" name="qtd" value="${qtd}">`);
-            $('.half').append(`<input type="hidden" id="valor_un${prod}" name="valor_un" value="${valor_produto}">`);
+            $('.half').append('<input type="hidden" id="produto_id' + prod + '" name="produto_id" value="' + id_produto + '">');
+            $('.half').append('<input type="hidden" id="descricao' + prod + '" name="descricao" value="' + produto + '">');
+            $('.half').append('<input type="hidden" id="qtd' + prod + '" name="qtd" value="' + qtd_produto + '">');
+            $('.half').append('<input type="hidden" id="valor_un' + prod + '" name="valor_un" value="' + valor_produto + '">');
 
-            valorTotal += parseFloat(valor * qtd);
+            valorTotal += parseFloat(valor_produto * qtd_produto);
 
             $('#valor_total').attr('value', valorTotal);
 
