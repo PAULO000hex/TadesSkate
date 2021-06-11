@@ -28,7 +28,7 @@ public class AlterarFilialServlet extends HttpServlet {
         Filial filial = FilialDAO.getFilial(id);
         request.setAttribute("filial", filial);
 
-        request.getRequestDispatcher("/Filiais/CadastrarFilial.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Filiais/CadastrarFilial.jsp").forward(request, response);
     }
 
     @Override
