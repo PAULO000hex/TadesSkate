@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import main.java.br.sp.senac.tads3a.grupo1.DAO.FuncionarioDAO;
 import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
+import main.java.br.sp.senac.tads3a.grupo1.utils.CryptoUtils;
 
 /**
  *
@@ -30,7 +31,7 @@ public class AlterarFuncionarioServlet extends HttpServlet {
         Funcionario funcionario = FuncionarioDAO.getFuncionario(id);
         request.setAttribute("funcionario", funcionario);
 
-        request.getRequestDispatcher("/Funcionarios/cadastrarFuncionario.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Funcionarios/cadastrarFuncionario.jsp").forward(request, response);
     }
 
     @Override
@@ -50,10 +51,10 @@ public class AlterarFuncionarioServlet extends HttpServlet {
         String estado = request.getParameter("estado");
         String senha = request.getParameter("senha");
         int id = Integer.parseInt(request.getParameter("id"));
-        
+        String senhaHash = CryptoUtils.hashSenha(senha);
         Date date = Date.valueOf(nascimento);
 
-        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senha,2);
+        Funcionario funcionario = new Funcionario(id, nome, sobrenome, cpf, email, telefone, date, departamento, salario, endereco, bairro, cidade, estado, senhaHash,2);
         
         boolean ok = FuncionarioDAO.atualizar(funcionario);
         if (ok) {

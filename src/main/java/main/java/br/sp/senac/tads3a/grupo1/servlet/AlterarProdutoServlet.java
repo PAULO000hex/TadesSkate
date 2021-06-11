@@ -28,7 +28,7 @@ public class AlterarProdutoServlet extends HttpServlet {
         Produto produto = ProdutoDAO.getProduto(id);
         request.setAttribute("produto", produto);
 
-        request.getRequestDispatcher("/Produtos/CadastrarProduto.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Produtos/CadastrarProduto.jsp").forward(request, response);
     }
 
     @Override

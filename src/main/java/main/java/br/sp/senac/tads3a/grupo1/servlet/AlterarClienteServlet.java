@@ -30,7 +30,7 @@ public class AlterarClienteServlet extends HttpServlet {
         Cliente cliente = ClienteDAO.getCliente(id);
         request.setAttribute("cliente", cliente);
         
-        request.getRequestDispatcher("/Clientes/CadastrarClientes.jsp").forward(request, response);
+        request.getRequestDispatcher("/Protegido/Clientes/CadastrarClientes.jsp").forward(request, response);
       
     }
 
