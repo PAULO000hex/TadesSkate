@@ -5,6 +5,7 @@
  */
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -34,7 +35,7 @@ public class RelatorioVendaFilialServlet extends HttpServlet {
 
     List<Relatorio> relatorios = RelatorioDAO.getVendas(dataInicio, dataFim, f.getFk_filial_id());
 
-    String json = new Gson().toJson(list);
+    String json = new Gson().toJson(relatorios);
     response.setContentType("application/json");
     response.setCharacterEncoding("UTF-8");
     response.getWriter().write(json);
