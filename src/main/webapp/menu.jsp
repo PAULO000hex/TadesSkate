@@ -23,11 +23,46 @@
     <ul class="cd-accordion margin-top-lg margin-bottom-lg">
         <c:if test="${sessionScope.usuario.isAdmin()}">
             <li class="cd-accordion__item cd-accordion__item--has-children">
-                <input class="cd-accordion__input" type="checkbox" name ="group-2" id="group-2">
-                <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-2"><i class="fa fa-chevron-down"></i><span>Funcionários</span></label>
+                <a class="cd-accordion__label cd-accordion__label--icon-img" href="\TadesSkate\Protegido\VendaServlet"><i class="fa fa-shopping-basket"></i><span>Vender</span></a>
+            </li>
+            
+            <li class="cd-accordion__item cd-accordion__item--has-children">
+            <input class="cd-accordion__input" type="checkbox" name ="group-2" id="group-2">
+            <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-2"><i class="fa fa-chevron-down"></i><span>Funcionários</span></label>
 
-                <ul class="cd-accordion__sub cd-accordion__sub--l2">
-                    <li class="cd-accordion__item submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Funcionarios/cadastrarFuncionario.jsp"><i class="fa fa-wrench"></i><span>Cadastrar Funcionário</span></a></li>
+            <ul class="cd-accordion__sub cd-accordion__sub--l2">
+                <li class="cd-accordion__item submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Funcionarios/cadastrarFuncionario.jsp"><i class="fa fa-plus"></i><span>Cadastrar Funcionário</span></a></li>
+                <li class="cd-accordion__item submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/FuncionariosServlet"><i class="fa fa-wrench"></i><span>Manutenção</span></a></li>
+            </ul>
+            </li>
+            
+            <li class="cd-accordion__item cd-accordion__item--has-children">
+                <input class="cd-accordion__input" type="checkbox" name ="group-3" id="group-3">
+                <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-3"><i class="fa fa-chevron-down"></i><span>Produtos</span></label>
+
+                <ul class="cd-accordion__sub cd-accordion__sub--l3">
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Produtos/CadastrarProduto.jsp"><i class="fa fa-plus"></i><span>Cadastrar Produto</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/ProdutosServlet"><i class="fa fa-wrench"></i><span>Manutenção</span></a></li>
+                </ul>
+            </li>
+            
+            <li class="cd-accordion__item cd-accordion__item--has-children">
+                <input class="cd-accordion__input" type="checkbox" name ="group-5" id="group-5">
+                <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-5"><i class="fa fa-chevron-down"></i><span>Relatórios</span></label>
+
+                <ul class="cd-accordion__sub cd-accordion__sub--l4">
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Filiais/CadastrarFilial.jsp"><i class="fa fa-align-justify"></i><span>Relatório Filial</span></a></li>
+                    <li class="cd-accordion__item  submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/FilialServlet"><i class="fa fa-align-justify"></i><span>Relatório Geral</span></a></li>
+                </ul>
+            </li>
+            
+            <li class="cd-accordion__item cd-accordion__item--has-children">
+                <input class="cd-accordion__input" type="checkbox" name ="group-1" id="group-1">
+                <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-1"><i class="fa fa-chevron-down"></i><span>Clientes</span>  </label>
+
+                <ul class="cd-accordion__sub cd-accordion__sub--l1">
+                    <li class="cd-accordion__item submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Protegido/Clientes/CadastrarClientes.jsp"><i class="fa fa-plus"></i><span>Cadastrar Cliente</span></a></li>
+                    <li class="cd-accordion__item submenu"><a class="cd-accordion__label cd-accordion__label--icon-img" href="/TadesSkate/Clientes/ClienteServlet"><i class="fa fa-wrench"></i><span>Manutenção</span></a></li>
                 </ul>
             </li>
         </c:if>
@@ -149,6 +184,9 @@
                 <a class="cd-accordion__label cd-accordion__label--icon-img" href="\TadesSkate\Protegido\VendaServlet"><i class="fa fa-shopping-basket"></i><span>Vender</span></a>
             </li>
         </c:if>
+        
+        <li class="cd-accordion__item cd-accordion__item--has-children"><a class="cd-accordion__label cd-accordion__label--icon-img" href="<c:url value="/LogoutServlet"/>" class="ms-3">Sair</a></p></li>
+        
     </ul> 
 </div>
 
