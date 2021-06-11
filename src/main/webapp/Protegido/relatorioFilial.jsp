@@ -65,34 +65,79 @@
         });
 
         let tbFiliais = `
-                    <th>ID</th>
-                    <th>Vendedor</th>
-                    <th>Valor Total</th>
-                    <th>Data da venda</th>
-                    <th>Cliente</th>`;
-
+                <th>ID</th>
+                <th>Vendedor</th>
+                <th>Valor Total</th>
+                <th>Data da venda</th>
+                <th>Cliente</th>`;
         let tbProdutos = `                    
-                    <th>ID</th>
-                    <th>Descrição</th>
-                    <th>Quantidade Vendida</th>
-                    <th>Valor Total</th>`;
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Quantidade Vendida</th>
+                <th>Valor Total</th>`;
 
-        $('#filiais').click(() => {
-            $('#tb').empty();
-            $('#tb').html(tbFiliais);
-            
-            /* Inserir o AJAX aqui*/            
-            
+        $('#vendas').click(() => {
+
+            let dataInicio = $('#dataInicio').val();
+            let dataFim = $('#dataFim').val();
+
+            const dados = {
+                'dataInicio': dataInicio,
+                'dataFim': dataFim
+            }
+
+            let tb = ``;
+
+            $.get("RelatorioVendasServletFilial", dados, (response) => {
+                console.log(response);
+                $('#tb').empty();
+                $('#tb').html(tbFiliais);
+
+                $.each(response, function (key, value) {
+                    tb += `
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>    
+                    <td></td>
+                    <td></td>
+                    </tr>
+                    `;
+                });
+                $('#tb').html(tb);
+            });
+
+
         });
-
         $('#produtos').click(() => {
-            $('#tb').empty();
-            $('#tb').append(tbProdutos);
-            
-            /*Inserir o AJAX aqui*/
-            
-        });
 
+            let dataInicio = $('#dataInicio').val();
+            let dataFim = $('#dataFim').val();
+
+            const dados = {
+                'dataInicio': dataInicio,
+                'dataFim': dataFim
+            }
+
+            let tb = ``;
+
+            $.get("RelatorioProdutosServletFilial", dados, (response) => {
+                console.log(response);
+                $('#tb').empty();
+                $('#tb').html(tbProdutos); //Ou append();
+
+                $.each(response, function (key, value) {
+                    tb += `
+                    <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>  
+                    <td></td>
+                    </tr>
+                    `;
+                });
+                $('#tb').append(tb);
+            });
+        });
     </script>
 </html>
-
