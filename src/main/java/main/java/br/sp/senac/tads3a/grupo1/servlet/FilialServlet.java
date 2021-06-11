@@ -15,8 +15,6 @@ import main.java.br.sp.senac.tads3a.grupo1.model.Filial;
  */
 public class FilialServlet extends HttpServlet {
 
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
