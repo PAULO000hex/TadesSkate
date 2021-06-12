@@ -79,12 +79,11 @@
 
             let tb = ``;
             $.get("RelatorioVendaFilialServlet", dados, (response) => {
-                console.log(response);
                 $('#tb').empty();
                 $('#tb').append(tbFiliais);
 
                 $.each(response, function (key, value) {
-                    tb += '<tr><td>'+value.venda_id+'</td><td>'+value.nome_vendedor+'</td><td>'+value.data+'</td>    <td>'+value.nome_cliente+'</td><td>'+value.valor_total+' R$</td></tr>';
+                    tb += '<tr><td>' + value.venda_id + '</td><td>' + value.nome_vendedor + '</td><td>' + value.data + '</td>    <td>' + value.nome_cliente + '</td><td>' + value.valor_total + ' R$</td></tr>';
                 });
                 $('#tb').append(tb);
             });
@@ -104,12 +103,11 @@
             let tb = ``;
 
             $.get("RelatorioProdutoFilialServlet", dados, (response) => {
-                console.log(response);
                 $('#tb').empty();
                 $('#tb').append(tbProdutos); //Ou append();
 
                 $.each(response, function (key, value) {
-                    tb += '<tr><td>'+value.produto_id+'</td><td>'+value.descricao+'</td><td>'+value.qtdcompra+'</td>  <td>'+value.total+' R$</td></tr>';
+                    tb += '<tr><td>' + value.produto_id + '</td><td>' + value.descricao + '</td><td>' + value.qtdcompra + '</td>  <td>' + value.total + ' R$</td></tr>';
                 });
                 $('#tb').append(tb);
             });

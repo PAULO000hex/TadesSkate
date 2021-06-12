@@ -65,7 +65,7 @@
     </body>
     <script>
         $(document).ready(function () {
-        $('.js-example-basic-single').select2();
+            $('.js-example-basic-single').select2();
         });
         let tbFiliais = `
                 <th>ID</th>
@@ -73,7 +73,7 @@
                 <th>Data da venda</th>
                 <th>Cliente</th>                
                 <th>Valor Total</th>`
-    ;
+                ;
         let tbProdutos = `                    
                 <th>ID</th>
                 <th>Descrição</th>
@@ -81,49 +81,45 @@
                 <th>Valor Total</th>`;
         $('#vendas').click(() => {
 
-        let filial = $('#filial').val();
-        let dataInicio = $('#dataInicio').val();
-        let dataFim = $('#dataFim').val();
-        const dados = {
-        'filial': filial,
+            let filial = $('#filial').val();
+            let dataInicio = $('#dataInicio').val();
+            let dataFim = $('#dataFim').val();
+            const dados = {
+                'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-        };
-        console.log("dados", dados);
-        let tb = ``;
-        $.get("\RelatorioVendaGeralServlet", dados, (response) => {
-        console.log(response);
-        $('#tb').empty();
-        $('#tb').append(tbFiliais);
-        $.each(response, function (key, value) {
-        tb += '<tr><td>'+value.venda_id+'</td><td>'+value.nome_vendedor+'</td><td>'+value.data+'</td>    <td>'+value.nome_cliente+'</td><td>'+value.valor_total+' R$</td></tr>';
-        });
-        $('#tb').append(tb);
-        });
+            };
+            let tb = ``;
+            $.get("\RelatorioVendaGeralServlet", dados, (response) => {
+                $('#tb').empty();
+                $('#tb').append(tbFiliais);
+                $.each(response, function (key, value) {
+                    tb += '<tr><td>' + value.venda_id + '</td><td>' + value.nome_vendedor + '</td><td>' + value.data + '</td>    <td>' + value.nome_cliente + '</td><td>' + value.valor_total + ' R$</td></tr>';
+                });
+                $('#tb').append(tb);
+            });
         });
         $('#produtos').click(() => {
 
-        let filial = $('#filial').val();
-        let dataInicio = $('#dataInicio').val();
-        let dataFim = $('#dataFim').val();
-        const dados = {
-        'filial': filial,
+            let filial = $('#filial').val();
+            let dataInicio = $('#dataInicio').val();
+            let dataFim = $('#dataFim').val();
+            const dados = {
+                'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-        };
-        console.log("dados", dados);
-        let tb = ``;
-        $.get("\RelatorioProdutoGeralServlet", dados, (response) => {
-        console.log(response);
-        $('#tb').empty();
-        $('#tb').html(tbProdutos); //Ou append();
+            };
+            let tb = ``;
+            $.get("\RelatorioProdutoGeralServlet", dados, (response) => {
+                $('#tb').empty();
+                $('#tb').html(tbProdutos); //Ou append();
 
-        $.each(response, function (key, value) {
-        console.log(key, value);
-        tb += '<tr><td>' + value.produto_id + '</td><td>' + value.descricao + '</td><td>' + value.qtdcompra + '</td><td>' + value.total + ' R$</td></tr>';
-        });
-        $('#tb').append(tb);
-        });
+                $.each(response, function (key, value) {
+                    console.log(key, value);
+                    tb += '<tr><td>' + value.produto_id + '</td><td>' + value.descricao + '</td><td>' + value.qtdcompra + '</td><td>' + value.total + ' R$</td></tr>';
+                });
+                $('#tb').append(tb);
+            });
         });
     </script>
 </html>
