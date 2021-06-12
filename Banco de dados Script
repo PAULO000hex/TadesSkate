@@ -78,5 +78,3 @@ insert into filial  (email, telefone, endereco, cidade, estado, bairro)
 values ('matriz@mail.com', '123456','avenida das nacoes unidas', 'sao paulo', 'sp', 'interlagos');
 
 
-
-INSERT INTO funcionario (nome, sobrenome, cpf, email, telefone, endereco, cidade, estado, bairro, departamento, salario, senha, nascimento, fk_filial_id) VALUES ( 'admin', 'admin', '123', 'admin@mail', '555111', 'rua', 'cidade', 'estado', 'bairro', 'admin', 00, 'admin', '2021-05-05', 1);
