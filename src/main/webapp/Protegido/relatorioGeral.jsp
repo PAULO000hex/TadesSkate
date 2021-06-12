@@ -32,15 +32,6 @@
                         </c:forEach>
                     </select>
                 </div>
-                <div class="search-input">
-                    <h4>Data de início</h4>
-                    <input type="date" name="dataInicio" id="dataInicio">
-                </div>
-
-                <div class="search-input">
-                    <h4>Data final</h4>
-                    <input type="date" name="dataFim" id="dataFim">
-                </div>
             </div>
             <div class="info-wrapper">
                 <hr>
@@ -76,86 +67,56 @@
         $(document).ready(function () {
             $('.js-example-basic-single').select2();
         });
-
         let tbFiliais = `
                 <th>ID</th>
                 <th>Vendedor</th>
-                <th>Valor Total</th>
                 <th>Data da venda</th>
-                <th>Cliente</th>`;
+                <th>Cliente</th>                
+                <th>Valor Total</th>`
+                ;
         let tbProdutos = `                    
                 <th>ID</th>
                 <th>Descrição</th>
                 <th>Quantidade Vendida</th>
                 <th>Valor Total</th>`;
-    
         $('#vendas').click(() => {
 
             let filial = $('#filial').val();
-            
             let dataInicio = $('#dataInicio').val();
             let dataFim = $('#dataFim').val();
-
             const dados = {
                 'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
             };
-            console.log("dados",dados);
-
             let tb = ``;
-
             $.get("\RelatorioVendaGeralServlet", dados, (response) => {
-                console.log(response);
                 $('#tb').empty();
-                $('#tb').html(tbFiliais);
-
+                $('#tb').append(tbFiliais);
                 $.each(response, function (key, value) {
-                    tb += `
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>    
-                    <td></td>
-                    <td></td>
-                    </tr>
-                    `;
+                    tb += '<tr><td>' + value.venda_id + '</td><td>' + value.nome_vendedor + '</td><td>' + value.data + '</td>    <td>' + value.nome_cliente + '</td><td>' + value.valor_total + ' R$</td></tr>';
                 });
-                $('#tb').html(tb);
+                $('#tb').append(tb);
             });
         });
         $('#produtos').click(() => {
 
             let filial = $('#filial').val();
-
             let dataInicio = $('#dataInicio').val();
             let dataFim = $('#dataFim').val();
-
             const dados = {
                 'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
             };
-
-                   console.log("dados",dados);
-
-
             let tb = ``;
-
             $.get("\RelatorioProdutoGeralServlet", dados, (response) => {
-                console.log(response);
                 $('#tb').empty();
                 $('#tb').html(tbProdutos); //Ou append();
 
                 $.each(response, function (key, value) {
-                    tb += `
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>  
-                    <td></td>
-                    </tr>
-                    `;
+                    console.log(key, value);
+                    tb += '<tr><td>' + value.produto_id + '</td><td>' + value.descricao + '</td><td>' + value.qtdcompra + '</td><td>' + value.total + ' R$</td></tr>';
                 });
                 $('#tb').append(tb);
             });
