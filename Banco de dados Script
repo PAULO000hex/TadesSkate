@@ -77,12 +77,13 @@ pedido_id integer NOT NULL primary key generated always as identity(start with 1
 insert into filial  (email, telefone, endereco, cidade, estado, bairro) 
 values ('matriz@mail.com', '123456','avenida das nacoes unidas', 'sao paulo', 'sp', 'interlagos');
 
-
 insert into funcionario 
 (nome, sobrenome, CPF, email, telefone, endereco, cidade, estado, bairro, departamento, salario, senha, nascimento, fk_filial_id) 
-values ('admin', 'admin', '123', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 120.3, '$2a$12$qY9tp60hyZEkdS7wHilqo.YYHOPp21bAzk9./UwGWjczlBcWeu7Wq', '2021-06-11', 1);
+values ('admin', 'admin', '123', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 'admin', 120.3, '$2a$12$aeBh7W3U3/RfnIDb5lv95.D3eWaqq67m0RqIPOa6cUjSh95lS6sfS', '2021-06-11', 1);
+
+
 
  
 //FUNCIONARIO CPF: 123  
-//FUNCIONARIO SENHA: admin 
+//FUNCIONARIO SENHA: 123
 
