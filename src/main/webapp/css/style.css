@@ -37,7 +37,7 @@ a{
     width: 37%;
     margin-left: 26%;
     padding: 30px 10px 0px 10px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .half-last {
