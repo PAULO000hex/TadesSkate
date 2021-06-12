@@ -19,7 +19,7 @@
                     <div class="space"><h1>Cadastrar</h1></div>
                     <div class="field">
                         <h2>ID da Filial</h2>
-                        <input class="txt" type="text" name="filial_id" class="filial_id" required="true">
+                        <input class="txt" type="text" name="filial_id" class="filial_id" required="true" value="${sessionScope.usuario.fk_filial_id}">
                     </div>
                     <div class="field">
                         <h2>Nome</h2>
