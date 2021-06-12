@@ -19,15 +19,6 @@
         <input type="hidden" name="filial_id" class="filial_id" value="${sessionScope.usuario.fk_filial_id}">
         <div class="fullpage">
             <div class="search-wrapper">
-                <div class="search-input">
-                    <h4>Data de início</h4>
-                    <input type="date" name="dataInicio" id="dataInicio">
-                </div>
-
-                <div class="search-input">
-                    <h4>Data final</h4>
-                    <input type="date" name="dataFim" id="dataFim">
-                </div>
             </div>
             <div class="info-wrapper">
                 <hr>
@@ -66,10 +57,10 @@
 
         let tbFiliais = `
                 <th>ID</th>
-                <th>Vendedor</th>
-                <th>Valor Total</th>
                 <th>Data da venda</th>
-                <th>Cliente</th>`;
+                <th>Cliente</th>                
+                <th>Vendedor</th>
+                <th>Valor Total</th>`;
         let tbProdutos = `                    
                 <th>ID</th>
                 <th>Descrição</th>
@@ -93,15 +84,7 @@
                 $('#tb').append(tbFiliais);
 
                 $.each(response, function (key, value) {
-                    tb += `
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>    
-                    <td></td>
-                    <td></td>
-                    </tr>
-                    `;
+                    tb += '<tr><td>'+value.venda_id+'</td><td>'+value.nome_vendedor+'</td><td>'+value.data+'</td>    <td>'+value.nome_cliente+'</td><td>'+value.valor_total+' R$</td></tr>';
                 });
                 $('#tb').append(tb);
             });
@@ -116,7 +99,7 @@
             const dados = {
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-            }
+            };
 
             let tb = ``;
 
@@ -126,14 +109,7 @@
                 $('#tb').append(tbProdutos); //Ou append();
 
                 $.each(response, function (key, value) {
-                    tb += `
-                    <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>  
-                    <td></td>
-                    </tr>
-                    `;
+                    tb += '<tr><td>'+value.produto_id+'</td><td>'+value.descricao+'</td><td>'+value.qtdcompra+'</td>  <td>'+value.total+' R$</td></tr>';
                 });
                 $('#tb').append(tb);
             });

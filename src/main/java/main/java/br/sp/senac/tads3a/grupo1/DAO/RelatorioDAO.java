@@ -16,7 +16,7 @@ public class RelatorioDAO {
 
     public static List<Relatorio> getVendas(int filial_id) {
         List<Relatorio> relatorios = new ArrayList<>();
-        String query = "SELECT p.venda_id, c.nome, p.valor_total, p.data, f.nome FROM Venda p INNER JOIN Funcionario c ON c.funcionario_id = p.fk_funcionario_id INNER JOIN Cliente f ON f.cliente_id = p.fk_cliente_id WHERE p.fk_filial_id = ?";
+        String query = "SELECT p.venda_id, c.nome, p.valor_total, p.data, f.nome FROM Venda p INNER JOIN Funcionario c ON c.funcionario_id = p.fk_funcionario_id INNER JOIN Cliente f ON f.cliente_id = p.fk_cliente_id WHERE p.fk_filial_id = ? ORDER BY valor_total DESC";
         Connection con;
         try {
             con = Conexao.getConexao();
