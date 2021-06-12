@@ -7,7 +7,6 @@ package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +17,6 @@ import main.java.br.sp.senac.tads3a.grupo1.DAO.RelatorioDAO;
 import main.java.br.sp.senac.tads3a.grupo1.model.Funcionario;
 import main.java.br.sp.senac.tads3a.grupo1.model.Relatorio;
 
-/**
- *
- * @author 004039631
- */
 public class RelatorioVendaFilialServlet extends HttpServlet {
 
     @Override

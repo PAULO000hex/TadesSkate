@@ -88,9 +88,11 @@
                 <th>Descrição</th>
                 <th>Quantidade Vendida</th>
                 <th>Valor Total</th>`;
+    
         $('#vendas').click(() => {
 
-            let filial = $('#filiais').val();
+            let filial = $('#filial').val();
+            
             let dataInicio = $('#dataInicio').val();
             let dataFim = $('#dataFim').val();
 
@@ -98,11 +100,12 @@
                 'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-            }
+            };
+            console.log("dados",dados);
 
             let tb = ``;
 
-            $.get("\RelatorioVendasServletGeral", dados, (response) => {
+            $.get("\RelatorioVendaGeralServlet", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
                 $('#tb').html(tbFiliais);
@@ -123,7 +126,8 @@
         });
         $('#produtos').click(() => {
 
-            let filial = $('#filiais').val();
+            let filial = $('#filial').val();
+
             let dataInicio = $('#dataInicio').val();
             let dataFim = $('#dataFim').val();
 
@@ -131,11 +135,14 @@
                 'filial': filial,
                 'dataInicio': dataInicio,
                 'dataFim': dataFim
-            }
+            };
+
+                   console.log("dados",dados);
+
 
             let tb = ``;
 
-            $.get("\RelatorioProdutosServletGeral", dados, (response) => {
+            $.get("\RelatorioProdutoGeralServlet", dados, (response) => {
                 console.log(response);
                 $('#tb').empty();
                 $('#tb').html(tbProdutos); //Ou append();

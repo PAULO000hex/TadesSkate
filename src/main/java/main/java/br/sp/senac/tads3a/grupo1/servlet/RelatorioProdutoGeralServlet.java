@@ -27,7 +27,7 @@ public class RelatorioProdutoGeralServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
            
-	int filial = Integer.parseInt(request.getParameter("filial_id"));	
+	int filial = Integer.parseInt(request.getParameter("filial"));	
 	String dataInicio = request.getParameter("dataInicio");	
 	String dataFim = request.getParameter("dataFim");	
 

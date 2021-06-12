@@ -5,9 +5,7 @@
  */
 package main.java.br.sp.senac.tads3a.grupo1.servlet;
 
-import com.google.gson.Gson;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -22,16 +20,15 @@ import main.java.br.sp.senac.tads3a.grupo1.model.Relatorio;
  */
 public class TodasFiliaisServlet extends HttpServlet {
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         List<Relatorio> relatorios = RelatorioDAO.getFiliais();
 
-    String json = new Gson().toJson(relatorios);
-    response.setContentType("application/json");
-    response.setCharacterEncoding("UTF-8");
-    response.getWriter().write(json);
+        request.setAttribute("listaFiliais", relatorios);
+
+        request.getRequestDispatcher("/Protegido/relatorioGeral.jsp").forward(request, response);
+
     }
-    }
+}
